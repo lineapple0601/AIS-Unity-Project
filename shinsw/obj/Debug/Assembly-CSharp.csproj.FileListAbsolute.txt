@@ -1,0 +1,2 @@
+C:\Users\PAKA-SSW\Documents\Unity\Example\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
+C:\Users\PAKA-SSW\Documents\Unity\Example\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
