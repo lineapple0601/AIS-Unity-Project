@@ -1,0 +1,2523 @@
+fileFormatVersion: 2
+guid: b1f1db9ba7d90ef4a957d32ae76bf98e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 262018866170719492
+    second: SpaceAniPNG_0
+  - first:
+      213: 4074738126627559501
+    second: SpaceAniPNG_1
+  - first:
+      213: 8170571299003299732
+    second: SpaceAniPNG_2
+  - first:
+      213: -1649314738910253763
+    second: SpaceAniPNG_3
+  - first:
+      213: 5038942051518002259
+    second: SpaceAniPNG_4
+  - first:
+      213: -6256430963491595102
+    second: SpaceAniPNG_5
+  - first:
+      213: -9036862522060375680
+    second: SpaceAniPNG_6
+  - first:
+      213: 9118707069582691513
+    second: SpaceAniPNG_7
+  - first:
+      213: 6356465738721764277
+    second: SpaceAniPNG_8
+  - first:
+      213: 5809158175689775364
+    second: SpaceAniPNG_9
+  - first:
+      213: 339134423678226863
+    second: SpaceAniPNG_10
+  - first:
+      213: 8679106879105630413
+    second: SpaceAniPNG_11
+  - first:
+      213: 790235733490955449
+    second: SpaceAniPNG_12
+  - first:
+      213: 6377463769246905323
+    second: SpaceAniPNG_13
+  - first:
+      213: 2759000151942481807
+    second: SpaceAniPNG_14
+  - first:
+      213: -7773226797415154883
+    second: SpaceAniPNG_15
+  - first:
+      213: 7810585488903719738
+    second: SpaceAniPNG_16
+  - first:
+      213: 1352816571691792004
+    second: SpaceAniPNG_17
+  - first:
+      213: 6119370405490193743
+    second: SpaceAniPNG_18
+  - first:
+      213: -2291253838713536245
+    second: SpaceAniPNG_19
+  - first:
+      213: 6513424268982831012
+    second: SpaceAniPNG_20
+  - first:
+      213: -6282199459434116028
+    second: SpaceAniPNG_21
+  - first:
+      213: -5872901217152036603
+    second: SpaceAniPNG_22
+  - first:
+      213: 1421527103399335199
+    second: SpaceAniPNG_23
+  - first:
+      213: -6923002461881506905
+    second: SpaceAniPNG_24
+  - first:
+      213: 3534113037436762203
+    second: SpaceAniPNG_25
+  - first:
+      213: -7346524429658006061
+    second: SpaceAniPNG_26
+  - first:
+      213: 4933468443500448746
+    second: SpaceAniPNG_27
+  - first:
+      213: 1852077730195232793
+    second: SpaceAniPNG_28
+  - first:
+      213: -7163873907471614492
+    second: SpaceAniPNG_29
+  - first:
+      213: 3780173954908565171
+    second: SpaceAniPNG_30
+  - first:
+      213: -8584958753888749653
+    second: SpaceAniPNG_31
+  - first:
+      213: 947204895451929595
+    second: SpaceAniPNG_32
+  - first:
+      213: -5048656053322509839
+    second: SpaceAniPNG_33
+  - first:
+      213: 640033405846968016
+    second: SpaceAniPNG_34
+  - first:
+      213: -589685570790714698
+    second: SpaceAniPNG_35
+  - first:
+      213: -8533663060598100181
+    second: SpaceAniPNG_36
+  - first:
+      213: 4313658085303180021
+    second: SpaceAniPNG_37
+  - first:
+      213: -1132481985851072971
+    second: SpaceAniPNG_38
+  - first:
+      213: -1113222859468684156
+    second: SpaceAniPNG_39
+  - first:
+      213: -3768753714996542645
+    second: SpaceAniPNG_40
+  - first:
+      213: -1783383893436504373
+    second: SpaceAniPNG_41
+  - first:
+      213: 3896220111364629037
+    second: SpaceAniPNG_42
+  - first:
+      213: -5033734051662477713
+    second: SpaceAniPNG_43
+  - first:
+      213: 7477982971688078686
+    second: SpaceAniPNG_44
+  - first:
+      213: 5631586777687260405
+    second: SpaceAniPNG_45
+  - first:
+      213: 5795457287499302925
+    second: SpaceAniPNG_46
+  - first:
+      213: 8748452468069201535
+    second: SpaceAniPNG_47
+  - first:
+      213: -1293269243951546366
+    second: SpaceAniPNG_48
+  - first:
+      213: -4531991558988489729
+    second: SpaceAniPNG_49
+  - first:
+      213: -7012008583119996686
+    second: SpaceAniPNG_50
+  - first:
+      213: -7899011540110151050
+    second: SpaceAniPNG_51
+  - first:
+      213: -1592127827601345891
+    second: SpaceAniPNG_52
+  - first:
+      213: 5804494654738193412
+    second: SpaceAniPNG_53
+  - first:
+      213: -7518481380145953989
+    second: SpaceAniPNG_54
+  - first:
+      213: 652867921589664043
+    second: SpaceAniPNG_55
+  - first:
+      213: -7388235717452668553
+    second: SpaceAniPNG_56
+  - first:
+      213: -7189843980074668029
+    second: SpaceAniPNG_57
+  - first:
+      213: 1342087387364531896
+    second: SpaceAniPNG_58
+  - first:
+      213: -8291002362079335870
+    second: SpaceAniPNG_59
+  - first:
+      213: -7724882539848176706
+    second: SpaceAniPNG_60
+  - first:
+      213: -3498902191419656849
+    second: SpaceAniPNG_61
+  - first:
+      213: 2208934436398429177
+    second: SpaceAniPNG_62
+  - first:
+      213: -1464996817525236921
+    second: SpaceAniPNG_63
+  - first:
+      213: 420084832862345419
+    second: SpaceAniPNG_64
+  - first:
+      213: -7208654029055599613
+    second: SpaceAniPNG_65
+  - first:
+      213: 2462602461990861329
+    second: SpaceAniPNG_66
+  - first:
+      213: -2622045702772659898
+    second: SpaceAniPNG_67
+  - first:
+      213: -4868702047169666355
+    second: SpaceAniPNG_68
+  - first:
+      213: -5276956189863656425
+    second: SpaceAniPNG_69
+  - first:
+      213: -5617490899214295867
+    second: SpaceAniPNG_70
+  - first:
+      213: -7354267039729159559
+    second: SpaceAniPNG_71
+  - first:
+      213: 718012039888937485
+    second: SpaceAniPNG_72
+  - first:
+      213: 9198178846823325087
+    second: SpaceAniPNG_73
+  - first:
+      213: 5985314770809800312
+    second: SpaceAniPNG_74
+  - first:
+      213: 2213441726311844075
+    second: SpaceAniPNG_75
+  - first:
+      213: -7811071705102477432
+    second: SpaceAniPNG_76
+  - first:
+      213: -5374416169707460236
+    second: SpaceAniPNG_77
+  - first:
+      213: 7939771959083575428
+    second: SpaceAniPNG_78
+  - first:
+      213: 7087038360807801175
+    second: SpaceAniPNG_79
+  - first:
+      213: 3881082803925867891
+    second: SpaceAniPNG_80
+  - first:
+      213: -7856496127018110101
+    second: SpaceAniPNG_81
+  - first:
+      213: 6585837364792452045
+    second: SpaceAniPNG_82
+  - first:
+      213: -8039358055940841236
+    second: SpaceAniPNG_83
+  - first:
+      213: -1709668852140880826
+    second: SpaceAniPNG_84
+  - first:
+      213: 190285630244598745
+    second: SpaceAniPNG_85
+  - first:
+      213: -1263395565992088063
+    second: SpaceAniPNG_86
+  - first:
+      213: -835411093332307286
+    second: SpaceAniPNG_87
+  - first:
+      213: 5595575691254351197
+    second: SpaceAniPNG_88
+  - first:
+      213: -5065625222255864546
+    second: SpaceAniPNG_89
+  - first:
+      213: 2648702263552593003
+    second: SpaceAniPNG_90
+  - first:
+      213: -1299791027572444418
+    second: SpaceAniPNG_91
+  - first:
+      213: -5780547822277225172
+    second: SpaceAniPNG_92
+  - first:
+      213: -219689466852971555
+    second: SpaceAniPNG_93
+  - first:
+      213: 3497883306869335733
+    second: SpaceAniPNG_94
+  - first:
+      213: 7245882280612699275
+    second: SpaceAniPNG_95
+  - first:
+      213: 2696726126795098928
+    second: SpaceAniPNG_96
+  - first:
+      213: 5207588867475935084
+    second: SpaceAniPNG_97
+  - first:
+      213: 7704734169866291474
+    second: SpaceAniPNG_98
+  - first:
+      213: 5545441424766917138
+    second: SpaceAniPNG_99
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SpaceAniPNG_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5700
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c60507ecd0933a645969037e8b0d0dfb
+      internalID: 262018866170719492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_1
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 5700
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c860e1259cd6b54a8388e50d9c15da2
+      internalID: 4074738126627559501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_2
+      rect:
+        serializedVersion: 2
+        x: 1510
+        y: 5700
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c656929060aa9184b9ee94713e595473
+      internalID: 8170571299003299732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_3
+      rect:
+        serializedVersion: 2
+        x: 2265
+        y: 5700
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab4b2ebdee4208c49ae1fd7dcbc60a81
+      internalID: -1649314738910253763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_4
+      rect:
+        serializedVersion: 2
+        x: 3020
+        y: 5700
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb2790371b49886458224505c8289442
+      internalID: 5038942051518002259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5400
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5709fd8aef6ecc43b830e128fc52d8b
+      internalID: -6256430963491595102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_6
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 5400
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ec74e9c744ef0f4caa1efd0b9efa7d4
+      internalID: -9036862522060375680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_7
+      rect:
+        serializedVersion: 2
+        x: 1510
+        y: 5400
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7bc9d249c5bf204593241f90c525088
+      internalID: 9118707069582691513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_8
+      rect:
+        serializedVersion: 2
+        x: 2265
+        y: 5400
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 186bdb7137a652446a937e89021e9f85
+      internalID: 6356465738721764277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_9
+      rect:
+        serializedVersion: 2
+        x: 3020
+        y: 5400
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe5dc98d3fbcb80439b76b917682992a
+      internalID: 5809158175689775364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5100
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c59577a601f714347b79243152788240
+      internalID: 339134423678226863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_11
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 5100
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32291ec6a95f9bd428a77f2820e837a6
+      internalID: 8679106879105630413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_12
+      rect:
+        serializedVersion: 2
+        x: 1510
+        y: 5100
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b87c746d95d8754f91c9dad9916a12c
+      internalID: 790235733490955449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_13
+      rect:
+        serializedVersion: 2
+        x: 2265
+        y: 5100
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15ac9028bd66d104085354f00332b9e6
+      internalID: 6377463769246905323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_14
+      rect:
+        serializedVersion: 2
+        x: 3020
+        y: 5100
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee0bbac10acc99c489865d9e52610962
+      internalID: 2759000151942481807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4800
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7f386ba49030d2478c74bbf25d84ccd
+      internalID: -7773226797415154883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_16
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 4800
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf8a6171deaf8fe4191f099ca2b1a9c0
+      internalID: 7810585488903719738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_17
+      rect:
+        serializedVersion: 2
+        x: 1510
+        y: 4800
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a594cd79d121b34e80fe9a9de12200f
+      internalID: 1352816571691792004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_18
+      rect:
+        serializedVersion: 2
+        x: 2265
+        y: 4800
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d43a8670b9815df40adecc17c4bebe5b
+      internalID: 6119370405490193743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_19
+      rect:
+        serializedVersion: 2
+        x: 3020
+        y: 4800
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93bc00d07e808e04b89ac8cea957cbbf
+      internalID: -2291253838713536245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4500
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99877ec05b6c6bb4292e14a65665ec32
+      internalID: 6513424268982831012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_21
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 4500
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76d2833c80fbc2e41aef9a3a7828a539
+      internalID: -6282199459434116028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_22
+      rect:
+        serializedVersion: 2
+        x: 1510
+        y: 4500
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b33c28a14b0cbd4e96dcdbf62f44c63
+      internalID: -5872901217152036603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_23
+      rect:
+        serializedVersion: 2
+        x: 2265
+        y: 4500
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c886491818f64ea4d80583e0002180c6
+      internalID: 1421527103399335199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_24
+      rect:
+        serializedVersion: 2
+        x: 3020
+        y: 4500
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edf9cf632482b8b4f94d7ab999de84e6
+      internalID: -6923002461881506905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4200
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3139dfbee31bf84abb5dc102347e221
+      internalID: 3534113037436762203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_26
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 4200
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fad0205607a794a4fb14431d0bfcd51d
+      internalID: -7346524429658006061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_27
+      rect:
+        serializedVersion: 2
+        x: 1510
+        y: 4200
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbc84bb8dba418249b0b1056651138cd
+      internalID: 4933468443500448746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_28
+      rect:
+        serializedVersion: 2
+        x: 2265
+        y: 4200
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ba89bc8abe52874994ea1230e8767ec
+      internalID: 1852077730195232793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_29
+      rect:
+        serializedVersion: 2
+        x: 3020
+        y: 4200
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65994dcae05f1814ab682505dba5dec8
+      internalID: -7163873907471614492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3900
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3099c75a7288dc74f94d3ab45146613b
+      internalID: 3780173954908565171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_31
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 3900
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 807b1ab204a22e2408e9a0d00f68beb3
+      internalID: -8584958753888749653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_32
+      rect:
+        serializedVersion: 2
+        x: 1510
+        y: 3900
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48be6843f1b8ed840939f8d22ab75c46
+      internalID: 947204895451929595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_33
+      rect:
+        serializedVersion: 2
+        x: 2265
+        y: 3900
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 124ea34b7bb84b84a910b53a44abcd07
+      internalID: -5048656053322509839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_34
+      rect:
+        serializedVersion: 2
+        x: 3020
+        y: 3900
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a81dafecc946e8458658b5c309d75bd
+      internalID: 640033405846968016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3600
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68848db22edc5874b8bdeca2fd174479
+      internalID: -589685570790714698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_36
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 3600
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ec171cec501e8747b75e5020067f32a
+      internalID: -8533663060598100181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_37
+      rect:
+        serializedVersion: 2
+        x: 1510
+        y: 3600
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 668b9bb095dc765459d012962feaefb5
+      internalID: 4313658085303180021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_38
+      rect:
+        serializedVersion: 2
+        x: 2265
+        y: 3600
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ada2b6ddaae6e4443a515bba8e1aac94
+      internalID: -1132481985851072971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_39
+      rect:
+        serializedVersion: 2
+        x: 3020
+        y: 3600
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fb02d627fdf03d41935b41651bb6465
+      internalID: -1113222859468684156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3300
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01b9b61f05542c345bbb0390e8986b1a
+      internalID: -3768753714996542645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_41
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 3300
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b742ddc12ffedc4dbfd176c3cd0b095
+      internalID: -1783383893436504373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_42
+      rect:
+        serializedVersion: 2
+        x: 1510
+        y: 3300
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 345ec393da27ee5419b0d7bcc0a61e56
+      internalID: 3896220111364629037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_43
+      rect:
+        serializedVersion: 2
+        x: 2265
+        y: 3300
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65460586afec864429804404cbea3497
+      internalID: -5033734051662477713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_44
+      rect:
+        serializedVersion: 2
+        x: 3020
+        y: 3300
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 756651e87cab32c448d687e26a87db57
+      internalID: 7477982971688078686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_45
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3000
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b863e69794af1b04396f8e13a0064cff
+      internalID: 5631586777687260405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_46
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 3000
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33418cdd53eaf0346849aa5fa2c58027
+      internalID: 5795457287499302925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_47
+      rect:
+        serializedVersion: 2
+        x: 1510
+        y: 3000
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 952ff5ba1d3514c4f8866ef0dff8e00d
+      internalID: 8748452468069201535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_48
+      rect:
+        serializedVersion: 2
+        x: 2265
+        y: 3000
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4baa8e2c35dc54740a986eb2052e93d6
+      internalID: -1293269243951546366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_49
+      rect:
+        serializedVersion: 2
+        x: 3020
+        y: 3000
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 670d470c19bf6094c944bf8faa5461e4
+      internalID: -4531991558988489729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2700
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe77c2b5983236c49a29641b585b81fd
+      internalID: -7012008583119996686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_51
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 2700
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbf8cf42915ad89448e7810807da521f
+      internalID: -7899011540110151050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_52
+      rect:
+        serializedVersion: 2
+        x: 1510
+        y: 2700
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3e3293bb1860b941ba1664837310202
+      internalID: -1592127827601345891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_53
+      rect:
+        serializedVersion: 2
+        x: 2265
+        y: 2700
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 689265dbec85dac46ac015b1c703cc72
+      internalID: 5804494654738193412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_54
+      rect:
+        serializedVersion: 2
+        x: 3020
+        y: 2700
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 059242c9ae7356e49b886e2f1201814f
+      internalID: -7518481380145953989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_55
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2400
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad1416b9268525c4abe501f592d3f31b
+      internalID: 652867921589664043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_56
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 2400
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f40562a06b2613d43bd5329931c1a86e
+      internalID: -7388235717452668553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_57
+      rect:
+        serializedVersion: 2
+        x: 1510
+        y: 2400
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d66ae166aafeb946b368e3a6605f2ce
+      internalID: -7189843980074668029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_58
+      rect:
+        serializedVersion: 2
+        x: 2265
+        y: 2400
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a026634c408cd740b40087ba33d96ac
+      internalID: 1342087387364531896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_59
+      rect:
+        serializedVersion: 2
+        x: 3020
+        y: 2400
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5a73ae339f907a4cbf79f3291962f66
+      internalID: -8291002362079335870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2100
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b1e83512e5c8664380c0d5bbf642f0f
+      internalID: -7724882539848176706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_61
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 2100
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ee8fbca782af5542a7881c705138fa2
+      internalID: -3498902191419656849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_62
+      rect:
+        serializedVersion: 2
+        x: 1510
+        y: 2100
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfe4cdd323d1f554090c1af2bf094255
+      internalID: 2208934436398429177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_63
+      rect:
+        serializedVersion: 2
+        x: 2265
+        y: 2100
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e133a21f6de04e245b0d33d691236af5
+      internalID: -1464996817525236921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_64
+      rect:
+        serializedVersion: 2
+        x: 3020
+        y: 2100
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8eeb9ea3741e0a34e90d7e01d17593d4
+      internalID: 420084832862345419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_65
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1800
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4ddb412d3cbe654c8b135b55a34de6f
+      internalID: -7208654029055599613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_66
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 1800
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f055406cd0c30c4186dd997504db20f
+      internalID: 2462602461990861329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_67
+      rect:
+        serializedVersion: 2
+        x: 1510
+        y: 1800
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc9d7bbcf2623424fad7d985b8fc7e31
+      internalID: -2622045702772659898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_68
+      rect:
+        serializedVersion: 2
+        x: 2265
+        y: 1800
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59e9797818b65284583cf1e26c3059ab
+      internalID: -4868702047169666355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_69
+      rect:
+        serializedVersion: 2
+        x: 3020
+        y: 1800
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65116690da0d2264f911ae528f63709a
+      internalID: -5276956189863656425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_70
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1500
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94e329dcc57186c4397dacff28b56952
+      internalID: -5617490899214295867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_71
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 1500
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 848762ea301cc0146b48ef9b72234703
+      internalID: -7354267039729159559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_72
+      rect:
+        serializedVersion: 2
+        x: 1510
+        y: 1500
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 882bf31174a20c5448f14b95d7019328
+      internalID: 718012039888937485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_73
+      rect:
+        serializedVersion: 2
+        x: 2265
+        y: 1500
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f5f8fc2a1361bb42b4cbf9559e3d9e1
+      internalID: 9198178846823325087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_74
+      rect:
+        serializedVersion: 2
+        x: 3020
+        y: 1500
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 484c1787feb28354da06f1bd802a0e05
+      internalID: 5985314770809800312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_75
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1200
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ec05b40ac820e64e9d1e9da964521c6
+      internalID: 2213441726311844075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_76
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 1200
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd69a0d8745824c45b985d7a8e9019f2
+      internalID: -7811071705102477432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_77
+      rect:
+        serializedVersion: 2
+        x: 1510
+        y: 1200
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80af7f20c6394674eb8cfb83dd9992d4
+      internalID: -5374416169707460236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_78
+      rect:
+        serializedVersion: 2
+        x: 2265
+        y: 1200
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1be8d4e3e99e9b6498282d086c267bc0
+      internalID: 7939771959083575428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_79
+      rect:
+        serializedVersion: 2
+        x: 3020
+        y: 1200
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c673a61e828a2e4282abbf755cd67f3
+      internalID: 7087038360807801175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_80
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 900
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b082921506b023d4698ce35d53a78413
+      internalID: 3881082803925867891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_81
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 900
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bbb450e90c99e24cb15e3c00c10392c
+      internalID: -7856496127018110101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_82
+      rect:
+        serializedVersion: 2
+        x: 1510
+        y: 900
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2be9d21deec802e429b3b3202d45c943
+      internalID: 6585837364792452045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_83
+      rect:
+        serializedVersion: 2
+        x: 2265
+        y: 900
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da4c840fa80b6604ab6463e2d226e130
+      internalID: -8039358055940841236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_84
+      rect:
+        serializedVersion: 2
+        x: 3020
+        y: 900
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e48e671da38d2c747aa4fe401b18256f
+      internalID: -1709668852140880826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_85
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 600
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c57224f514800c4e810ac2ecbc420be
+      internalID: 190285630244598745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_86
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 600
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6005da3eb21966247bc14e530216c5f2
+      internalID: -1263395565992088063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_87
+      rect:
+        serializedVersion: 2
+        x: 1510
+        y: 600
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdaddeaf44863b0469736f0ac3d166d6
+      internalID: -835411093332307286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_88
+      rect:
+        serializedVersion: 2
+        x: 2265
+        y: 600
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cae6a73c30cd2a4c8fab0764050e589
+      internalID: 5595575691254351197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_89
+      rect:
+        serializedVersion: 2
+        x: 3020
+        y: 600
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8baf4933ed376c147b5ecd73bfd59209
+      internalID: -5065625222255864546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_90
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 300
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f03a8aa3336262d4d88a809f4f14103f
+      internalID: 2648702263552593003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_91
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 300
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9ff273e6900af8439d77eb361aba650
+      internalID: -1299791027572444418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_92
+      rect:
+        serializedVersion: 2
+        x: 1510
+        y: 300
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3ddffdad21174344ac0c9469d3c85ab
+      internalID: -5780547822277225172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_93
+      rect:
+        serializedVersion: 2
+        x: 2265
+        y: 300
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fa79fe226c161e41b2c9dd802387a28
+      internalID: -219689466852971555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_94
+      rect:
+        serializedVersion: 2
+        x: 3020
+        y: 300
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5338802e462e474da0553b540bb0b39
+      internalID: 3497883306869335733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_95
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6507bb93feee7974ba8c7a77c3a0117d
+      internalID: 7245882280612699275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_96
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 0
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e22c5c78263f0c4b8c5b290adc70c5d
+      internalID: 2696726126795098928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_97
+      rect:
+        serializedVersion: 2
+        x: 1510
+        y: 0
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05678fe9b9ab55246b190a90fe831cc5
+      internalID: 5207588867475935084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_98
+      rect:
+        serializedVersion: 2
+        x: 2265
+        y: 0
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f5223e25908e9143a80fd8fc3e97e58
+      internalID: 7704734169866291474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceAniPNG_99
+      rect:
+        serializedVersion: 2
+        x: 3020
+        y: 0
+        width: 755
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a417f6264d763774a914fdab9f78afda
+      internalID: 5545441424766917138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 11d8c41ad4304664a8ecf8818b3cb593
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
