@@ -72,9 +72,13 @@
     <Compile Include="Assets\Script\PlayerMissileMove.cs" />
     <Compile Include="Assets\Script\PlayerMisslieMove1.cs" />
     <Compile Include="Assets\Script\PlayerMove.cs" />
+    <Compile Include="Assets\Script\PointDown_fadeout.cs" />
+    <Compile Include="Assets\Script\PointUp_fadein.cs" />
     <Compile Include="Assets\Script\Scroll.cs" />
-    <Compile Include="Assets\Script\SplashScene.cs" />
+    <Compile Include="Assets\Script\SplashScene_Menu.cs" />
+    <Compile Include="Assets\Script\SplashScene_Play.cs" />
     <Compile Include="Assets\Script\Spwan.cs" />
+    <Compile Include="Assets\Script\TextFadein.cs" />
     <Compile Include="Assets\UI\Scripts\ActiveStateToggler.cs" />
     <Compile Include="Assets\UI\Scripts\ApplicationManager.cs" />
     <Compile Include="Assets\UI\Scripts\ChangeColor.cs" />
