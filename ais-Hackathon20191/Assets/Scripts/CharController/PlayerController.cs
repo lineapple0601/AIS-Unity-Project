@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     {
         _transform = transform; //transform キャシング
         _moveVector = Vector3.zero; // プレイヤーの移動Vector初期化
+        Time.timeScale = 1.0f;
     }
 
     // Update is called once per frame
