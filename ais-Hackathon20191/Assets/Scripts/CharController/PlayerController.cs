@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     //public float speed = 2.0f;
 
-    public PlayerCtrl_joystick joystick; // PlayerController_Joystickのスクリプト
+    public PlayerController_Joystick joystick; // PlayerController_Joystickのスクリプト
     public PauseManager paM;
 
     public float MoveSpeed; // プレイヤーの移動速度
@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {   
         //タッチパッド入力もらい
         HandleInput();
 
@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void HandleInput()
-    {
+    {   
         //タッチパッド入力受信
         _moveVector = PoolInput();
     }
