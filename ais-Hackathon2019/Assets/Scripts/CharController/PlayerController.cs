@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     //public float speed = 2.0f;
 
-    public PlayerController_Joystick joystick; // PlayerController_Joystickのスクリプト
+    public PlayerCtrl_joystick joystick; // PlayerController_Joystickのスクリプト
     public PauseManager paM;
 
     public float MoveSpeed; // プレイヤーの移動速度
