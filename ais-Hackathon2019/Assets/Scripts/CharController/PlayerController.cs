@@ -15,9 +15,14 @@ public class PlayerController : MonoBehaviour
     private Vector3 _moveVector; // プレイヤーの移動Vector
     private Transform _transform;
 
+    //プレイヤーのオブジェクト
+    private bool facingRight = true;
+    private Rigidbody2D rd;
+
     // Start is called before the first frame update
     void Start()
     {
+        rd = GetComponent<Rigidbody2D>();
         _transform = transform; //transform キャシング
         _moveVector = Vector3.zero; // プレイヤーの移動Vector初期化
         Time.timeScale = 1.0f;
@@ -67,7 +72,9 @@ public class PlayerController : MonoBehaviour
     }
 
     private Vector3 PoolInput()
-    {
+    {   
+
+
         float h = joystick.GetHorizontalValue();
         float v = joystick.GetVerticalValue();
         Vector3 moveDir = new Vector3(h, v, 0).normalized;
@@ -77,7 +84,37 @@ public class PlayerController : MonoBehaviour
 
     public void Move()
     {
+        float hor = Input.GetAxis("Horizontal");
+        float vrt = Input.GetAxis("Vertical");
+
+        // 左もしくは、右に移動中、0.1f以上の場合
+        // JoyStick および、keybordでも動く
+        if (Input.GetAxis("Horizontal") > 0.1f || Input.GetAxis("Horizontal") < -0.1f || joystick.GetHorizontalValue() > 0.1f || joystick.GetHorizontalValue() < -0.1f)
+        {
+            if ((Input.GetAxis("Horizontal") > 0.1f && !facingRight) || (joystick.GetHorizontalValue() > 0.1f && !facingRight))      //facingRightが falseで右移動キーを押した場合
+            {
+                Flip();
+                facingRight = true;
+            }
+            else if ((Input.GetAxis("Horizontal") < -0.1f && facingRight) || (joystick.GetHorizontalValue() < -0.1f && facingRight))     // facingRightがtrueで左移動キーを押した場合
+            {
+                Flip();
+                facingRight = false;
+            }
+        }
+
+
         _transform.Translate(_moveVector * MoveSpeed * Time.deltaTime);
     }
+
+    void Flip()
+    {
+        facingRight = !facingRight;
+
+        Vector3 theScale = transform.GetChild(0).localScale;
+        theScale.x *= -1;             // 1 = 右方向, -1 = 左方向
+        transform.GetChild(0).localScale = theScale;
+    }
+
 
 }
