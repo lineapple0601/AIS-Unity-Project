@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
+  - Bomb
   layers:
   - Default
   - TransparentFX
@@ -58,4 +60,13 @@ TagManager:
     locked: 0
   - name: UI
     uniqueID: 1444272435
+    locked: 0
+  - name: ForeGround
+    uniqueID: 3268680281
+    locked: 0
+  - name: ForeGroundObject
+    uniqueID: 85882393
+    locked: 0
+  - name: UI
+    uniqueID: 1271527451
     locked: 0
