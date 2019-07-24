@@ -5,20 +5,25 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    //public float speed = 2.0f;
-
+    
+    /*作成者：MOON*/
     public PlayerCtrl_joystick joystick; // PlayerController_Joystickのスクリプト
+    public PlayerCtrl_Joystick_Ro joystickRo; // PlayerController_Joystick_Roのスクリプト
     public PauseManager paM;
 
+    /*作成者：MOON*/
     public float MoveSpeed; // プレイヤーの移動速度
 
+    /*作成者：MOON*/
     private Vector3 _moveVector; // プレイヤーの移動Vector
     private Transform _transform;
 
+    /*作成者：MOON*/
     //プレイヤーのオブジェクト
     private bool facingRight = true;
     private Rigidbody2D rd;
 
+    /*作成者：MOON*/
     // Start is called before the first frame update
     void Start()
     {
@@ -28,9 +33,10 @@ public class PlayerController : MonoBehaviour
         Time.timeScale = 1.0f;
     }
 
+    /*作成者：MOON*/
     // Update is called once per frame
     void Update()
-    {   
+    {
         //タッチパッド入力もらい
         HandleInput();
 
@@ -57,64 +63,57 @@ public class PlayerController : MonoBehaviour
             paM.ActivePauseBt();
         }
         /////End
+
     }
 
+    /*作成者：MOON*/
     private void HandleInput()
-    {   
+    {
         //タッチパッド入力受信
         _moveVector = PoolInput();
     }
 
+    /*作成者：MOON*/
     public void FixedUpdate()
     {
         //プレイヤー移動
         Move();
     }
 
+    /*作成者：MOON*/
     private Vector3 PoolInput()
     {   
-
-
         float h = joystick.GetHorizontalValue();
         float v = joystick.GetVerticalValue();
-        Vector3 moveDir = new Vector3(h, v, 0).normalized;
 
+        Vector3 moveDir = new Vector3(h, v, 0).normalized;
         return moveDir;
     }
 
+    /*作成者：MOON*/
     public void Move()
     {
-        float hor = Input.GetAxis("Horizontal");
-        float vrt = Input.GetAxis("Vertical");
 
-        // 左もしくは、右に移動中、0.1f以上の場合
-        // JoyStick および、keybordでも動く
-        if (Input.GetAxis("Horizontal") > 0.1f || Input.GetAxis("Horizontal") < -0.1f || joystick.GetHorizontalValue() > 0.1f || joystick.GetHorizontalValue() < -0.1f)
+        float rotate_speed = _transform.GetChild(0).rotation.z;
+        float h_rotation = joystickRo.GetHorizontalValue();
+        float v_rotation = joystickRo.GetVerticalValue();
+
+        if (transform.rotation.z <= -360 || transform.rotation.z >= 360)
         {
-            if ((Input.GetAxis("Horizontal") > 0.1f && !facingRight) || (joystick.GetHorizontalValue() > 0.1f && !facingRight))      //facingRightが falseで右移動キーを押した場合
-            {
-                Flip();
-                facingRight = true;
-            }
-            else if ((Input.GetAxis("Horizontal") < -0.1f && facingRight) || (joystick.GetHorizontalValue() < -0.1f && facingRight))     // facingRightがtrueで左移動キーを押した場合
-            {
-                Flip();
-                facingRight = false;
-            }
+            transform.Rotate(0, 0, 0);
+        }
+
+       if ((h_rotation > 0 && v_rotation > 0) || (h_rotation > 0 && v_rotation < 0))
+        {
+            _transform.GetChild(0).Rotate(0,0, rotate_speed * -h_rotation * v_rotation - 1);
+        }
+       else if ((h_rotation < 0 && v_rotation > 0) || (h_rotation < 0 && v_rotation < 0))
+        {
+            _transform.GetChild(0).Rotate(0, 0, rotate_speed * h_rotation * v_rotation + 1);
         }
 
 
         _transform.Translate(_moveVector * MoveSpeed * Time.deltaTime);
     }
-
-    void Flip()
-    {
-        facingRight = !facingRight;
-
-        Vector3 theScale = transform.GetChild(0).localScale;
-        theScale.x *= -1;             // 1 = 右方向, -1 = 左方向
-        transform.GetChild(0).localScale = theScale;
-    }
-
 
 }

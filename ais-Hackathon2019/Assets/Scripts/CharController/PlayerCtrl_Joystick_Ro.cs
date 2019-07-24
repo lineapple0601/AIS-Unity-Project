@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 /*作成者：MOON*/
 // IDragHandler`、IPointerUpHandler、IPointerDownHandlerを追加する
-public class PlayerCtrl_joystick : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointerDownHandler
+public class PlayerCtrl_Joystick_Ro : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointerDownHandler
 {
     //joystickの背景をもらう　→　joystickBG
     private Image bgImg;
@@ -39,7 +39,7 @@ public class PlayerCtrl_joystick : MonoBehaviour, IDragHandler, IPointerUpHandle
     public void OnDrag(PointerEventData eventData)
     {
         //この中にタッチされたのが認証できたかを確認
-        Debug.Log("Joystick >>> OnDrag()");
+        Debug.Log("Joystick >>> Rotation()");
 
         Vector2 pos;
 
