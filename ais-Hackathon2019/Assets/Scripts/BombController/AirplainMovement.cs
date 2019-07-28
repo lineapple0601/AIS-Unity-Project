@@ -4,115 +4,79 @@ using UnityEngine;
 
 public class AirplainMovement : MonoBehaviour
 {
-
     public float MoveSpeed;     // 動きの速さ
     float ToPlayerDistance, ToEnemyDistance;   // objectとの距離
 
-    //public bool homing;
-    //public Vector3 disVec;
-    public float timerForBack;   // 機体に戻りが始まるtime
+    public float timerForBack;   // 機体へ戻る時点のtime
     private float timer;        // timer
+    private bool tmp = false;
 
-    // Start is called before the first frame update
     void Start()
     {
-
+        //timer = 0;      //初期化
     }
-
 
     void Update()
     {
-        /*
-        if (timer > timerForDel)
-        {
-            //Destroy(GameObject.FindWithTag("Enemy"));
-            disVec = (GameObject.FindWithTag("Player").transform.position - transform.position).normalized;
-        }
-        else
-        {
-            timer += Time.deltaTime;
-            if (homing)
-            {
-                disVec = (GameObject.FindWithTag("Enemy").transform.position - transform.position).normalized;
-            }
-
-
-        }
-        transform.position += disVec * Time.deltaTime * MoveSpeed;
-        transform.forward = disVec;
-        transform.Translate(disVec * Time.deltaTime * MoveSpeed);
-        */
-
-        /*
-            Transform trEnemy = GameObject.FindWithTag("Enemy").transform;
-            Vector3 v3Target = (trEnemy.position - transform.position).normalized;
-
-            float fDot = Vector3.Dot(v3Target, gameObject.transform.forward);
-            if (fDot > 0.1f)
-            {
-                gameObject.transform.Rotate(Vector3.up, -10.0f);
-            }
-            else if (fDot < 0.1f)
-            {
-                gameObject.transform.Rotate(Vector3.up, 10.0f);
-            }
-            else
-            {
-                // 거의 직선상이니 직진.. 
-            }
-
-            fOldTime = Time.time;
-        }
-        */
-
-        Vector3 dir;
-        float angle;
-
+        //Playerのタグを持ってるObjectが存在する場合
         if (GameObject.FindWithTag("Player") != null)
         {
+            //Objectとの距離を計算
             ToPlayerDistance = Vector3.Distance(GameObject.FindWithTag("Player").transform.position, transform.position);
 
+            //Enemyのタグを持ってるObjectが存在する場合
             if (GameObject.FindWithTag("Enemy") != null)
             {
-                ToEnemyDistance = Vector3.Distance(GameObject.FindWithTag("Enemy").transform.position, transform.position);
+                //Objectとの距離を計算
+                //敵のLayerがjoystickと同じパンネルに存在するので、position.zを0に設定しないと球を打たない
+                ToEnemyDistance = Vector3.Distance(new Vector3(GameObject.FindWithTag("Enemy").transform.position.x, GameObject.FindWithTag("Enemy").transform.position.y, 0),
+                                                    new Vector3(transform.position.x, transform.position.y, 0));
 
+                //Objectとの距離が2未満で、秒が生成されてからtimerForBack以上、両方満たす場合
                 if ((timer >= timerForBack) || ToEnemyDistance < 2)
                 {
+                    //Objectが向かう方向を計算
                     timer = timerForBack;
-                    dir = GameObject.FindWithTag("Player").transform.position - transform.position;
-                    angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-                    transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
-                    gameObject.transform.Translate(Vector2.up * MoveSpeed * Time.deltaTime);
+                    ObjectHoukouKeisan("Player");
 
+                    //Playerが0.5以下の場合
                     if (ToPlayerDistance <= 0.5)
                     {
-                        GetComponent<Collider2D>().enabled = false;
+                        GetComponent<Collider2D>().enabled = false;     //非活性する
                         timer = 0;
                     }
                 }
+                //Object距離が2以上で、秒が生成されてからtimerForBack未満、両方満たす場合
                 else
                 {
+                    //Objectが向かう方向を計算
                     timer += Time.deltaTime;
-                    dir = GameObject.FindWithTag("Enemy").transform.position - transform.position;
-                    angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-                    transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
-                    gameObject.transform.Translate(Vector2.up * MoveSpeed * Time.deltaTime);
+                    ObjectHoukouKeisan("Enemy");
                 }
             }
+            //Enemyのタグを持ってるObjectが存在しない場合
             else
             {
-                timer += Time.deltaTime;
-                angle = Mathf.Atan2(Random.Range(10f, -10f), Random.Range(10f, -10f)) * Mathf.Rad2Deg;
-                transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
+                float angle = 0;
+
+                //飛行機の方向を1回だけ設定するため
+                if (tmp == false)
+                {
+                    angle = Mathf.Atan2(GameObject.FindWithTag("Player").transform.position.y, GameObject.FindWithTag("Player").transform.position.x) * Mathf.Rad2Deg;
+                    //angle = Mathf.Atan2(Random.Range(10f, -10f), Random.Range(10f, -10f)) * Mathf.Rad2Deg;
+                    transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
+                    tmp = true;
+                    //Debug.Log(angle);
+                }
+                
                 gameObject.transform.Translate(Vector2.up * MoveSpeed * Time.deltaTime);
+                timer += Time.deltaTime;
 
                 if (timer >= timerForBack)
                 {
+                    //Objectが向かう方向を計算
                     timer = timerForBack;
-                    dir = GameObject.FindWithTag("Player").transform.position - transform.position;
-                    angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-                    transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
-                    gameObject.transform.Translate(Vector2.up * MoveSpeed * Time.deltaTime);
+                    ObjectHoukouKeisan("Player");
 
                     if (ToPlayerDistance <= 0.5)
                     {
@@ -123,6 +87,18 @@ public class AirplainMovement : MonoBehaviour
             }
         }
         else { }
+    }
+
+    //Objectが向かう方向を計算
+    private void ObjectHoukouKeisan(string TagName)
+    {
+        Vector3 dir;
+        float angle;
+
+        dir = GameObject.FindWithTag(TagName).transform.position - transform.position;
+        angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
+        gameObject.transform.Translate(Vector2.up * MoveSpeed * Time.deltaTime);
     }
 
     //collider処理

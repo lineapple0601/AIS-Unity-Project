@@ -109,11 +109,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4846d7b4f996f9499512df9b0d37063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerMissile: {fileID: 1134229231592755151, guid: 1be11c83f402eab42b24bd86083129f9,
-    type: 3}
-  MissileLocation: {fileID: 5580116811257578468}
+  Bomb: {fileID: 1134229231592755151, guid: 1be11c83f402eab42b24bd86083129f9, type: 3}
+  BombLocation: {fileID: 5580116811257578468}
   FireDelay: 1
-  MissileMaxPool: 3
+  BombMaxPool: 3
   timerForStop: 1.25
 --- !u!58 &2254135317877300394
 CircleCollider2D:
