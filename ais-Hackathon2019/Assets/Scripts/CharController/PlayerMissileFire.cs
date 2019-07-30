@@ -7,6 +7,7 @@ public class PlayerMissileFire : MonoBehaviour
     /*作成者：MOON*/
     public bool basic_button = false;
     public bool final_button = false;
+    public GameObject player_Ro;
 
 
     public GameObject PlayerMissile;
@@ -53,13 +54,15 @@ public class PlayerMissileFire : MonoBehaviour
                 //FinalAttack = false;
                 //FireDelay = 1;
                 StartCoroutine(FireCycleControl());
-
+                
                 for (int i = 0; i < MissileMaxPool; i++)
                 {
                     if (MissileArray[i] == null) //空配列の場合
                     {
                         MissileArray[i] = MPool.NewItem();  //プールでミサイルを持ってくる
                         MissileArray[i].transform.position = MissileLocation.transform.position;    //それの発射位置を設定する
+                        //MissileArray[i].transform.position = player_Ro.GetComponentInChildren<Transform>().GetChild(0).transform.position;
+                       // MissileArray[i].transform.rotation = player_Ro.GetComponentInChildren<Transform>().GetChild(0).transform.rotation;
                         break;
                     }
                 }
@@ -84,6 +87,8 @@ public class PlayerMissileFire : MonoBehaviour
                         {
                             MissileArray[i] = MPool.NewItem();  //プールでミサイルを持ってくる
                             MissileArray[i].transform.position = MissileLocation.transform.position;    //それの発射位置を設定する
+                            //MissileArray[i].transform.position = player_Ro.GetComponentInChildren<Transform>().GetChild(0).transform.position;
+                            //MissileArray[i].transform.rotation = player_Ro.GetComponentInChildren<Transform>().GetChild(0).transform.rotation;
                             break;
                         }
                     }
@@ -111,6 +116,7 @@ public class PlayerMissileFire : MonoBehaviour
             }
         }
 
+        /*作成者：MOON*/
         basic_button = false;
         final_button = false;
     }

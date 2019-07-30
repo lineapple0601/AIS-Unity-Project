@@ -52,6 +52,7 @@ public class AirplaneBomb : MonoBehaviour
 
     private void PlayerFire()
     {
+        Debug.Log("確認1");
         if (FireState)
         {
             timer += Time.deltaTime;
@@ -61,6 +62,7 @@ public class AirplaneBomb : MonoBehaviour
             {
                 if (BombArray[i] == null) //空配列の場合
                 {
+                    Debug.Log("確認2");
                     BombArray[i] = MPool.NewItem();  //プールでミサイルを持ってくる
                     BombArray[i].transform.position = BombLocation.transform.position;    //それの発射位置を設定する
                     break;
@@ -74,6 +76,7 @@ public class AirplaneBomb : MonoBehaviour
             {
                 if (BombArray[i].GetComponent<Collider2D>().enabled == false) // 配列のCollider2DがFALSEの場合
                 {
+                    Debug.Log("確認3");
                     BombArray[i].GetComponent<Collider2D>().enabled = true;  // またTRUEに設定
                     MPool.RemoveItem(BombArray[i]);  // ミサイルをメモリに返す
                     BombArray[i] = null; // 配列クリア

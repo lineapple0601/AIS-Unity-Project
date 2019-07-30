@@ -543,8 +543,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player_1: {fileID: 140503516}
   Player_2: {fileID: 657784419}
-  Player_3: {fileID: 0}
-  Player_4: {fileID: 0}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -3008,7 +3006,7 @@ PrefabInstance:
     - target: {fileID: 2983834015614356446, guid: 6ab467f802aafd24f89db870c92e0e52,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2983834015614356447, guid: 6ab467f802aafd24f89db870c92e0e52,
         type: 3}
@@ -3080,6 +3078,11 @@ PrefabInstance:
       propertyPath: paM
       value: 
       objectReference: {fileID: 1109821036}
+    - target: {fileID: 7894454354767008740, guid: 6ab467f802aafd24f89db870c92e0e52,
+        type: 3}
+      propertyPath: player_Ro
+      value: 
+      objectReference: {fileID: 140503516}
     - target: {fileID: 13118240, guid: 6ab467f802aafd24f89db870c92e0e52, type: 3}
       propertyPath: m_SortingLayerID
       value: 85882393
@@ -3105,7 +3108,7 @@ PrefabInstance:
     - target: {fileID: 8691255637108823239, guid: 9f2e2cbb4f2035d4da05d2b638f74c34,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4679101317076442697, guid: 9f2e2cbb4f2035d4da05d2b638f74c34,
         type: 3}
@@ -3177,6 +3180,16 @@ PrefabInstance:
       propertyPath: paM
       value: 
       objectReference: {fileID: 1109821036}
+    - target: {fileID: 5952399372607693552, guid: 9f2e2cbb4f2035d4da05d2b638f74c34,
+        type: 3}
+      propertyPath: player_Ro
+      value: 
+      objectReference: {fileID: 657784419}
+    - target: {fileID: 1766988423559427801, guid: 9f2e2cbb4f2035d4da05d2b638f74c34,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3440756207026709270, guid: 9f2e2cbb4f2035d4da05d2b638f74c34,
         type: 3}
       propertyPath: m_SortingLayerID
