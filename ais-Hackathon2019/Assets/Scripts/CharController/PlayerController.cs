@@ -95,6 +95,8 @@ public class PlayerController : MonoBehaviour
     {
 
         float rotate_speed = _transform.GetChild(0).rotation.z;
+
+
         float h_rotation = joystickRo.GetHorizontalValue();
         float v_rotation = joystickRo.GetVerticalValue();
 
