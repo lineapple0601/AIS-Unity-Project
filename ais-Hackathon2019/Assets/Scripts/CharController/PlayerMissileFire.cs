@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerMissileFire : MonoBehaviour
 {
+    public bool basic_button = false;
+    public bool final_button = false;
+
 
     public GameObject PlayerMissile;
     public Transform MissileLocation;
@@ -35,7 +38,7 @@ public class PlayerMissileFire : MonoBehaviour
     }
 
     void Update()
-    {
+    {   
         playerFire();
     }
 
@@ -44,7 +47,7 @@ public class PlayerMissileFire : MonoBehaviour
         if (FireState)
         {
             //基本攻撃ボタン
-            if (Input.GetKey(KeyCode.A))
+            if (Input.GetKey(KeyCode.A) || basic_button == true)
             {
                 //FinalAttack = false;
                 //FireDelay = 1;
@@ -61,7 +64,7 @@ public class PlayerMissileFire : MonoBehaviour
                 }
             }
             //必殺技ボタン
-            if (Input.GetKey(KeyCode.S))
+            if (Input.GetKey(KeyCode.S) || final_button == true)
             {
                 FinalAttack = true;
                 FireDelay = 0;
@@ -106,12 +109,27 @@ public class PlayerMissileFire : MonoBehaviour
                 }
             }
         }
+
+        basic_button = false;
+        final_button = false;
     }
+
 
     IEnumerator FireCycleControl()
     {
         FireState = false;
         yield return new WaitForSeconds(FireDelay);
         FireState = true;
+    }
+
+
+    public void setBasicButton()
+    {
+        basic_button = true;
+    }
+
+    public void setFinalButton()
+    {
+        final_button = true;
     }
 }

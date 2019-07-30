@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    
+
+
     /*作成者：MOON*/
     public PlayerCtrl_joystick joystick; // PlayerController_Joystickのスクリプト
     public PlayerCtrl_Joystick_Ro joystickRo; // PlayerController_Joystick_Roのスクリプト
