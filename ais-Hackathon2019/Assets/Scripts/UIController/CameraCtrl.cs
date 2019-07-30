@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*作成者：MOON*/
 public class CameraCtrl : MonoBehaviour
 {
     public GameObject Player_1; //`プレイヤー

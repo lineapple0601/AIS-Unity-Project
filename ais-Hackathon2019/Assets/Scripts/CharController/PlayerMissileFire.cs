@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMissileFire : MonoBehaviour
 {
+    /*作成者：MOON*/
     public bool basic_button = false;
     public bool final_button = false;
 
@@ -122,12 +123,13 @@ public class PlayerMissileFire : MonoBehaviour
         FireState = true;
     }
 
-
+    /*作成者：MOON*/
     public void setBasicButton()
     {
         basic_button = true;
     }
 
+    /*作成者：MOON*/
     public void setFinalButton()
     {
         final_button = true;
