@@ -702,7 +702,6 @@ MonoBehaviour:
   Player_1: {fileID: 140503516}
   Player_2: {fileID: 657784419}
   SeaBackGround: {fileID: 1440050400}
-  Joystick: {fileID: 0}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -3261,7 +3260,34 @@ PrefabInstance:
       propertyPath: m_Direction
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1205983583324021331, guid: 6ab467f802aafd24f89db870c92e0e52,
+        type: 3}
+      propertyPath: Bomb
+      value: 
+      objectReference: {fileID: 1134229231592755151, guid: 1be11c83f402eab42b24bd86083129f9,
+        type: 3}
+    - target: {fileID: 1205983583324021331, guid: 6ab467f802aafd24f89db870c92e0e52,
+        type: 3}
+      propertyPath: BombLocation
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1205983583324021331, guid: 6ab467f802aafd24f89db870c92e0e52,
+        type: 3}
+      propertyPath: FireDelay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1205983583324021331, guid: 6ab467f802aafd24f89db870c92e0e52,
+        type: 3}
+      propertyPath: BombMaxPool
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1205983583324021331, guid: 6ab467f802aafd24f89db870c92e0e52,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1205983583324021331, guid: 6ab467f802aafd24f89db870c92e0e52, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6ab467f802aafd24f89db870c92e0e52, type: 3}
 --- !u!1001 &3440756205698044096
 PrefabInstance:

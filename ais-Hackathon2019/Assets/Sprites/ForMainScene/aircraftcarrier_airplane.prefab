@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a30aa2d7fad051a4da26d54832572e63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 2
+  MoveSpeed: 2.5
   timerForBack: 2.5
 --- !u!114 &3234864806865311776
 MonoBehaviour:
@@ -113,7 +113,6 @@ MonoBehaviour:
   BombLocation: {fileID: 5580116811257578468}
   FireDelay: 1
   BombMaxPool: 3
-  timerForStop: 1.25
 --- !u!58 &2254135317877300394
 CircleCollider2D:
   m_ObjectHideFlags: 0

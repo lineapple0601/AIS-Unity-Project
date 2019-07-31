@@ -61,8 +61,8 @@ public class PlayerMissileFire : MonoBehaviour
                     {
                         MissileArray[i] = MPool.NewItem();  //プールでミサイルを持ってくる
                         MissileArray[i].transform.position = MissileLocation.transform.position;    //それの発射位置を設定する
-                        //MissileArray[i].transform.position = player_Ro.GetComponentInChildren<Transform>().GetChild(0).transform.position;
-                       // MissileArray[i].transform.rotation = player_Ro.GetComponentInChildren<Transform>().GetChild(0).transform.rotation;
+                        //MissileArray[i].transform.position = player_Ro.GetComponentInChildren<Transform>().GetChild(2).transform.position;
+                        //MissileArray[i].transform.rotation = player_Ro.GetComponentInChildren<Transform>().GetChild(2).transform.rotation;
                         break;
                     }
                 }

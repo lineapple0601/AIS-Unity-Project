@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 2983834015614356447}
   - component: {fileID: 2983834015614356432}
   - component: {fileID: 7894454354767008740}
+  - component: {fileID: 1205983583324021331}
   - component: {fileID: 1811665353340092164}
   m_Layer: 0
   m_Name: player
@@ -142,12 +143,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d76fcd81de70364ebb0fcf58f8bc7b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  basic_button: 0
+  final_button: 0
+  player_Ro: {fileID: 0}
   PlayerMissile: {fileID: 8123679286680413199, guid: ee8e6e5bb8e8f8f47a13c9211b81e961,
     type: 3}
   MissileLocation: {fileID: 1142753110082479921}
   FireDelay: 1
   MissileMaxPool: 10
   timerForEnd: 1
+--- !u!114 &1205983583324021331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2983834015614356446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4846d7b4f996f9499512df9b0d37063, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Bomb: {fileID: 0}
+  BombLocation: {fileID: 0}
+  FireDelay: 0
+  BombMaxPool: 0
 --- !u!70 &1811665353340092164
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

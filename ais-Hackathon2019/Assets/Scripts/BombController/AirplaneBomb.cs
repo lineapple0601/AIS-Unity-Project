@@ -13,7 +13,7 @@ public class AirplaneBomb : MonoBehaviour
     private MemoryPool MPool;           //メモリープール
     private GameObject[] BombArray;  //ミサイルの配列
 
-    public float timerForStop;   // 球打つことを止めるtime
+    //public float timerForStop;   // 球打つことを止めるtime
     private float timer;         // timer
 
     private void OnApplicationQuit()
@@ -41,10 +41,11 @@ public class AirplaneBomb : MonoBehaviour
             //敵のLayerがjoystickと同じパンネルに存在するので、position.zを0に設定しないと球を打たない
             float distance = Vector3.Distance(new Vector3(GameObject.FindWithTag("Enemy").transform.position.x, GameObject.FindWithTag("Enemy").transform.position.y, 0),
                                               new Vector3(transform.position.x, transform.position.y, 0));
-            timer = timerForStop;        //
+            //timer = timerForStop;        //
 
             //距離が5以下で、秒が生成されてからtimerForStop以内、両方満たす場合
-            if ((distance <= 5) && (timer <= timerForStop))
+            //if ((distance <= 5) && (timer <= timerForStop))
+            if (distance <= 5)
                 PlayerFire();
         }
         else { }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BombMovement : MonoBehaviour
 {
-    public GameObject BombRotation;
+    //public GameObject BombRotation;
     public float MoveSpeed;
     public float DestroyXPos;
     public float DestroyYPos;
@@ -14,16 +14,18 @@ public class BombMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        /*
-         * //航空母艦用
+
+         //航空母艦用
         dir = GameObject.FindWithTag("Enemy").transform.position - transform.position;
         angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
-        */
+
         //戦艦用
+        /*
         dir = GameObject.FindWithTag("Player").transform.position - BombRotation.transform.position;    
         angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle - 270, Vector3.forward);
+        transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
+        */
     }
 
     // Update is called once per frame
@@ -31,18 +33,16 @@ public class BombMovement : MonoBehaviour
     {
         transform.Translate(Vector2.up * MoveSpeed * Time.deltaTime);
 
-        if (transform.position.x >= DestroyXPos)
+        Vector3 pos = Camera.main.WorldToViewportPoint(this.transform.position);
+
+        if (pos.x > 1f || pos.y > 1f || pos.x < 0f || pos.y < 0f)
         {
             // missile非活性する。
-            GetComponent<Collider2D>().enabled = false;
-        }
-        if (transform.position.y >= DestroyYPos)
-        {
-            // missile非活性する。
-            GetComponent<Collider2D>().enabled = false;
+            gameObject.SetActive(false);
         }
 
     }
+
     //Collider処理
     private void OnTriggerEnter2D(Collider2D collision)
     {

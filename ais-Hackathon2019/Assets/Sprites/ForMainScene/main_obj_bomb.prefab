@@ -94,8 +94,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72478f815978d9a48b6461b62c3f7590, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BombRotation: {fileID: 42753106375642302, guid: d72d4fb2f6b80334997665ea630d8805,
-    type: 3}
   MoveSpeed: 4
   DestroyXPos: 11
   DestroyYPos: 6
