@@ -26,8 +26,8 @@ public class CameraCtrl : MonoBehaviour
 
         RectTransform backGround = SeaBackGround.GetComponent<RectTransform>();
         float bg_max_x = backGround.position.x + backGround.sizeDelta.x / 2;
-        float bg_min_x = backGround.position.x - backGround.sizeDelta.x / 2 + 11;
-        float bg_max_y = backGround.position.y + backGround.sizeDelta.y / 2 - 10;
+        float bg_min_x = backGround.position.x - backGround.sizeDelta.x / 2 + 10;
+        float bg_max_y = backGround.position.y + backGround.sizeDelta.y / 2 - 25;
         float bg_min_y = backGround.position.y - backGround.sizeDelta.y / 2 + 19;
 
         Transform plyer = AT;
