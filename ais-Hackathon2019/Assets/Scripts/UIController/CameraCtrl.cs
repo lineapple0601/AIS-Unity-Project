@@ -28,7 +28,7 @@ public class CameraCtrl : MonoBehaviour
         float bg_max_x = backGround.position.x + backGround.sizeDelta.x / 2;
         float bg_min_x = backGround.position.x - backGround.sizeDelta.x / 2 + 11;
         float bg_max_y = backGround.position.y + backGround.sizeDelta.y / 2 - 10;
-        float bg_min_y = backGround.position.y - backGround.sizeDelta.y / 2 + 13;
+        float bg_min_y = backGround.position.y - backGround.sizeDelta.y / 2 + 19;
 
         Transform plyer = AT;
         float plyer_x = AT.position.x * 2f;
