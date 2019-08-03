@@ -169,6 +169,7 @@ GameObject:
   - component: {fileID: 4679101317076442697}
   - component: {fileID: 8410950160248294759}
   - component: {fileID: 3585116296629416225}
+  - component: {fileID: 6983103093219013366}
   - component: {fileID: 5952399372607693552}
   - component: {fileID: 278680924722888176}
   m_Layer: 0
@@ -259,6 +260,26 @@ MonoBehaviour:
   joystickRo: {fileID: 0}
   paM: {fileID: 0}
   MoveSpeed: 3
+--- !u!114 &6983103093219013366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8691255637108823239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f5753edda8bc9548a1a6ccf612b1162, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basic_button: 0
+  final_button: 0
+  player_Ro: {fileID: 0}
+  PlayerMissile: {fileID: 0}
+  MissileLocation: {fileID: 0}
+  FireDelay: 1
+  MissileMaxPool: 10
+  timerForEnd: 0
 --- !u!114 &5952399372607693552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,6 +292,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d76fcd81de70364ebb0fcf58f8bc7b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  basic_button: 0
+  final_button: 0
+  player_Ro: {fileID: 0}
   PlayerMissile: {fileID: 1134229231592755151, guid: 1be11c83f402eab42b24bd86083129f9,
     type: 3}
   MissileLocation: {fileID: 1100966349761683562}

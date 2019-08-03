@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMissileFire : MonoBehaviour
+public class DestroyerMissileFire : MonoBehaviour
 {
     /*作成者：MOON*/
     public bool basic_button = false;
@@ -40,7 +40,7 @@ public class PlayerMissileFire : MonoBehaviour
     }
 
     void Update()
-    {   
+    {
         playerFire();
     }
 
@@ -48,13 +48,13 @@ public class PlayerMissileFire : MonoBehaviour
     {
         if (FireState)
         {
-                    //基本攻撃ボタン
+            //基本攻撃ボタン
             if (Input.GetKey(KeyCode.A) || basic_button == true)
             {
                 //FinalAttack = false;
                 //FireDelay = 1;
                 StartCoroutine(FireCycleControl());
-                
+
                 for (int i = 0; i < MissileMaxPool; i++)
                 {
                     if (MissileArray[i] == null) //空配列の場合

@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -183,7 +183,7 @@ Transform:
   m_GameObject: {fileID: 4106280395947699757}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.76, y: 1.87, z: 0}
-  m_LocalScale: {x: 31.732489, y: 37.180756, z: 1}
+  m_LocalScale: {x: 0.776979, y: 0.9103814, z: 0.024485284}
   m_Children:
   - {fileID: 1226869225}
   - {fileID: 428355824}
@@ -300,6 +300,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c42c9c501796fd4383eb0e73e5feace, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShipExposion: {fileID: 3390814954827790823, guid: 5d50132340516a54c991e87c4aa673e1,
+    type: 3}
   bar: {fileID: 1226869226}
   hptext: {fileID: 428355825}
   HP: 100
