@@ -105,7 +105,7 @@ Transform:
   m_GameObject: {fileID: 3440756207026709269}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 4679101317076442697}
   m_RootOrder: 0
@@ -144,10 +144,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1026287015
+  m_SortingLayer: 7
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 82b41767e14e5425fbe1f56f8223aea5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1ac9bca4f9f405849882d88669d0a381, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -170,7 +170,6 @@ GameObject:
   - component: {fileID: 8410950160248294759}
   - component: {fileID: 3585116296629416225}
   - component: {fileID: 6983103093219013366}
-  - component: {fileID: 5952399372607693552}
   - component: {fileID: 278680924722888176}
   m_Layer: 0
   m_Name: Player2
@@ -178,7 +177,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4679101317076442697
 Transform:
   m_ObjectHideFlags: 0
@@ -274,30 +273,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   basic_button: 0
   final_button: 0
-  player_Ro: {fileID: 0}
-  PlayerMissile: {fileID: 0}
-  MissileLocation: {fileID: 0}
-  FireDelay: 1
-  MissileMaxPool: 10
-  timerForEnd: 0
---- !u!114 &5952399372607693552
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8691255637108823239}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d76fcd81de70364ebb0fcf58f8bc7b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  basic_button: 0
-  final_button: 0
-  player_Ro: {fileID: 0}
-  PlayerMissile: {fileID: 1134229231592755151, guid: 1be11c83f402eab42b24bd86083129f9,
+  player_Ro: {fileID: 8691255637108823239}
+  PlayerMissile: {fileID: 466357800605701797, guid: 00015cfde8ee96e478541858bee8c200,
     type: 3}
   MissileLocation: {fileID: 1100966349761683562}
+  final_buttonImage: {fileID: 0}
+  final_btn: {fileID: 0}
   FireDelay: 1
   MissileMaxPool: 10
   timerForEnd: 0

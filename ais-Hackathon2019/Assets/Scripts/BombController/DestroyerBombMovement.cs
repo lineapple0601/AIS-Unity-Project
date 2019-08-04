@@ -12,17 +12,13 @@ public class DestroyerBombMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //戦艦用
-        //dir = GameObject.FindWithTag("Player").transform.position - BombRotation.transform.position;    
-        //angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        //transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
-        transform.rotation = GameObject.Find("Player2").GetComponentInChildren<Transform>().GetChild(0).transform.rotation;
+        //transform.rotation = GameObject.Find("Player2").GetComponentInChildren<Transform>().GetChild(0).transform.rotation;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        transform.rotation = GameObject.Find("Player2").GetComponentInChildren<Transform>().GetChild(0).transform.rotation;
         transform.Translate(Vector2.up * MoveSpeed * Time.deltaTime);
 
         Vector3 pos = Camera.main.WorldToViewportPoint(this.transform.position);

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DestroyerMissileFire : MonoBehaviour
 {
@@ -11,8 +12,10 @@ public class DestroyerMissileFire : MonoBehaviour
 
 
     public GameObject PlayerMissile;
-    public Transform MissileLocation;
-    public float FireDelay = 1;             //ミサイル速度
+    public Transform MissileLocation;   //生成位置
+    public Image final_buttonImage;     //finalAttackButton_Image
+    public Button final_btn;            //finalAttackButton
+    public float FireDelay = 1;         //ミサイル速度
     private bool FireState;             //ミサイル速度制御
 
     public int MissileMaxPool;          //メモリープールに設定するミサイルの数
@@ -61,8 +64,6 @@ public class DestroyerMissileFire : MonoBehaviour
                     {
                         MissileArray[i] = MPool.NewItem();  //プールでミサイルを持ってくる
                         MissileArray[i].transform.position = MissileLocation.transform.position;    //それの発射位置を設定する
-                        //MissileArray[i].transform.position = player_Ro.GetComponentInChildren<Transform>().GetChild(2).transform.position;
-                        //MissileArray[i].transform.rotation = player_Ro.GetComponentInChildren<Transform>().GetChild(2).transform.rotation;
                         break;
                     }
                 }
@@ -79,7 +80,8 @@ public class DestroyerMissileFire : MonoBehaviour
                 if (timer <= timerForEnd)
                 {
                     timer += Time.deltaTime;
-                    StartCoroutine(FireCycleControl());
+                    //StartCoroutine(FireCycleControl());
+                    StartCoroutine(CoolTime(6f));
 
                     for (int i = 0; i < MissileMaxPool; i++)
                     {
@@ -87,8 +89,6 @@ public class DestroyerMissileFire : MonoBehaviour
                         {
                             MissileArray[i] = MPool.NewItem();  //プールでミサイルを持ってくる
                             MissileArray[i].transform.position = MissileLocation.transform.position;    //それの発射位置を設定する
-                            //MissileArray[i].transform.position = player_Ro.GetComponentInChildren<Transform>().GetChild(0).transform.position;
-                            //MissileArray[i].transform.rotation = player_Ro.GetComponentInChildren<Transform>().GetChild(0).transform.rotation;
                             break;
                         }
                     }
@@ -129,8 +129,21 @@ public class DestroyerMissileFire : MonoBehaviour
         FireState = true;
     }
 
-    /*作成者：MOON*/
-    public void setBasicButton()
+    //クールタイム処理
+    IEnumerator CoolTime(float cool)
+    {
+        while (cool > 1.0f)
+        {
+            cool -= Time.deltaTime;
+            final_buttonImage.fillAmount = (1.0f / cool);   //buttonを埋める
+            final_btn.enabled = false;                      //buttonを非活性
+            yield return new WaitForFixedUpdate();          //Update待ち
+            final_btn.enabled = true;                       //buttonを活性
+        }
+    }
+
+        /*作成者：MOON*/
+        public void setBasicButton()
     {
         basic_button = true;
     }

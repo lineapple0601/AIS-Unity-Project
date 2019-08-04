@@ -13,7 +13,7 @@ public class AirplainMovement : MonoBehaviour
 
     void Start()
     {
-        //timer = 0;      //初期化
+
     }
 
     void Update()
@@ -66,7 +66,6 @@ public class AirplainMovement : MonoBehaviour
                     //angle = Mathf.Atan2(Random.Range(10f, -10f), Random.Range(10f, -10f)) * Mathf.Rad2Deg;
                     transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
                     tmp = true;
-                    //Debug.Log(angle);
                 }
                 
                 gameObject.transform.Translate(Vector2.up * MoveSpeed * Time.deltaTime);

@@ -17,7 +17,7 @@ public class ItemMovement : MonoBehaviour
         //angle = Mathf.Atan2(GameObject.FindWithTag("Player").transform.position.y, GameObject.FindWithTag("Player").transform.position.x) * Mathf.Rad2Deg;
         //angle = Mathf.Atan2(Random.Range(10f, -10f), Random.Range(10f, -10f)) * Mathf.Rad2Deg;
         //transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
-        transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
+        //transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
     }
 
     // Update is called once per frame
