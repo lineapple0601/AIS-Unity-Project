@@ -6,7 +6,6 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-
     /*作成者：MOON*/
     public PlayerCtrl_joystick joystick; // PlayerController_Joystickのスクリプト
     public PlayerCtrl_Joystick_Ro joystickRo; // PlayerController_Joystick_Roのスクリプト
@@ -59,7 +58,7 @@ public class PlayerController : MonoBehaviour
         {
             transform.position -= transform.right * MoveSpeed * Time.deltaTime;
         }
-        if (Input.GetKey(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             paM.ActivePauseBt();
         }
@@ -74,9 +73,6 @@ public class PlayerController : MonoBehaviour
         if (pos.y > 1f) pos.y = 1f;
 
         transform.position = Camera.main.ViewportToWorldPoint(pos);
-
-
-
 
     }
 

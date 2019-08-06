@@ -15,6 +15,8 @@ public class PlayerCtrl_joystick : MonoBehaviour, IDragHandler, IPointerUpHandle
     //各移動するVectorの値をもらう
     private Vector3 inputVector;
 
+    public bool drag_Check = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,11 +40,9 @@ public class PlayerCtrl_joystick : MonoBehaviour, IDragHandler, IPointerUpHandle
      */
     public void OnDrag(PointerEventData eventData)
     {
-        //この中にタッチされたのが認証できたかを確認
-        Debug.Log("Joystick >>> OnDrag()");
-
+        drag_Check = true;
         Vector2 pos;
-
+        
         if (RectTransformUtility.ScreenPointToLocalPointInRectangle(bgImg.rectTransform,
                                                                     eventData.position,
                                                                     eventData.pressEventCamera,
@@ -66,6 +66,7 @@ public class PlayerCtrl_joystick : MonoBehaviour, IDragHandler, IPointerUpHandle
      */
     public void OnPointerDown(PointerEventData eventData)
     {
+        drag_Check = true;
         OnDrag(eventData);
     }
 
@@ -74,6 +75,7 @@ public class PlayerCtrl_joystick : MonoBehaviour, IDragHandler, IPointerUpHandle
      */
     public void OnPointerUp(PointerEventData eventData)
     {
+        drag_Check = false;
         inputVector = Vector3.zero;
         joystickImg.rectTransform.anchoredPosition = Vector3.zero;
     }
