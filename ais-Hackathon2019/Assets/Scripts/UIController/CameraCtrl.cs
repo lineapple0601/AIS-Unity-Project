@@ -24,6 +24,8 @@ public class CameraCtrl : MonoBehaviour
     {
         userCheck();
 
+        transform.position = new Vector3(AT.position.x, AT.position.y, transform.position.z);
+        /*
         RectTransform backGround = SeaBackGround.GetComponent<RectTransform>();
         float bg_max_x = backGround.position.x + backGround.sizeDelta.x / 2;
         float bg_min_x = backGround.position.x - backGround.sizeDelta.x / 2 + 10;
@@ -33,7 +35,9 @@ public class CameraCtrl : MonoBehaviour
         Transform plyer = AT;
         float plyer_x = AT.position.x * 2f;
         float plyer_y = AT.position.y * 6f;
+        */
 
+        /*
         if ((plyer_x < bg_max_x && plyer_x > bg_min_x) && (plyer_y < bg_max_y && plyer_y > bg_min_y))
         {
             transform.position = new Vector3(AT.position.x, AT.position.y, transform.position.z);
@@ -54,7 +58,7 @@ public class CameraCtrl : MonoBehaviour
         {
             MoveControl();
         }
-
+        */
 
     }
 
@@ -78,6 +82,7 @@ public class CameraCtrl : MonoBehaviour
         //}
     }
 
+    /*
     void MoveControl()
     {
         Vector3 viewPos = Camera.main.WorldToViewportPoint(transform.position);
@@ -85,6 +90,6 @@ public class CameraCtrl : MonoBehaviour
         viewPos.y = Mathf.Clamp01(viewPos.y);
         Vector3 worldPos = Camera.main.ViewportToWorldPoint(viewPos);
         transform.position = worldPos;
-    }
+    }*/
 
 }
