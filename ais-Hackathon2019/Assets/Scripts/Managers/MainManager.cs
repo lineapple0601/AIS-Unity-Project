@@ -26,6 +26,11 @@ public class MainManager : MonoBehaviour
         }
     }
 
+    private void ChangeScoreScene()
+    {
+        SceneManager.LoadScene("ScoreScene");
+    }
+
     private void ChangeScene()
     {
         SceneManager.LoadScene("PauseScene");

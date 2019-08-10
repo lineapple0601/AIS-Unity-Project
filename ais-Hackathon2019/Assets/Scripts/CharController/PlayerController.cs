@@ -22,8 +22,6 @@ public class PlayerController : MonoBehaviour
     private bool facingRight = true;
     private Rigidbody2D rd;
 
-    // 点数
-    private int Score = 0;
     // 戦艦タイプ
     private BattleShipType Type;
 
@@ -35,7 +33,7 @@ public class PlayerController : MonoBehaviour
         _transform = transform; //transform キャシング
         _moveVector = Vector3.zero; // プレイヤーの移動Vector初期化
         Time.timeScale = 1.0f;
-        this.Type = new BasicShip(); // 基本戦艦に設定
+        this.Type = new BasicShip(); // 基本戦艦
     }
 
     /*作成者：MOON*/
@@ -67,8 +65,6 @@ public class PlayerController : MonoBehaviour
         {
             paM.ActivePauseBt();
         }
-        /////End
-
 
         Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
 
@@ -129,8 +125,6 @@ public class PlayerController : MonoBehaviour
             _transform.GetChild(0).Rotate(0, 0, rotate_speed * h_rotation * v_rotation + 1);
         }
 
-
         _transform.Translate(_moveVector * MoveSpeed * Time.deltaTime);
     }
-
 }

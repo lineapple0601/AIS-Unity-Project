@@ -28,6 +28,8 @@ public class EnemyHpBarController : MonoBehaviour
             obj = Instantiate(ShipExposion, transform.position, Quaternion.identity);   //爆発アニメーション生成
             Destroy(gameObject); //objectを削除
             Destroy(obj,3.417f);    //爆発アニメーション削除
+            ScoreController.addScore(50000); // TODO : TestCode
+            HpBarController.UpdateHPBar(0.9f); // TODO : TestCode
         }
     }
 
