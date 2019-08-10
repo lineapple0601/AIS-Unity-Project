@@ -7,11 +7,12 @@ public class PauseManager : MonoBehaviour
 {
     private bool pauseOn = false;
     private GameObject pausePanel;
+    private GameObject playBG;
 
     private void Awake()
     {
-        
-        pausePanel = GameObject.Find("Joystick").transform.Find("PauseUI").gameObject;
+        pausePanel = GameObject.Find("Joystick").transform.FindChild("PauseUI").gameObject;
+        playBG = GameObject.Find("Joystick").transform.FindChild("PauseingBt").gameObject;
     }
 
     // Start is called before the first frame update
@@ -42,13 +43,13 @@ public class PauseManager : MonoBehaviour
             //一時的に停止する
             Time.timeScale = 0;
             pausePanel.SetActive(true);
-           
+            playBG.SetActive(false);
         }
         else
         {
             Time.timeScale = 1.0f;
             pausePanel.SetActive(false);
-            
+            playBG.SetActive(true);
         }
         pauseOn = !pauseOn;
     }

@@ -26,9 +26,9 @@ Transform:
   m_GameObject: {fileID: 13118238}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
-  m_Father: {fileID: 2983834015614356447}
+  m_Father: {fileID: 3259033022614261281}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &13118240
@@ -65,10 +65,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1299664871
+  m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bf8e361e62d744aff9459ed82f26dbbb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1b55fc070b53197459b2ba7b5a8ccfc1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -87,20 +87,20 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2983834015614356447}
+  - component: {fileID: 3259033022614261281}
   - component: {fileID: 2983834015614356432}
   - component: {fileID: 7894454354767008740}
-  - component: {fileID: 1205983583324021331}
   - component: {fileID: 1811665353340092164}
+  - component: {fileID: 7074918086986600589}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2983834015614356447
-Transform:
+  m_IsActive: 0
+--- !u!224 &3259033022614261281
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -115,6 +115,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2983834015614356432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,29 +150,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   basic_button: 0
   final_button: 0
-  player_Ro: {fileID: 0}
+  player_Ro: {fileID: 2983834015614356446}
   PlayerMissile: {fileID: 8123679286680413199, guid: ee8e6e5bb8e8f8f47a13c9211b81e961,
     type: 3}
+  final_buttonImage: {fileID: 0}
+  final_btn: {fileID: 0}
   MissileLocation: {fileID: 1142753110082479921}
   FireDelay: 1
   MissileMaxPool: 10
   timerForEnd: 1
---- !u!114 &1205983583324021331
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2983834015614356446}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4846d7b4f996f9499512df9b0d37063, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Bomb: {fileID: 0}
-  BombLocation: {fileID: 0}
-  FireDelay: 0
-  BombMaxPool: 0
 --- !u!70 &1811665353340092164
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -183,7 +174,15 @@ CapsuleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: -0.015191796, y: -0.004527195}
   m_Size: {x: 2.4454472, y: 0.48168126}
-  m_Direction: 1
+  m_Direction: 0
+--- !u!222 &7074918086986600589
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2983834015614356446}
+  m_CullTransparentMesh: 0
 --- !u!1 &4313178626433936059
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,7 +211,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2983834015614356447}
+  m_Father: {fileID: 3259033022614261281}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5234296027735845916
@@ -249,8 +248,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -270804945
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

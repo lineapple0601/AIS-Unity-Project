@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HPBarController : MonoBehaviour
+public class EnemyHpBarController : MonoBehaviour
 {
+    public GameObject ShipExposion;
+    GameObject obj;
     public Image bar;
     public Text hptext;
     EnemyData enemyData;
@@ -19,19 +21,21 @@ public class HPBarController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PlayerHPbar();
+        EnemyHPbar();
 
         if (enemyData.GetHP() <= 0)
         { //HPが0より少ない場合
+            obj = Instantiate(ShipExposion, transform.position, Quaternion.identity);   //爆発アニメーション生成
             Destroy(gameObject); //objectを削除
+            Destroy(obj,3.417f);    //爆発アニメーション削除
         }
     }
 
-    public void PlayerHPbar()
+    public void EnemyHPbar()
     {
         float HP = enemyData.GetHP(); // hpを読み込む
         bar.fillAmount = HP / 100f; // バーを埋める
-        hptext.text = string.Format("HP {0}/100", HP); //HPによるテキスト
+        hptext.text = string.Format("{0}/100", HP); //HPによるテキスト
 
     }
 

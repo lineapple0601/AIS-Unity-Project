@@ -2,35 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BombMovement : MonoBehaviour
+public class DestroyerBombMovement : MonoBehaviour
 {
     //public GameObject BombRotation;
     public float MoveSpeed;
-    public float DestroyXPos;
-    public float DestroyYPos;
     Vector3 dir;
     float angle;
 
     // Start is called before the first frame update
     void Start()
     {
-
-         //航空母艦用
-        dir = GameObject.FindWithTag("Enemy").transform.position - transform.position;
-        angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
-
-        //戦艦用
-        /*
-        dir = GameObject.FindWithTag("Player").transform.position - BombRotation.transform.position;    
-        angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
-        */
+        //transform.rotation = GameObject.Find("Player2").GetComponentInChildren<Transform>().GetChild(0).transform.rotation;
     }
 
     // Update is called once per frame
     void Update()
     {
+        transform.rotation = GameObject.Find("Player2").GetComponentInChildren<Transform>().GetChild(0).transform.rotation;
         transform.Translate(Vector2.up * MoveSpeed * Time.deltaTime);
 
         Vector3 pos = Camera.main.WorldToViewportPoint(this.transform.position);
@@ -39,6 +27,7 @@ public class BombMovement : MonoBehaviour
         {
             // missile非活性する。
             gameObject.SetActive(false);
+            GetComponent<Collider2D>().enabled = false; // missile非活性する。
         }
 
     }
@@ -52,3 +41,4 @@ public class BombMovement : MonoBehaviour
         }
     }
 }
+

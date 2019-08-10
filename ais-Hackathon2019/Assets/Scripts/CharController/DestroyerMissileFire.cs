@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerMissileFire : MonoBehaviour
+public class DestroyerMissileFire : MonoBehaviour
 {
     /*作成者：MOON*/
     public bool basic_button = false;
@@ -12,9 +12,9 @@ public class PlayerMissileFire : MonoBehaviour
 
 
     public GameObject PlayerMissile;
+    public Transform MissileLocation;   //生成位置
     public Image final_buttonImage;     //finalAttackButton_Image
     public Button final_btn;            //finalAttackButton
-    public Transform MissileLocation;   //生成位置
     public float FireDelay = 1;         //ミサイル速度
     private bool FireState;             //ミサイル速度制御
 
@@ -43,7 +43,7 @@ public class PlayerMissileFire : MonoBehaviour
     }
 
     void Update()
-    {   
+    {
         playerFire();
     }
 
@@ -51,13 +51,13 @@ public class PlayerMissileFire : MonoBehaviour
     {
         if (FireState)
         {
-                    //基本攻撃ボタン
+            //基本攻撃ボタン
             if (Input.GetKey(KeyCode.A) || basic_button == true)
             {
                 //FinalAttack = false;
                 //FireDelay = 1;
                 StartCoroutine(FireCycleControl());
-                
+
                 for (int i = 0; i < MissileMaxPool; i++)
                 {
                     if (MissileArray[i] == null) //空配列の場合
@@ -142,8 +142,8 @@ public class PlayerMissileFire : MonoBehaviour
         }
     }
 
-    /*作成者：MOON*/
-    public void setBasicButton()
+        /*作成者：MOON*/
+        public void setBasicButton()
     {
         basic_button = true;
     }

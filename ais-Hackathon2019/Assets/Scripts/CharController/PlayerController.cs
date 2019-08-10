@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
         {
             transform.position -= transform.right * MoveSpeed * Time.deltaTime;
         }
-        if (Input.GetKey(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             paM.ActivePauseBt();
         }
@@ -78,9 +78,6 @@ public class PlayerController : MonoBehaviour
         if (pos.y > 1f) pos.y = 1f;
 
         transform.position = Camera.main.ViewportToWorldPoint(pos);
-
-
-
 
     }
 
