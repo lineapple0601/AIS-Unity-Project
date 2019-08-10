@@ -9,6 +9,7 @@ public class CameraCtrl : MonoBehaviour
     public GameObject Player_2;
     //public GameObject Player_3;
     //public GameObject Player_4;
+    public GameObject Player_Test;
     Transform AT;
 
     public GameObject SeaBackGround;
@@ -80,6 +81,10 @@ public class CameraCtrl : MonoBehaviour
         // {
         //     AT = Player_4.transform;
         //}
+        else if (Player_Test.activeSelf == true)
+        {
+            AT = Player_Test.transform;
+        }
     }
 
     /*
