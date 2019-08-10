@@ -7,33 +7,31 @@ using UnityEngine;
 public class ShipController : MonoBehaviour
 {
     // 定数
-    public float MAX_ROTATION_ANGLE = 1; // フレーム単位の最大回転角度
+
     // 公開変数
+    bool                _moveFlg;       // 移動状態の有無
     public int          _hp;            // HP
-    bool _moveFlg;
     public float        _speed;         // 速度
-    public Vector3      _direction;     // 方向
-    public Joystick     _joystick;      // Joystickコントローラ
+    public float        _rotationSpeed; // 回転速度
+    public float        _rotateAngle;   // 回転角(0.0f~359.0f)
+    public Vector3      _movVector;     // 方向ベクトル
+    public PlayerCtrl_joystick _movStick; // Joystickコントローラ
     // 内部変数
-    private float       _rotateAngle;   // 回転角(0.0f~359.0f)
-    private Vector3     _moveVector;    // 船の移動Vector
-    private Transform   _transform;
     private Rigidbody2D _rd;
 
     // Start is called before the first frame update
     void Start()
     {
-        // 初期配置
-        _speed = 1.5f;
+        // 初期設定
+        _moveFlg        = false;
+        _hp             = 100;
+        _speed          = 1.5f;
+        _rotationSpeed  = 0.7f;
+        _rotateAngle    = -90f; // 初期向き補正：右
+        _movVector      = Vector3.zero;
+        _rd             = GetComponent<Rigidbody2D>();
         transform.position = Vector3.zero;
-        _moveFlg = false;
-        _rotateAngle = -90f; // 初期向き補正：右
-        _direction = Vector3.zero;
         transform.rotation = Quaternion.Euler(0.0f, 0.0f, _rotateAngle);
-
-        _rd          = GetComponent<Rigidbody2D>();
-        _transform  = transform;
-        _moveVector = Vector3.zero; // プレイヤーの移動Vector初期化
     }
 
     // Update is called once per frame
@@ -44,20 +42,8 @@ public class ShipController : MonoBehaviour
     {
         // 移動情報更新
         MoveHandler();
-
         // 移動
         MoveAction();
-
-        // カメラがプレイヤーを追う
-        // Todo CameraControllerに移す
-        //Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
-
-        //if (pos.x < 0f) pos.x = 0f;
-        //if (pos.x > 1f) pos.x = 1f;
-        //if (pos.y < 0f) pos.y = 0f;
-        //if (pos.y > 1f) pos.y = 1f;
-
-        //transform.position = Camera.main.ViewportToWorldPoint(pos);
     }
 
     // 移動をコントロール
@@ -65,32 +51,43 @@ public class ShipController : MonoBehaviour
     {
         _moveFlg = false;
 
-        // JoyStickによる方向設定
-        //GetMoveVectorFromJoystick();
+        // Stickによる方向設定
+        StickControl();
+        if (_moveFlg) return; // stick操作を受け付けるとキーボード操作を受け付けないようにする
 
         // キーボードによる方向設定
-        GetMoveVectorFromKeyboard();
+        KeyboardControl();
     }
 
-    private void GetMoveVectorFromJoystick()
+    // Stickボタンによる操作（向きを確定）
+    private void StickControl()
     {
-        //float nowAngle = transform.rotation.z;
-        //float targetAngle = nowAngle;
-        //float h = _joystick.GetHorizontalValue();
-        //float v = _joystick.GetVerticalValue();
+        float stickMovH   = _movStick.GetHorizontalValue();
+        float stickMovV   = _movStick.GetVerticalValue();
+        float nowAngle    = CorrectAngleValue(_rotateAngle);
+        float targetAngle = nowAngle;
 
-        //targetAngle = (float)(Math.Atan(v / h) * 180 / Math.PI);
-        //transform.Rotate(0, 0, UpdateRotateZ(nowAngle, targetAngle));
-
-        //Vector3 moveDir = new Vector3(h, v, 0).normalized;
-        //return moveDir;
+        if (!stickMovH.Equals(0f) || !stickMovV.Equals(0f))
+        {
+            _moveFlg = true;
+            float theta = 0;
+            theta = (float)Math.Atan(-stickMovH / stickMovV);
+            targetAngle = theta * 180f / (float)Math.PI;
+            if (stickMovV < 0)
+            {
+                targetAngle += 180f;
+            }
+            targetAngle = CorrectAngleValue(targetAngle);
+        }
+        // 回転角更新
+        _rotateAngle = CalcRotationAngle(nowAngle, targetAngle);
     }
 
-    private void GetMoveVectorFromKeyboard()
+    // キーボードボタン（WASD）による操作（向きを確定）
+    private void KeyboardControl()
     {
-        bool quitflg = false;
-        float nowAngle      = CorrectAngleValue(_rotateAngle);
-        float targetAngle   = nowAngle;
+        float nowAngle    = CorrectAngleValue(_rotateAngle);
+        float targetAngle = nowAngle;
 
         if (Input.GetKey(KeyCode.W))
         {
@@ -112,20 +109,18 @@ public class ShipController : MonoBehaviour
             targetAngle = 270f;
             _moveFlg = true;
         }
-        // if (quitflg) { Quit(); }
-        //_rotateAngle = targetAngle;
+        // 回転角更新
         _rotateAngle = CalcRotationAngle(nowAngle, targetAngle);
     }
 
     public void MoveAction()
     {
         transform.rotation = Quaternion.Euler(0.0f, 0.0f, _rotateAngle);
-        _direction = GetDirectionVectorByAngle(_rotateAngle);
+        _movVector = GetDirectionVectorByAngle(_rotateAngle);
         // 前進
         if (_moveFlg)
         {
-            //_direction = new Vector3(0.5f, 0.7f, 0); //TEST
-            Vector3 newPos = transform.position + _direction * _speed * Time.deltaTime;
+            Vector3 newPos = transform.position + _movVector * _speed * Time.deltaTime;
             transform.position = newPos;
         }
     }
@@ -143,25 +138,25 @@ public class ShipController : MonoBehaviour
 
         if (angleDiff < 180f)
         {
-            if (angleDiff < MAX_ROTATION_ANGLE)
+            if (angleDiff < _rotationSpeed)
             {
                 fixAngle = angleDiff;
             }
             else
             {
-                fixAngle = MAX_ROTATION_ANGLE;
+                fixAngle = _rotationSpeed;
             }
         }
         else
         {
             angleDiff = 360f - angleDiff;
-            if (angleDiff < MAX_ROTATION_ANGLE)
+            if (angleDiff < _rotationSpeed)
             {
                 fixAngle = -angleDiff;
             }
             else
             {
-                fixAngle = -MAX_ROTATION_ANGLE;
+                fixAngle = -_rotationSpeed;
             }
         }
         return CorrectAngleValue(nowAngle + fixAngle);
@@ -188,13 +183,11 @@ public class ShipController : MonoBehaviour
     {
         float posX = - (float)Math.Sin(angle * Math.PI / 180f);
         float posY = (float)Math.Cos(angle * Math.PI / 180f);
-        //Debug.Log("angle: " + angle + " X: " + X + " Y: " + Y);
 
         return new Vector3(posX, posY, 0);
-
-        //return Vector3.zero;
     }
 
+    // DEBUG用関数（実行するとゲームがその時点で止まる
     void Quit()
     {
         #if UNITY_EDITOR

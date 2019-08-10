@@ -579,6 +579,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player_1: {fileID: 140503516}
   Player_2: {fileID: 657784419}
+  Player_Test: {fileID: 863427872}
   SeaBackGround: {fileID: 1440050400}
 --- !u!20 &519420031
 Camera:
@@ -1068,11 +1069,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 735297022cd914ff5be2cc502250e505, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MAX_ROTATION_ANGLE: 1
   _hp: 0
   _speed: 0
-  _direction: {x: 0, y: 0, z: 0}
-  _joystick: {fileID: 0}
+  _rotationSpeed: 0
+  _rotateAngle: 0
+  _movVector: {x: 0, y: 0, z: 0}
+  _movStick: {fileID: 1494868841}
 --- !u!1 &926317635
 GameObject:
   m_ObjectHideFlags: 0
