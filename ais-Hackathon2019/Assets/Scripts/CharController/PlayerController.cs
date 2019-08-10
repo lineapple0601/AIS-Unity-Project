@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
-
     /*作成者：MOON*/
     public PlayerCtrl_joystick joystick; // PlayerController_Joystickのスクリプト
     public PlayerCtrl_Joystick_Ro joystickRo; // PlayerController_Joystick_Roのスクリプト
@@ -24,6 +22,11 @@ public class PlayerController : MonoBehaviour
     private bool facingRight = true;
     private Rigidbody2D rd;
 
+    // 点数
+    private int Score = 0;
+    // 戦艦タイプ
+    private BattleShipType Type;
+
     /*作成者：MOON*/
     // Start is called before the first frame update
     void Start()
@@ -32,6 +35,7 @@ public class PlayerController : MonoBehaviour
         _transform = transform; //transform キャシング
         _moveVector = Vector3.zero; // プレイヤーの移動Vector初期化
         Time.timeScale = 1.0f;
+        this.Type = new BasicShip(); // 基本戦艦に設定
     }
 
     /*作成者：MOON*/

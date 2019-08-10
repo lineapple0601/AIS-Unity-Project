@@ -11,7 +11,7 @@ public class PauseManager : MonoBehaviour
     private void Awake()
     {
         
-        pausePanel = GameObject.Find("Joystick").transform.FindChild("PauseUI").gameObject;
+        pausePanel = GameObject.Find("Joystick").transform.Find("PauseUI").gameObject;
     }
 
     // Start is called before the first frame update
