@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class EnemyHpBarController : MonoBehaviour
 {
-    public GameObject ShipExposion;
+    public GameObject ShipExplosion;
+    public GameObject Item;
     GameObject obj;
     public Image bar;
     public Text hptext;
@@ -25,8 +26,9 @@ public class EnemyHpBarController : MonoBehaviour
 
         if (enemyData.GetHP() <= 0)
         { //HPが0より少ない場合
-            obj = Instantiate(ShipExposion, transform.position, Quaternion.identity);   //爆発アニメーション生成
-            Destroy(gameObject); //objectを削除
+            obj = Instantiate(ShipExplosion, transform.position, Quaternion.identity);   //爆発アニメーション生成
+            Instantiate(Item, transform.position, Quaternion.identity);   //アイテム生成
+            Destroy(gameObject); //敵を削除
             Destroy(obj,3.417f);    //爆発アニメーション削除
             ScoreController.addScore(50000); // TODO : TestCode
             HpBarController.UpdateHPBar(0.9f); // TODO : TestCode

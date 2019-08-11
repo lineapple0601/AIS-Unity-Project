@@ -2366,6 +2366,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 312763620736906866, guid: 9af1a1954910d0c4c824d23f950ec300,
+        type: 3}
+      propertyPath: Item
+      value: 
+      objectReference: {fileID: 5249485192576954530, guid: 8a1a3165828cdfd44ba46a5e5482fa1c,
+        type: 3}
+    - target: {fileID: 312763620736906866, guid: 9af1a1954910d0c4c824d23f950ec300,
+        type: 3}
+      propertyPath: ShipExplosion
+      value: 
+      objectReference: {fileID: 3390814954827790823, guid: 5d50132340516a54c991e87c4aa673e1,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9af1a1954910d0c4c824d23f950ec300, type: 3}
 --- !u!1 &1484880337
@@ -2741,7 +2753,7 @@ RectTransform:
   m_Children:
   - {fileID: 204211380}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3973,6 +3985,11 @@ PrefabInstance:
       propertyPath: final_btn
       value: 
       objectReference: {fileID: 953211317}
+    - target: {fileID: 7894454354767008740, guid: 6ab467f802aafd24f89db870c92e0e52,
+        type: 3}
+      propertyPath: FireDelay
+      value: 1.25
+      objectReference: {fileID: 0}
     - target: {fileID: 2983834015614356432, guid: 6ab467f802aafd24f89db870c92e0e52,
         type: 3}
       propertyPath: joystick
@@ -4126,6 +4143,11 @@ PrefabInstance:
         type: 3}
       propertyPath: timerForEnd
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6983103093219013366, guid: 9f2e2cbb4f2035d4da05d2b638f74c34,
+        type: 3}
+      propertyPath: FireDelay
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4679101317076442697, guid: 9f2e2cbb4f2035d4da05d2b638f74c34,
         type: 3}

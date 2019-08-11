@@ -14,6 +14,7 @@ public class ItemMovement : MonoBehaviour
     {
         angle.x = Random.Range(-1f, 1f);
         angle.y = Random.Range(-1f, 1f);
+        //angle = Mathf.Atan2(angle.y, angle.x) * Mathf.Rad2Deg;
         //angle = Mathf.Atan2(GameObject.FindWithTag("Player").transform.position.y, GameObject.FindWithTag("Player").transform.position.x) * Mathf.Rad2Deg;
         //angle = Mathf.Atan2(Random.Range(10f, -10f), Random.Range(10f, -10f)) * Mathf.Rad2Deg;
         //transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
@@ -25,6 +26,7 @@ public class ItemMovement : MonoBehaviour
     {
         if (!flag)
         {
+            //transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
             gameObject.transform.Translate(Vector2.up * MoveSpeed * Time.deltaTime);
             flag = true;
         }

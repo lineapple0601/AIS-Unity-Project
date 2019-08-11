@@ -15,7 +15,7 @@ public class PlayerMissileFire : MonoBehaviour
     public Image final_buttonImage;     //finalAttackButton_Image
     public Button final_btn;            //finalAttackButton
     public Transform MissileLocation;   //生成位置
-    public float FireDelay = 1;         //ミサイル速度
+    private float FireDelay;         //ミサイル速度
     private bool FireState;             //ミサイル速度制御
 
     public int MissileMaxPool;          //メモリープールに設定するミサイルの数
@@ -51,11 +51,11 @@ public class PlayerMissileFire : MonoBehaviour
     {
         if (FireState)
         {
-                    //基本攻撃ボタン
+            //基本攻撃ボタン
             if (Input.GetKey(KeyCode.A) || basic_button == true)
             {
-                //FinalAttack = false;
-                //FireDelay = 1;
+                FinalAttack = false;
+                FireDelay = 0.5f;
                 StartCoroutine(FireCycleControl());
                 
                 for (int i = 0; i < MissileMaxPool; i++)
@@ -80,7 +80,6 @@ public class PlayerMissileFire : MonoBehaviour
                 if (timer <= timerForEnd)
                 {
                     timer += Time.deltaTime;
-                    //StartCoroutine(FireCycleControl());
                     StartCoroutine(CoolTime(6f));
 
                     for (int i = 0; i < MissileMaxPool; i++)
@@ -89,15 +88,16 @@ public class PlayerMissileFire : MonoBehaviour
                         {
                             MissileArray[i] = MPool.NewItem();  //プールでミサイルを持ってくる
                             MissileArray[i].transform.position = MissileLocation.transform.position;    //それの発射位置を設定する
+                            StartCoroutine(FireCycleControl());
                             break;
                         }
                     }
                 }
-                //必殺技の時間が終わったら
+                //必殺技の時間が終わったら基本攻撃に戻す
                 else
                 {
                     FinalAttack = false;
-                    FireDelay = 1;
+                    FireDelay = 0.5f;
                     timer = 0;
                 }
             }
@@ -121,7 +121,7 @@ public class PlayerMissileFire : MonoBehaviour
         final_button = false;
     }
 
-
+    //射撃間隔処理
     IEnumerator FireCycleControl()
     {
         FireState = false;

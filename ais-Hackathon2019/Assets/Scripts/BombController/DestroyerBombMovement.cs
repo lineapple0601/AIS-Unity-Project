@@ -18,7 +18,7 @@ public class DestroyerBombMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.rotation = GameObject.Find("Player2").GetComponentInChildren<Transform>().GetChild(0).transform.rotation;
+        //transform.rotation = GameObject.Find("Player2").GetComponentInChildren<Transform>().GetChild(0).transform.rotation;
         transform.Translate(Vector2.up * MoveSpeed * Time.deltaTime);
 
         Vector3 pos = Camera.main.WorldToViewportPoint(this.transform.position);

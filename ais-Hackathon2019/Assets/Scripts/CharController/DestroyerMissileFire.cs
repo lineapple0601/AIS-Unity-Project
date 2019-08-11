@@ -10,12 +10,11 @@ public class DestroyerMissileFire : MonoBehaviour
     public bool final_button = false;
     public GameObject player_Ro;
 
-
     public GameObject PlayerMissile;
     public Transform MissileLocation;   //生成位置
     public Image final_buttonImage;     //finalAttackButton_Image
     public Button final_btn;            //finalAttackButton
-    public float FireDelay = 1;         //ミサイル速度
+    private float FireDelay;         //ミサイル速度
     private bool FireState;             //ミサイル速度制御
 
     public int MissileMaxPool;          //メモリープールに設定するミサイルの数
@@ -54,8 +53,8 @@ public class DestroyerMissileFire : MonoBehaviour
             //基本攻撃ボタン
             if (Input.GetKey(KeyCode.A) || basic_button == true)
             {
-                //FinalAttack = false;
-                //FireDelay = 1;
+                FinalAttack = false;    //必殺技非活性
+                FireDelay = 0.5f;       //射撃のdelay設定
                 StartCoroutine(FireCycleControl());
 
                 for (int i = 0; i < MissileMaxPool; i++)
@@ -64,6 +63,8 @@ public class DestroyerMissileFire : MonoBehaviour
                     {
                         MissileArray[i] = MPool.NewItem();  //プールでミサイルを持ってくる
                         MissileArray[i].transform.position = MissileLocation.transform.position;    //それの発射位置を設定する
+                        MissileArray[i].transform.rotation = 
+                            GameObject.Find("Player2").GetComponentInChildren<Transform>().GetChild(0).transform.rotation;  //それの発射方向を設定する
                         break;
                     }
                 }
@@ -71,8 +72,8 @@ public class DestroyerMissileFire : MonoBehaviour
             //必殺技ボタン
             if (Input.GetKey(KeyCode.S) || final_button == true)
             {
-                FinalAttack = true;
-                FireDelay = 0.15f;
+                FinalAttack = true;     //必殺技活性
+                FireDelay = 1.25f;      //射撃のdelay設定
             }
             if (FinalAttack == true)
             {
@@ -80,20 +81,32 @@ public class DestroyerMissileFire : MonoBehaviour
                 if (timer <= timerForEnd)
                 {
                     timer += Time.deltaTime;
-                    //StartCoroutine(FireCycleControl());
-                    StartCoroutine(CoolTime(6f));
+                    StartCoroutine(CoolTime(4f));
 
                     for (int i = 0; i < MissileMaxPool; i++)
                     {
                         if (MissileArray[i] == null) //空配列の場合
                         {
+                            Quaternion angle = GameObject.Find("Player2").GetComponentInChildren<Transform>().GetChild(0).transform.rotation; //それの発射方向を設定する
                             MissileArray[i] = MPool.NewItem();  //プールでミサイルを持ってくる
                             MissileArray[i].transform.position = MissileLocation.transform.position;    //それの発射位置を設定する
+                            if (i % 3 == 1)
+                            {
+                                MissileArray[i].transform.rotation = angle;     //球の方向がangleのまま
+                            }
+                            else if (i % 3 == 2)
+                            {
+                                MissileArray[i].transform.rotation = angle * Quaternion.Euler(0, 0, 30);     //球の方向をangleより30度回転させる
+                            }
+                            else if (i % 3 == 0)
+                            {
+                                MissileArray[i].transform.rotation = angle * Quaternion.Euler(0, 0, -30);     //球の方向をangleより-30度回転させる
+                            }
                             break;
                         }
                     }
                 }
-                //必殺技の時間が終わったら
+                //必殺技の時間が終わったら基本攻撃に戻す
                 else
                 {
                     FinalAttack = false;
@@ -121,7 +134,7 @@ public class DestroyerMissileFire : MonoBehaviour
         final_button = false;
     }
 
-
+    //射撃間隔処理
     IEnumerator FireCycleControl()
     {
         FireState = false;
