@@ -11,7 +11,12 @@ public class CameraCtrl : MonoBehaviour
     public GameObject Player_2;
     public GameObject Player_3;
     public GameObject Player_4;
+<<<<<<< HEAD
+    public GameObject Player_Test;
+    Transform AT;
+=======
     //Transform AT;
+>>>>>>> 184a2ac60f760efb579292494116ce0125deaa55
 
     public GameObject SeaBackGround;
 
@@ -47,10 +52,10 @@ public class CameraCtrl : MonoBehaviour
         {
             AT = Player_3.transform;
          }
-        //else if (Player_4.activeSelf == true)
-        // {
-        //     AT = Player_4.transform;
-        //}
+        else if (Player_4.activeSelf == true)
+         {
+             AT = Player_4.transform;
+        }
         else if (Player_Test.activeSelf == true)
         {
             AT = Player_Test.transform;
