@@ -18,7 +18,7 @@ public class PlayerController : ShipController
     {
         // 初期設定
         _playerType = 3; // プレイヤーの船（0:駆逐艦、1:戦艦、2:潜水艦、3:空母）
-        //_moveStick = GameObject.Find("joystickBG");
+        _movStick = GameObject.Find("joystickBG").GetComponent<PlayerCtrl_joystick>();
         InitPlayer(_playerType);
     }
 

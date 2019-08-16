@@ -11,17 +11,15 @@ public class MainManager : MonoBehaviour
     void Start()
     {
         // プレイヤー初期化
-        playerObj = GameObject.FindWithTag("AirCraftCarrier");
-        //playerObj = (GameObject)Resources.Load("Prefabs/player_aircraftcarrier");
-        //Instantiate(playerObj, new Vector3(0f, 0f, 0f), Quaternion.identity);
+        //playerObj = GameObject.FindWithTag("AirCraftCarrier");
+        playerObj = (GameObject)Resources.Load("Prefabs/player_aircraftcarrier");
+        Instantiate(playerObj, new Vector3(0f, 0f, 0f), Quaternion.identity);
     }
 
     // Update is called once per frame
     void Update()
     {
         SceneController();
-
-
     }
 
     private void SceneController()
