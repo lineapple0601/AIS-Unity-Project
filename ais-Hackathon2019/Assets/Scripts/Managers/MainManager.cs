@@ -5,33 +5,46 @@ using UnityEngine.SceneManagement;
 
 public class MainManager : MonoBehaviour
 {
+    public GameObject playerObj;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        // プレイヤー初期化
+        playerObj = GameObject.FindWithTag("AirCraftCarrier");
+        //playerObj = (GameObject)Resources.Load("Prefabs/player_aircraftcarrier");
+        //Instantiate(playerObj, new Vector3(0f, 0f, 0f), Quaternion.identity);
     }
 
     // Update is called once per frame
     void Update()
     {
+        SceneController();
+
+
+    }
+
+    private void SceneController()
+    {
+        // ポーズ画面移行
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            ChangeScene();
+            ChangeToPauseScene();
         }
 
-        if (Input.GetKeyDown(KeyCode.D))
+        // スコア画面移行
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log("get key down d");
+            ChangeToScoreScene();
         }
     }
 
-    private void ChangeScoreScene()
+    private void ChangeToScoreScene()
     {
         SceneManager.LoadScene("ScoreScene");
     }
 
-    private void ChangeScene()
+    private void ChangeToPauseScene()
     {
         SceneManager.LoadScene("PauseScene");
     }

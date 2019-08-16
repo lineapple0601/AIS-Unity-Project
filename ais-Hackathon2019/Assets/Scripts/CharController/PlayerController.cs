@@ -3,128 +3,138 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : ShipController
 {
-    /*作成者：MOON*/
-    public PlayerCtrl_joystick joystick; // PlayerController_Joystickのスクリプト
-    public PlayerCtrl_Joystick_Ro joystickRo; // PlayerController_Joystick_Roのスクリプト
-    public PauseManager paM;
+    // 定数
 
-    /*作成者：MOON*/
-    public float MoveSpeed; // プレイヤーの移動速度
+    // 公開変数
 
-    /*作成者：MOON*/
-    private Vector3 _moveVector; // プレイヤーの移動Vector
-    private Transform _transform;
+    public int _playerType;
+    public PlayerCtrl_joystick _movStick; // Joystickコントローラ
+    // 内部変数
 
-    /*作成者：MOON*/
-    //プレイヤーのオブジェクト
-    private bool facingRight = true;
-    private Rigidbody2D rd;
-
-    // 戦艦タイプ
-    private BattleShipType Type;
-
-    /*作成者：MOON*/
     // Start is called before the first frame update
     void Start()
     {
-        rd = GetComponent<Rigidbody2D>();
-        _transform = transform; //transform キャシング
-        _moveVector = Vector3.zero; // プレイヤーの移動Vector初期化
-        Time.timeScale = 1.0f;
-        this.Type = new BasicShip(); // 基本戦艦
+        // 初期設定
+        _playerType = 3; // プレイヤーの船（0:駆逐艦、1:戦艦、2:潜水艦、3:空母）
+        //_moveStick = GameObject.Find("joystickBG");
+        InitPlayer(_playerType);
     }
 
-    /*作成者：MOON*/
     // Update is called once per frame
-    void Update()
+    void Update() {}
+
+    // 固定フレームレートによるUpdate
+    public new void FixedUpdate()
     {
-        //タッチパッド入力もらい
-        HandleInput();
-
-        /////Start
-        ///キーボードのための操作
-        if (Input.GetKey("up"))
-        {
-            transform.position += transform.up * MoveSpeed * Time.deltaTime;
-        }
-        if (Input.GetKey("down"))
-        {
-            transform.position -= transform.up * MoveSpeed * Time.deltaTime;
-        }
-        if (Input.GetKey("right"))
-        {
-            transform.position += transform.right * MoveSpeed * Time.deltaTime;
-        }
-        if (Input.GetKey("left"))
-        {
-            transform.position -= transform.right * MoveSpeed * Time.deltaTime;
-        }
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            paM.ActivePauseBt();
-        }
-
-        Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
-
-        if (pos.x < 0f) pos.x = 0f;
-        if (pos.x > 1f) pos.x = 1f;
-        if (pos.y < 0f) pos.y = 0f;
-        if (pos.y > 1f) pos.y = 1f;
-
-        transform.position = Camera.main.ViewportToWorldPoint(pos);
-
+        // 移動情報更新
+        MoveHandler();
+        // 移動
+        MoveAction();
     }
 
-    /*作成者：MOON*/
-    private void HandleInput()
+    private void InitPlayer(int playerType)
     {
-        //タッチパッド入力受信
-        _moveVector = PoolInput();
+        _moveFlg = false;
+        _movVector = Vector3.zero;
+        _rd = GetComponent<Rigidbody2D>();
+        transform.position = Vector3.zero;
+        transform.rotation = Quaternion.Euler(0.0f, 0.0f, _rotateAngle);
+
+        switch (playerType)
+        {
+            case 0:
+                break;
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                _hp = 100;
+                _speed = 1.5f;
+                _rotationSpeed = 0.7f;
+                _rotateAngle = -90f; // 初期向き補正：右
+                break;
+        }
     }
 
-    /*作成者：MOON*/
-    public void FixedUpdate()
+    // 移動をコントロール
+    public override void MoveHandler()
     {
-        //プレイヤー移動
-        Move();
+        _moveFlg = false;
+
+        // Stickによる方向設定
+        StickControl();
+        if (_moveFlg) return; // stick操作を受け付けるとキーボード操作を受け付けないようにする
+
+        // キーボードによる方向設定
+        KeyboardControl();
     }
 
-    /*作成者：MOON*/
-    private Vector3 PoolInput()
-    {   
-        float h = joystick.GetHorizontalValue();
-        float v = joystick.GetVerticalValue();
+    // Stickボタンによる操作（向きを確定）
+    private void StickControl()
+    {
+        float stickMovH = _movStick.GetHorizontalValue();
+        float stickMovV = _movStick.GetVerticalValue();
+        float nowAngle = CorrectAngleValue(_rotateAngle);
+        float targetAngle = nowAngle;
 
-        Vector3 moveDir = new Vector3(h, v, 0).normalized;
-        return moveDir;
+        if (!stickMovH.Equals(0f) || !stickMovV.Equals(0f))
+        {
+            _moveFlg = true;
+            float theta = 0;
+            theta = (float)Math.Atan(-stickMovH / stickMovV);
+            targetAngle = theta * 180f / (float)Math.PI;
+            if (stickMovV < 0)
+            {
+                targetAngle += 180f;
+            }
+            targetAngle = CorrectAngleValue(targetAngle);
+        }
+        // 回転角更新
+        _rotateAngle = CalcRotationAngle(nowAngle, targetAngle);
     }
 
-    /*作成者：MOON*/
-    public void Move()
+    // キーボードボタン（WASD）による操作（向きを確定）
+    private void KeyboardControl()
     {
+        float nowAngle = CorrectAngleValue(_rotateAngle);
+        float targetAngle = nowAngle;
 
-        float rotate_speed = _transform.GetChild(0).rotation.z;
-
-
-        float h_rotation = joystickRo.GetHorizontalValue();
-        float v_rotation = joystickRo.GetVerticalValue();
-
-        if (transform.rotation.z <= -360 || transform.rotation.z >= 360)
+        if (Input.GetKey(KeyCode.W))
         {
-            transform.Rotate(0, 0, 0);
+            targetAngle = 0f;
+            _moveFlg = true;
         }
-
-       if ((h_rotation > 0 && v_rotation > 0) || (h_rotation > 0 && v_rotation < 0))
+        else if (Input.GetKey(KeyCode.A))
         {
-            _transform.GetChild(0).Rotate(0,0, rotate_speed * -h_rotation * v_rotation - 1);
+            targetAngle = 90f;
+            _moveFlg = true;
         }
-       else if ((h_rotation < 0 && v_rotation > 0) || (h_rotation < 0 && v_rotation < 0))
+        else if (Input.GetKey(KeyCode.S))
         {
-            _transform.GetChild(0).Rotate(0, 0, rotate_speed * h_rotation * v_rotation + 1);
+            targetAngle = 180f;
+            _moveFlg = true;
         }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            targetAngle = 270f;
+            _moveFlg = true;
+        }
+        // 回転角更新
+        _rotateAngle = CalcRotationAngle(nowAngle, targetAngle);
+    }
 
-        _transform.Translate(_moveVector * MoveSpeed * Time.deltaTime);
+    public override void MoveAction()
+    {
+        transform.rotation = Quaternion.Euler(0.0f, 0.0f, _rotateAngle);
+        _movVector = GetDirectionVectorByAngle(_rotateAngle);
+        // 前進
+        if (_moveFlg)
+        {
+            Vector3 newPos = transform.position + _movVector * _speed * Time.deltaTime;
+            transform.position = newPos;
+        }
     }
 }
