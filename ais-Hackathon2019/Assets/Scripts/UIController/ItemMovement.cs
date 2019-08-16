@@ -9,6 +9,9 @@ public class ItemMovement : MonoBehaviour
     float angle2,angle3;
     bool flag = false;
 
+    public GameObject aircraft;
+    public GameObject destroyer;
+
     // Start is called before the first frame update
     void Start()
     {
