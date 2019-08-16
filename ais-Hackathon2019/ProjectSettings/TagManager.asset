@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Bomb
+  - AirCraftCarrier
   layers:
   - Default
   - TransparentFX
