@@ -22,6 +22,10 @@ public class PlayerMissileFire : MonoBehaviour
     private MemoryPool MPool;           //メモリープール
     private GameObject[] MissileArray;  //ミサイルの配列
 
+    //攻撃SE
+    private AudioSource BasicAttackSE;
+    private AudioSource SpecialAttackSE;
+
     //joystickによる攻撃を選択
     bool FinalAttack;
     public float timerForEnd;   // 攻撃time
@@ -40,6 +44,11 @@ public class PlayerMissileFire : MonoBehaviour
         MPool = new MemoryPool();
         MPool.Create(PlayerMissile, MissileMaxPool);  //オブジェクトをMAXプールの数分生成する
         MissileArray = new GameObject[MissileMaxPool];
+
+        //AudioSourceコンポーネントを取得し、変数に格納
+        AudioSource[] audioSources = GetComponents<AudioSource>();
+        BasicAttackSE = audioSources[0];
+        SpecialAttackSE = audioSources[1];
     }
 
     void Update()
@@ -57,6 +66,7 @@ public class PlayerMissileFire : MonoBehaviour
                 FinalAttack = false;
                 FireDelay = 0.5f;
                 StartCoroutine(FireCycleControl());
+                BasicAttackSE.Play();
                 
                 for (int i = 0; i < MissileMaxPool; i++)
                 {
@@ -73,6 +83,7 @@ public class PlayerMissileFire : MonoBehaviour
             {
                 FinalAttack = true;
                 FireDelay = 0.15f;
+                SpecialAttackSE.Play();
             }
             if (FinalAttack == true)
             {
