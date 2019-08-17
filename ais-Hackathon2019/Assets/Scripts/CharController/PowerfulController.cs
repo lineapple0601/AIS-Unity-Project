@@ -3,9 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : ShipController
+
+public class PowerfulController : ShipController
 {
     // 定数
+    public GameObject missile_1;
+    public GameObject missile_2;
+    public GameObject missile_3;
+    public GameObject missile_4;
+    public GameObject missile_5;
+    public GameObject missile_6;
+    public GameObject missile_7;
+    public GameObject missile_8;
 
     // 公開変数
     public int _enemyType;
@@ -79,7 +88,7 @@ public class EnemyController : ShipController
         GameObject playerObj = GameObject.Find("GameManager").GetComponent<MainManager>().playerObj;
         Transform playerTF = playerObj.transform;
         float dist = GetDistanceFromPlayer(playerTF);
-        if (dist < 20f) _moveFlg = false; // 距離が近いと停止する
+        if (dist < 70f) _moveFlg = false; // 距離が近いと停止する
 
         // 敵の種類によって異なるAIを実装
         switch (_enemyType)
@@ -89,7 +98,7 @@ public class EnemyController : ShipController
                 // AI概要：プレイヤーへ接近し、一定距離に到達後待機、
                 //        また一定距離離れると再度移動開始
                 SetAngleToPlayer(playerTF);
-                if (dist > 30f) _moveFlg = true;
+                if (dist > 60f) _moveFlg = true;
                 break;
             case 1:
                 break;

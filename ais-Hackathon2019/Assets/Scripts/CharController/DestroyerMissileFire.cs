@@ -51,7 +51,7 @@ public class DestroyerMissileFire : MonoBehaviour
         if (FireState)
         {
             //基本攻撃ボタン
-            if (Input.GetKey(KeyCode.A) || basic_button == true)
+            if (Input.GetKey(KeyCode.J) || basic_button == true)
             {
                 FinalAttack = false;    //必殺技非活性
                 FireDelay = 0.5f;       //射撃のdelay設定
@@ -70,7 +70,7 @@ public class DestroyerMissileFire : MonoBehaviour
                 }
             }
             //必殺技ボタン
-            if (Input.GetKey(KeyCode.S) || final_button == true)
+            if (Input.GetKey(KeyCode.K) || final_button == true)
             {
                 FinalAttack = true;     //必殺技活性
                 FireDelay = 1.25f;      //射撃のdelay設定
