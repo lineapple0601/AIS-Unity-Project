@@ -6,8 +6,6 @@ using UnityEngine;
 public class BombA : MonoBehaviour
 {
     public float MoveSpeed;
-    Vector3 dir;
-    float angle;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +22,6 @@ public class BombA : MonoBehaviour
 
         if (pos.x > 1f || pos.y > 1f || pos.x < 0f || pos.y < 0f)
         {
-            // missile非活性する。
             Destroy(gameObject);
         }
     }
