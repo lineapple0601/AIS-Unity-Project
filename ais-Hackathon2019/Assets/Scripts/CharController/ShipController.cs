@@ -10,6 +10,7 @@ public class ShipController : MonoBehaviour
 
     // 公開変数
     public bool        _moveFlg;       // 移動状態の有無
+    public bool        _attackedFlg;   // 攻撃済みフラグ
     public int         _hp;            // HP
     public float       _acc;           // 加速度
     public float       _speed;         // 速度
@@ -18,7 +19,7 @@ public class ShipController : MonoBehaviour
     public float       _rotateAngle;   // 回転角(0.0f~359.0f)
     public Vector3     _movVector;     // 方向ベクトル
     public Vector3     _enemyBombPos;  // 敵の位置
-    public Quaternion  _EnemyBombAngle;// 敵の球の角度
+    public Quaternion _EnemyBombAngle;// 敵の球の角度
     // 内部変数
     public Rigidbody2D _rd;
 
