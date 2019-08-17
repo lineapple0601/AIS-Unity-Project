@@ -16,7 +16,7 @@ public class CameraCtrl : MonoBehaviour
     {
         playerObject = GameObject.FindGameObjectWithTag("Player");
 
-        // カメラのプレイヤー追従処理
+            // カメラのプレイヤー追従処理
         transform.position = new Vector3(playerObject.transform.position.x,
                                          playerObject.transform.position.y,
                                          transform.position.z
