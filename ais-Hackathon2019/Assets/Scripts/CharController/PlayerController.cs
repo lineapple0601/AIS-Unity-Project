@@ -28,6 +28,8 @@ public class PlayerController : ShipController
     private MemoryPool   _mPool;         // メモリープール
     private bool         _spAttack;
     private float        _timer;         // timer
+    private AudioSource _basicAttackSE;
+    private AudioSource _specialAttackSE;
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +51,11 @@ public class PlayerController : ShipController
         _atkObjArray = new GameObject[_atkObjMaxPool];
         _mPool = new MemoryPool();
         _mPool.Create(_atkObj, _atkObjMaxPool);  //オブジェクトをMAXプールの数分生成する
+
+        //攻撃SEの取得
+        AudioSource[] audioSources = GetComponents<AudioSource>();
+        _basicAttackSE = audioSources[0];
+        _specialAttackSE = audioSources[1];
     }
 
     private void OnApplicationQuit()
@@ -215,6 +222,7 @@ public class PlayerController : ShipController
         {
             _atkObjSpeed = 0.5f;
             StartCoroutine(FireCycleControl());
+            _basicAttackSE.Play();
 
             switch (_playerType)
             {
@@ -277,10 +285,12 @@ public class PlayerController : ShipController
                     break;
                 case 1:
                 case 2:
+                    _specialAttackSE.Play();
                     _spAttack = true;
                     _atkObjSpeed = 1.25f;
                     break;
                 case 3:
+                    _specialAttackSE.Play();
                     _spAttack = true;
                     _atkObjSpeed = 0.15f;
                     break;
