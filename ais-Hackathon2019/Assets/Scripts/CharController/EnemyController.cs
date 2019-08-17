@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class EnemyController : ShipController
 {
@@ -13,9 +12,8 @@ public class EnemyController : ShipController
     public GameObject EnemyBomb;    //敵の球
 
     // 内部変数
-    //private int AttackPattern = 0;      //敵の攻撃パータン
-    private bool FireState;             //ミサイル制御
     private float timer;                // timer
+    private bool isUpAngle = true;
 
     // Start is called before the first frame update
     void Start()
@@ -52,13 +50,18 @@ public class EnemyController : ShipController
         switch (_enemyType)
         {
             case 0:
-                // EnemyA：初期敵（駆逐艦）
+                // EnemyA：初期敵（A）
                 _hp = 30;
                 _maxSpeed = 1.0f;
                 _acc = 0.07f;
                 _rotationSpeed = 1.0f;
                 break;
             case 1:
+                // EnemyB：初期敵（B）
+                _hp = 30;
+                _maxSpeed = 1.0f;
+                _acc = 0.07f;
+                _rotationSpeed = 1.0f;
                 break;
             case 2:
                 break;
@@ -71,7 +74,6 @@ public class EnemyController : ShipController
         _rotateAngle = 90f; // 初期向き補正：左
         _movVector = Vector3.zero;
         _rd = GetComponent<Rigidbody2D>();
-        transform.position = new Vector3(8, -3, 0);
         transform.rotation = Quaternion.Euler(0.0f, 0.0f, _rotateAngle);
     }
 
@@ -94,8 +96,11 @@ public class EnemyController : ShipController
                 if (dist > 30f) _moveFlg = true;
                 break;
             case 1:
+                // AI概要：プレイヤーの動きに関わらず、常に上下に移動する
+                SetAngleUpOrDown();
                 break;
             case 2:
+                // AI概要：プレイヤーに対して、時計回りに動く
                 break;
         }
 
@@ -217,18 +222,32 @@ public class EnemyController : ShipController
         _rotateAngle = CalcRotationAngle(nowAngle, targetAngle);
     }
 
+    //向きを上下する
+    public void SetAngleUpOrDown()
+    {
+        float nowAngle = CorrectAngleValue(_rotateAngle);
+        float targetAngle = nowAngle;
+
+        if (isUpAngle)
+            targetAngle = 0f;
+        else
+            targetAngle = 180f;
+
+        var position = Camera.main.WorldToViewportPoint(transform.position);
+        if (position.y <= 0.1f)
+            isUpAngle = true;
+        else if (position.y >= 0.9f)
+            isUpAngle = false;
+
+        //回転角更新
+        _rotateAngle = CalcRotationAngle(nowAngle, targetAngle);
+    }
+
+
     // プレイヤーとの距離（二乗）を求める
     public float GetDistanceFromPlayer(Transform playerTF)
     {
         return (float)(Math.Pow((playerTF.position.x - transform.position.x), 2) +
             Math.Pow((playerTF.position.y - transform.position.y), 2));
-    }
-
-    //射撃間隔処理
-    IEnumerator FireCycleControl()
-    {
-        Debug.Log("Delay call");
-        yield return new WaitForSeconds(1f);
-        FireState = true;
     }
 }
