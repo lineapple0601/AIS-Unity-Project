@@ -58,6 +58,4 @@ public class PauseManager : MonoBehaviour
     {
         return this.pauseOn;
     }
-
-
 }
