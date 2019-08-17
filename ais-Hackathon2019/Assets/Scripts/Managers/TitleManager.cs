@@ -8,7 +8,7 @@ public class TitleManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      /*  Invoke("ChangeScene", 1.5f);*/
+        Debug.Log("");
     }
 
     // Update is called once per frame
@@ -17,9 +17,8 @@ public class TitleManager : MonoBehaviour
         
     }
 
-    public void ChangeScene()
+    public void ChangeSceneMain()
     {
-        Debug.Log("sdsd");
         SceneManager.LoadScene("MainScene");
     }
 

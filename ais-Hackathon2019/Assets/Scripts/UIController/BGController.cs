@@ -27,20 +27,24 @@ public class BGController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (joystick != null) { 
+            player_x = joystick.GetHorizontalValue() * 0.5f;
+            player_y = joystick.GetVerticalValue() * 0.5f;
         
-        player_x = joystick.GetHorizontalValue() * 0.5f;
-        player_y = joystick.GetVerticalValue() * 0.5f;
-
-        //offVec += new Vector2(offset * Scroll_Speed * Time.deltaTime, 0);
-        if (joystick.drag_Check)
-        {
-            offVec += new Vector2(player_x * Scroll_Speed * Time.deltaTime, player_y * Scroll_Speed * Time.deltaTime);
+            //offVec += new Vector2(offset * Scroll_Speed * Time.deltaTime, 0);
+            if (joystick.drag_Check)
+            {
+                offVec += new Vector2(player_x * Scroll_Speed * Time.deltaTime, player_y * Scroll_Speed * Time.deltaTime);
+             }
+             else
+            {
+                offVec += new Vector2(offset * Scroll_Speed * Time.deltaTime, 0);
+            }
         }
         else
         {
             offVec += new Vector2(offset * Scroll_Speed * Time.deltaTime, 0);
         }
-
         myMaterial.material.SetTextureOffset("_MainTex", offVec);
     }
 }

@@ -28,11 +28,13 @@ public class PauseManager : MonoBehaviour
         {
             ChangeScene();
         }
+
     }
 
-    private void ChangeScene()
+    public void ChangeScene()
     {
         SceneManager.LoadScene("MainScene");
+        Time.timeScale = 1.0f;
     }
 
     public void ActivePauseBt()
@@ -58,6 +60,4 @@ public class PauseManager : MonoBehaviour
     {
         return this.pauseOn;
     }
-
-
 }
