@@ -45,6 +45,7 @@ public class BGController : MonoBehaviour
         {
             offVec += new Vector2(offset * Scroll_Speed * Time.deltaTime, 0);
         }
+
         myMaterial.material.SetTextureOffset("_MainTex", offVec);
     }
 }
