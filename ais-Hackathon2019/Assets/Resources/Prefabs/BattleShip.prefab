@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4161443913983428655}
   - component: {fileID: 5122178706851847603}
   - component: {fileID: 277569915314188538}
-  - component: {fileID: 6976002437159608366}
   - component: {fileID: 8035019990376316004}
   - component: {fileID: 3420275311057228016}
+  - component: {fileID: 8466037203405847595}
   m_Layer: 0
   m_Name: BattleShip
   m_TagString: Player
@@ -116,22 +116,6 @@ MonoBehaviour:
   _atkObjMaxPool: 0
   _timerForEnd: 0
   _divingFlg: 0
---- !u!70 &6976002437159608366
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6630368133141822913}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.009894788, y: 0}
-  m_Size: {x: 0.32105148, y: 2.13}
-  m_Direction: 0
 --- !u!82 &8035019990376316004
 AudioSource:
   m_ObjectHideFlags: 0
@@ -324,3 +308,45 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!60 &8466037203405847595
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6630368133141822913}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.42, y: 2.13}
+    newSize: {x: 0.42, y: 2.13}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 1
+  m_Points:
+    m_Paths:
+    - - {x: 0.14311242, y: 0.17998879}
+      - {x: 0.110000014, y: 0.7524384}
+      - {x: 0.060000002, y: 0.93744963}
+      - {x: 0.01, y: 1.0649999}
+      - {x: -0.02, y: 1.0649999}
+      - {x: -0.08000004, y: 0.9299439}
+      - {x: -0.13311243, y: 0.5273822}
+      - {x: -0.15874147, y: 0.052438222}
+      - {x: -0.15874147, y: -0.36751685}
+      - {x: -0.15437078, y: -0.46751684}
+      - {x: -0.1443708, y: -0.83497757}
+      - {x: -0.11437082, y: -0.92246073}
+      - {x: -0.08, y: -1.0649999}
+      - {x: 0.09125835, y: -1.0574944}
+      - {x: 0.12311226, y: -0.8574945}
+      - {x: 0.1443708, y: -0.45250565}
+      - {x: 0.16, y: -0.385}

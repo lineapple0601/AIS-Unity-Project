@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 7120727751000289141}
   - component: {fileID: 434482838959232923}
   - component: {fileID: 6977807244232045855}
-  - component: {fileID: 5555960986476281059}
   - component: {fileID: 178528438809206523}
   - component: {fileID: 543925304155720640}
+  - component: {fileID: 5321371999993814312}
   m_Layer: 0
   m_Name: Aircraftcarrier
   m_TagString: Player
@@ -116,22 +116,6 @@ MonoBehaviour:
   _atkObjMaxPool: 0
   _timerForEnd: 0
   _divingFlg: 0
---- !u!70 &5555960986476281059
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 22887373861748523}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.61, y: 1.95}
-  m_Direction: 0
 --- !u!82 &178528438809206523
 AudioSource:
   m_ObjectHideFlags: 0
@@ -324,3 +308,57 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!60 &5321371999993814312
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22887373861748523}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.61, y: 1.95}
+    newSize: {x: 0.61, y: 1.95}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 1
+  m_Points:
+    m_Paths:
+    - - {x: 0.29061455, y: -0.44142717}
+      - {x: 0.28937083, y: -0.355}
+      - {x: 0.22811246, y: -0.3518876}
+      - {x: 0.2136575, y: -0.2528067}
+      - {x: 0.2213757, y: -0.08485296}
+      - {x: 0.23122478, y: 0.16499999}
+      - {x: 0.24252689, y: 0.34765688}
+      - {x: 0.19433725, y: 0.4518877}
+      - {x: 0.17248297, y: 0.66248316}
+      - {x: 0.15685403, y: 0.90307873}
+      - {x: 0.14499998, y: 0.9524831}
+      - {x: -0.09500003, y: 0.9524831}
+      - {x: -0.11122489, y: 0.685}
+      - {x: -0.15281975, y: 0.5679399}
+      - {x: -0.15563524, y: 0.49219587}
+      - {x: -0.2937417, y: 0.47062927}
+      - {x: -0.28811252, y: 0.21559563}
+      - {x: -0.25374627, y: 0.06115085}
+      - {x: -0.23248315, y: -0.14069648}
+      - {x: -0.22804701, y: -0.810651}
+      - {x: -0.20934904, y: -0.86109406}
+      - {x: -0.09239614, y: -0.94369805}
+      - {x: -0.0006508827, y: -0.94369805}
+      - {x: 0.08951187, y: -0.9310059}
+      - {x: 0.10744965, y: -0.9293708}
+      - {x: 0.17433715, y: -0.9124832}
+      - {x: 0.20825303, y: -0.8218642}
+      - {x: 0.22559536, y: -0.5512249}
+      - {x: 0.28937072, y: -0.5437416}

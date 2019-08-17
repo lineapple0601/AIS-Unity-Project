@@ -11,7 +11,21 @@ public class EnemyController : ShipController
     public int _enemyType;
     public GameObject EnemyBomb;    //敵の球
 
+    // BOSS用
+    public Vector3[] missile_pos;
+    public Quaternion[] missile_ro;
+    public GameObject missile_1;
+    public GameObject missile_2;
+    public GameObject missile_3;
+    public GameObject missile_4;
+    public GameObject missile_5;
+    public GameObject missile_6;
+    public GameObject missile_7;
+    public GameObject missile_8;
+
     // 内部変数
+    private int AttackPattern = 0;      //敵の攻撃パータン
+    private bool FireState;             //ミサイル制御
     private float timer;                // timer
     private bool isUpAngle = true;
 
@@ -19,6 +33,7 @@ public class EnemyController : ShipController
     void Start()
     {
         // 初期設定
+        _aliveFlg = true;
         //_enemyType = 0; // 敵種類（0:初期敵, 1:）
         InitEnemy();
     }
@@ -50,25 +65,38 @@ public class EnemyController : ShipController
         switch (_enemyType)
         {
             case 0:
-                // EnemyA：初期敵（A）
-                _hp = 30;
-                _maxSpeed = 1.0f;
+                // EnemyA
+                _maxHp = 30;
+                _maxSpeed = 1.2f;
                 _acc = 0.07f;
                 _rotationSpeed = 1.0f;
                 break;
             case 1:
-                // EnemyB：初期敵（B）
-                _hp = 30;
-                _maxSpeed = 1.0f;
-                _acc = 0.07f;
+                // EnemyB
+                _maxHp = 50;
+                _maxSpeed = 1.5f;
+                _acc = 0.09f;
                 _rotationSpeed = 1.0f;
                 break;
             case 2:
+                // EnemyC
+                _maxHp = 100;
+                _maxSpeed = 1.4f;
+                _acc = 0.05f;
+                _rotationSpeed = 1.5f;
                 break;
             case 3:
+                // Boss
+                _maxHp = 200;
+                _maxSpeed = 1.0f;
+                _acc = 0.07f;
+                _rotationSpeed = 0.8f;
+                missile_pos = new Vector3[8];
+                missile_ro = new Quaternion[8];
                 break;
         }
 
+        _hp = _maxHp;
         _moveFlg = false;
         _speed = _maxSpeed / 2;
         _rotateAngle = 90f; // 初期向き補正：左
@@ -83,24 +111,48 @@ public class EnemyController : ShipController
         GameObject playerObj = GameObject.Find("GameManager").GetComponent<MainManager>().playerObj;
         Transform playerTF = playerObj.transform;
         float dist = GetDistanceFromPlayer(playerTF);
-        if (dist < 20f) _moveFlg = false; // 距離が近いと停止する
 
         // 敵の種類によって異なるAIを実装
         switch (_enemyType)
         {
             case 0:
-                // EnemyA：初期敵（駆逐艦）
+                // EnemyA
+                // AI概要：プレイヤーへ接近し、一定距離に到達後
+                //        上下に移動する
+                _moveFlg = true;
+                if (dist < 40f)
+                {
+                    SetAngleUpOrDown();
+                }
+                else
+                {
+                    SetAngleToPlayer(playerTF);
+                }
+                break;
+            case 1:
+                // EnemyB
                 // AI概要：プレイヤーへ接近し、一定距離に到達後待機、
                 //        また一定距離離れると再度移動開始
+                if (dist < 20f) _moveFlg = false; // 距離が近いと停止する
                 SetAngleToPlayer(playerTF);
                 if (dist > 30f) _moveFlg = true;
                 break;
-            case 1:
-                // AI概要：プレイヤーの動きに関わらず、常に上下に移動する
-                SetAngleUpOrDown();
-                break;
             case 2:
-                // AI概要：プレイヤーに対して、時計回りに動く
+                // EnemyC
+                // AI概要：プレイヤーに対して、時計回りに動く TODO
+                // AI概要：プレイヤーへ接近し、一定距離に到達後待機、
+                //        また一定距離離れると再度移動開始
+                if (dist < 20f) _moveFlg = false; // 距離が近いと停止する
+                SetAngleToPlayer(playerTF);
+                if (dist > 30f) _moveFlg = true;
+                break;
+            case 3:
+                // Boss
+                // AI概要：プレイヤーへ接近し、一定距離に到達後待機、
+                //        また一定距離離れると再度移動開始
+                if (dist < 70f) _moveFlg = false; // 距離が近いと停止する
+                SetAngleToPlayer(playerTF);
+                if (dist > 60f) _moveFlg = true;
                 break;
         }
 
@@ -127,19 +179,39 @@ public class EnemyController : ShipController
         switch (_enemyType)
         {
             case 0:
-                // EnemyA_Bomb：初期敵（駆逐艦）
+                // EnemyA_Bomb
                 // 概要：Position = enemyの位置と同一、Angle = enemyの角度と同一、Speed = 2f
                 _EnemyBombAngle = transform.rotation;
                 break;
             case 1:
-                // EnemyA_Bomb：敵2
+                // EnemyB_Bomb
                 // 概要：Position = enemyの位置と同一、Angle = enemy一周回り、Speed = 2f
                 _EnemyBombAngle = transform.rotation;
                 break;
             case 2:
-                // EnemyA_Bomb：敵3
+                // EnemyC_Bomb
                 // 概要：Position = enemyの位置と同一、Angle = enemy前後方、Speed = 2f
                 _EnemyBombAngle = transform.rotation;
+                break;
+            case 3:
+                // Boss_Bomb
+                missile_pos[0] = missile_1.transform.position;
+                missile_pos[1] = missile_2.transform.position;
+                missile_pos[2] = missile_3.transform.position;
+                missile_pos[3] = missile_4.transform.position;
+                missile_pos[4] = missile_5.transform.position;
+                missile_pos[5] = missile_6.transform.position;
+                missile_pos[6] = missile_7.transform.position;
+                missile_pos[7] = missile_8.transform.position;
+
+                missile_ro[0] = missile_1.transform.rotation;
+                missile_ro[1] = missile_2.transform.rotation;
+                missile_ro[2] = missile_3.transform.rotation;
+                missile_ro[3] = missile_4.transform.rotation;
+                missile_ro[4] = missile_5.transform.rotation;
+                missile_ro[5] = missile_6.transform.rotation;
+                missile_ro[6] = missile_7.transform.rotation;
+                missile_ro[7] = missile_8.transform.rotation;
                 break;
         }
     }
@@ -147,56 +219,91 @@ public class EnemyController : ShipController
     // 攻撃行動
     public void AtackAction()
     {
-        timer += Time.deltaTime;
-
-        // 敵の種類によって異なるAIを実装
-        switch (_enemyType)
+        if (_enemyType < 3)
         {
-            case 0:
-                // EnemyA_Bomb：初期敵（駆逐艦）
-                // 概要：Position = enemyの位置と同一、Angle = enemyの角度と同一、Speed = 2f
-                if (timer < 0.03f)
-                {
-                    Instantiate(EnemyBomb, _enemyBombPos, _EnemyBombAngle); //生成
-                }
-                else if (timer > 4f)    //クールダウン
-                {
-                    timer = 0f;
-                }
-                break;
-            case 1:
-                // EnemyA_Bomb：敵2
-                // 概要：Position = enemyの位置と同一、Angle = enemy一周回り、Speed = 2f
-                if (timer < 0.03f)
-                {
-                    for (int i = 0; i < 10; i++)    //球の数
+            timer += Time.deltaTime;
+
+            // 敵の種類によって異なるAIを実装
+            switch (_enemyType)
+            {
+                case 0:
+                    // EnemyA_Bomb：初期敵（駆逐艦）
+                    // 概要：Position = enemyの位置と同一、Angle = enemyの角度と同一、Speed = 2f
+                    if (timer < 0.03f)
                     {
-                        _EnemyBombAngle = _EnemyBombAngle * Quaternion.Euler(0, 0, 36f);
-                        Instantiate(EnemyBomb, _enemyBombPos, _EnemyBombAngle); //生成  
+                        Instantiate(EnemyBomb, _enemyBombPos, _EnemyBombAngle); //生成
                     }
-                }
-                else if (timer > 5f)    //クールダウン
-                {
-                    timer = 0f;
-                }
-                break;
-            case 2:
-                // EnemyA_Bomb：敵3
-                // 概要：Position = enemyの位置と同一、Angle = enemy前後方、Speed = 2f
-                if (timer < 0.03f)
-                {
-                    for (int i = 0; i < 10; i++)    //球の数
+                    else if (timer > 4f)    //クールダウン
                     {
-                        Instantiate(EnemyBomb, _enemyBombPos, _EnemyBombAngle); //生成  
-                        Instantiate(EnemyBomb, _enemyBombPos, _EnemyBombAngle * Quaternion.Euler(0, 0, 180f)); //生成  
+                        timer = 0f;
                     }
-                }
-                else if (timer > 1f)    //クールダウン
-                {
-                    timer = 0f;
-                }
-                break;
+                    break;
+                case 1:
+                    // EnemyA_Bomb：敵2
+                    // 概要：Position = enemyの位置と同一、Angle = enemy一周回り、Speed = 2f
+                    if (timer < 0.03f)
+                    {
+                        for (int i = 0; i < 10; i++)    //球の数
+                        {
+                            _EnemyBombAngle = _EnemyBombAngle * Quaternion.Euler(0, 0, 36f);
+                            Instantiate(EnemyBomb, _enemyBombPos, _EnemyBombAngle); //生成  
+                        }
+                    }
+                    else if (timer > 5f)    //クールダウン
+                    {
+                        timer = 0f;
+                    }
+                    break;
+                case 2:
+                    // EnemyA_Bomb：敵3
+                    // 概要：Position = enemyの位置と同一、Angle = enemy前後方、Speed = 2f
+                    if (timer < 0.03f)
+                    {
+                        for (int i = 0; i < 10; i++)    //球の数
+                        {
+                            Instantiate(EnemyBomb, _enemyBombPos, _EnemyBombAngle); //生成  
+                            Instantiate(EnemyBomb, _enemyBombPos, _EnemyBombAngle * Quaternion.Euler(0, 0, 180f)); //生成  
+                        }
+                    }
+                    else if (timer > 1f)    //クールダウン
+                    {
+                        timer = 0f;
+                    }
+                    break;
+            }
         }
+        else
+        {
+            // Boss
+            Vector3 pos = Camera.main.WorldToViewportPoint(this.transform.position);
+            FireState = true;
+            timer += Time.deltaTime;
+
+            if (timer < 1f)
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    if (FireState)
+                    {
+                        //_EnemyBombAngle = _EnemyBombAngle * Quaternion.Euler(0, 0, 0);      
+                        Instantiate(EnemyBomb, missile_pos[0], missile_ro[0] * Quaternion.Euler(0, 0, 0)); //生成
+                        Instantiate(EnemyBomb, missile_pos[1], missile_ro[1] * Quaternion.Euler(0, 0, 90f)); //生成
+                        Instantiate(EnemyBomb, missile_pos[2], missile_ro[2] * Quaternion.Euler(0, 0, 0)); //生成
+                        Instantiate(EnemyBomb, missile_pos[3], missile_ro[3] * Quaternion.Euler(0, 0, -90f)); //生成
+                        Instantiate(EnemyBomb, missile_pos[4], missile_ro[4] * Quaternion.Euler(0, 0, 90f)); //生成
+                        Instantiate(EnemyBomb, missile_pos[5], missile_ro[5] * Quaternion.Euler(0, 0, 180f)); //生成
+                        Instantiate(EnemyBomb, missile_pos[6], missile_ro[6] * Quaternion.Euler(0, 0, -90f)); //生成
+                        Instantiate(EnemyBomb, missile_pos[7], missile_ro[7] * Quaternion.Euler(0, 0, -180f)); //生成
+                        StartCoroutine(FireCycleControl());
+                    }
+                }
+            }
+            else if (timer > 5f)
+            {
+                timer = 0f;
+            }
+        }
+
     }
 
     // プレイヤーへ向くための角度を設定
@@ -249,5 +356,13 @@ public class EnemyController : ShipController
     {
         return (float)(Math.Pow((playerTF.position.x - transform.position.x), 2) +
             Math.Pow((playerTF.position.y - transform.position.y), 2));
+    }
+
+    //射撃間隔処理
+    IEnumerator FireCycleControl()
+    {
+        FireState = false;
+        yield return new WaitForSeconds(0.3f);
+        FireState = true;
     }
 }

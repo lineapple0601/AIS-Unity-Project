@@ -9,9 +9,11 @@ public class ShipController : MonoBehaviour
     // 定数
 
     // 公開変数
+    public bool        _aliveFlg;   　　// 生存フラグ
     public bool        _moveFlg;       // 移動状態の有無
     public bool        _attackedFlg;   // 攻撃済みフラグ
     public int         _hp;            // HP
+    public int         _maxHp;         // 最大HP
     public float       _acc;           // 加速度
     public float       _speed;         // 速度
     public float       _maxSpeed;      // 速度（最大）

@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 3841661318551900614}
   - component: {fileID: 8075127602423993026}
   - component: {fileID: 8474759272106844412}
-  - component: {fileID: 6226842007015907037}
   - component: {fileID: -24352066335946517}
   - component: {fileID: -1002233383533420861}
+  - component: {fileID: 593860831116822753}
   m_Layer: 0
   m_Name: Destroyer
   m_TagString: Player
@@ -116,22 +116,6 @@ MonoBehaviour:
   _atkObjMaxPool: 0
   _timerForEnd: 0
   _divingFlg: 0
---- !u!70 &6226842007015907037
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 680264884040995929}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.000000029802322, y: -0.0000009536743}
-  m_Size: {x: 0.40505207, y: 1.9152602}
-  m_Direction: 0
 --- !u!82 &-24352066335946517
 AudioSource:
   m_ObjectHideFlags: 0
@@ -324,3 +308,42 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!60 &593860831116822753
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680264884040995929}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.29, y: 1.34}
+    newSize: {x: 0.29, y: 1.34}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.059263468, y: 0.5732591}
+      - {x: 0.029263496, y: 0.64868313}
+      - {x: -0.013683319, y: 0.66147333}
+      - {x: -0.07368302, y: 0.54868317}
+      - {x: -0.09941101, y: 0.05975592}
+      - {x: -0.125, y: -0.02}
+      - {x: -0.10368323, y: -0.11084813}
+      - {x: -0.099419594, y: -0.3045761}
+      - {x: -0.096473455, y: -0.6014732}
+      - {x: -0.08779025, y: -0.6086831}
+      - {x: 0.086473465, y: -0.6086831}
+      - {x: 0.099419594, y: -0.50736624}
+      - {x: 0.09089279, y: 0.12852675}
+      - {x: 0.08368325, y: 0.4073662}

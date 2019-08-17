@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7907210491975856147}
   - component: {fileID: 7907210491975856146}
   - component: {fileID: 7907210491975856145}
+  - component: {fileID: 3433417238228844714}
   m_Layer: 0
   m_Name: EnemyA
   m_TagString: Enemy
@@ -92,7 +93,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fb826a4acb1f42d9a65c60497924cc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _aliveFlg: 0
   _moveFlg: 0
+  _attackedFlg: 0
   _hp: 0
   _acc: 0
   _speed: 0
@@ -104,5 +107,47 @@ MonoBehaviour:
   _EnemyBombAngle: {x: 0, y: 0, z: 0, w: 0}
   _rd: {fileID: 0}
   _enemyType: 0
-  EnemyBomb: {fileID: 2488087504539419179, guid: 1d085c6a16b049f439b17d60b322fc22,
+  EnemyBomb: {fileID: 6480252542597738723, guid: b77e37142fd924b67836197555a88f8f,
     type: 3}
+  missile_pos: []
+  missile_ro: []
+  missile_1: {fileID: 0}
+  missile_2: {fileID: 0}
+  missile_3: {fileID: 0}
+  missile_4: {fileID: 0}
+  missile_5: {fileID: 0}
+  missile_6: {fileID: 0}
+  missile_7: {fileID: 0}
+  missile_8: {fileID: 0}
+--- !u!60 &3433417238228844714
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7907210491975856144}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.2, y: 1.1}
+    newSize: {x: 0.2, y: 1.1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.018697977, y: 0.49434897}
+      - {x: -0.027396083, y: 0.49434903}
+      - {x: -0.08869791, y: 0.3513293}
+      - {x: -0.100000024, y: -0.52869797}
+      - {x: 0.09434903, y: -0.52869797}
+      - {x: 0.08304703, y: 0.32088616}
+      - {x: 0.054348946, y: 0.4121883}
