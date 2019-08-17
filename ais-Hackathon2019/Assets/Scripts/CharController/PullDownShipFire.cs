@@ -65,7 +65,7 @@ public class PullDownShipFire : MonoBehaviour
                         MissileArray[i] = MPool.NewItem();  //プールでミサイルを持ってくる
                         MissileArray[i].transform.position = MissileLocation.transform.position;    //それの発射位置を設定する
                         MissileArray[i].transform.rotation =
-                            GameObject.Find("Player4").GetComponentInChildren<Transform>().GetChild(0).transform.rotation;  //それの発射方向を設定する
+                            GameObject.Find("PullDownShip").transform.rotation;  //それの発射方向を設定する
                         break;
                     }
                 }
@@ -84,10 +84,10 @@ public class PullDownShipFire : MonoBehaviour
                     timer += Time.deltaTime;
                     StartCoroutine(CoolTime(4f));
 
-                    Quaternion angle = GameObject.Find("Player4").GetComponentInChildren<Transform>().GetChild(0).transform.rotation; //それの発射方向を設定する
-                    Instantiate(PlayerGyourai, MissileLocation.transform.position, Quaternion.identity);
+                    Quaternion angle = GameObject.Find("PullDownShip").transform.rotation; //それの発射方向を設定する
+                    Instantiate(PlayerGyourai, MissileLocation.transform.position, angle);
                     //PlayerGyourai.transform.position = MissileLocation.transform.position;    //それの発射位置を設定する
-                    PlayerGyourai.transform.rotation = angle;     //魚雷の方向がangleのまま
+                    //PlayerGyourai.transform.rotation = angle;     //魚雷の方向がangleのまま
 
 
                 }

@@ -64,7 +64,7 @@ public class DestroyerMissileFire : MonoBehaviour
                         MissileArray[i] = MPool.NewItem();  //プールでミサイルを持ってくる
                         MissileArray[i].transform.position = MissileLocation.transform.position;    //それの発射位置を設定する
                         MissileArray[i].transform.rotation = 
-                            GameObject.Find("Player2").GetComponentInChildren<Transform>().GetChild(0).transform.rotation;  //それの発射方向を設定する
+                            GameObject.Find("Destroyer").transform.rotation;  //それの発射方向を設定する
                         break;
                     }
                 }
@@ -87,7 +87,7 @@ public class DestroyerMissileFire : MonoBehaviour
                     {
                         if (MissileArray[i] == null) //空配列の場合
                         {
-                            Quaternion angle = GameObject.Find("Player2").GetComponentInChildren<Transform>().GetChild(0).transform.rotation; //それの発射方向を設定する
+                            Quaternion angle = GameObject.Find("Destroyer").transform.rotation; //それの発射方向を設定する
                             MissileArray[i] = MPool.NewItem();  //プールでミサイルを持ってくる
                             MissileArray[i].transform.position = MissileLocation.transform.position;    //それの発射位置を設定する
                             if (i % 3 == 1)

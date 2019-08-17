@@ -7,6 +7,7 @@ public class ShipMissileFire : MonoBehaviour
 {
     /*作成者：MOON*/
     public bool basic_button = false;
+    public bool final_button = false;
     public GameObject player_Ro;
 
     public GameObject PlayerMissile;
@@ -55,10 +56,14 @@ public class ShipMissileFire : MonoBehaviour
                         MissileArray[i] = MPool.NewItem();  //プールでミサイルを持ってくる
                         MissileArray[i].transform.position = MissileLocation.transform.position;    //それの発射位置を設定する
                         MissileArray[i].transform.rotation =
-                            GameObject.Find("Player3").GetComponentInChildren<Transform>().GetChild(0).transform.rotation;  //それの発射方向を設定する
+                            GameObject.Find("Ship").transform.rotation;  //それの発射方向を設定する
                         break;
                     }
                 }
+            }
+            //必殺技ボタン
+            if (Input.GetKey(KeyCode.S) || final_button == true)
+            {
             }
         }
 

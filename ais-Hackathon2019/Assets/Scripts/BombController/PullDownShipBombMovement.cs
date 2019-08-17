@@ -11,7 +11,8 @@ public class PullDownShipBombMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Quaternion angle = GameObject.Find("PullDownShip").transform.rotation;
+        PlayerGyourai.transform.rotation = angle;
     }
 
     // Update is called once per frame
@@ -23,15 +24,14 @@ public class PullDownShipBombMovement : MonoBehaviour
 
         if (pos.x > 1f || pos.y > 1f || pos.x < 0f || pos.y < 0f)
         {
-            if (PlayerMissile.activeSelf == true)
+            if (PlayerMissile.activeSelf)
             {
                 // missile非活性する。
                 gameObject.SetActive(false);
                 GetComponent<Collider2D>().enabled = false; // missile非活性する。
             }
-            if (PlayerGyourai.activeSelf == true)
+            if (PlayerGyourai.activeSelf)
             {
-                Debug.Log(PlayerGyourai.activeSelf);
                 Destroy(PlayerGyourai);
             }
         }
