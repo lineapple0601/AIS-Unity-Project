@@ -2,24 +2,59 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : ShipController
 {
     // 定数
 
     // 公開変数
-
     public int _playerType;
     public PlayerCtrl_joystick _movStick; // Joystickコントローラ
+
+    public Button        _bsBtn;
+    public Button        _spBtn;
+    public Image         _spBtnImage;
+    public GameObject    _atkObj;
+    public int           _atkObjMaxPool; // メモリープールに設定するミサイルの数
+    public float         _timerForEnd;   // 攻撃time
+    public bool          _divingFlg;     // 潜水艦の潜行フラグ
+
     // 内部変数
+    private SpriteRenderer _sr;          // スプライド情報
+    private float        _atkObjSpeed;   // 攻撃OBJ速度
+    private bool         _atkState;      // 攻撃OBJ速度制御
+    private GameObject[] _atkObjArray;   // 攻撃OBJの配列
+    private MemoryPool   _mPool;         // メモリープール
+    private bool         _spAttack;
+    private float        _timer;         // timer
 
     // Start is called before the first frame update
     void Start()
     {
-        // 初期設定
-        _playerType = 3; // プレイヤーの船（0:駆逐艦、1:戦艦、2:潜水艦、3:空母）
+        // 初期設定 TODO _playerTypeはGameManagerから指定する
+        // プレイヤーの船（0:駆逐艦、1:戦艦、2:潜水艦、3:空母）
+        _playerType = 2; // デバッグ用
+         
         _movStick = GameObject.Find("joystickBG").GetComponent<PlayerCtrl_joystick>();
         InitPlayer();
+
+        _sr = GetComponent<SpriteRenderer>();
+        _divingFlg = false;
+        _timer = 0;
+        _bsBtn = GameObject.Find("BasicAttackBt").GetComponent<Button>();
+        _spBtn = GameObject.Find("SpecialAttackBt").GetComponent<Button>();
+        _spBtnImage = GameObject.Find("SpecialAttackBt").GetComponent<Image>();
+        _atkState = true;
+        _atkObjArray = new GameObject[_atkObjMaxPool];
+        _mPool = new MemoryPool();
+        _mPool.Create(_atkObj, _atkObjMaxPool);  //オブジェクトをMAXプールの数分生成する
+    }
+
+    private void OnApplicationQuit()
+    {
+        //終了の時、メモリープールをクリアする
+        _mPool.Dispose();
     }
 
     // Update is called once per frame
@@ -36,6 +71,12 @@ public class PlayerController : ShipController
 
         // 移動
         MoveAction();
+
+        // 攻撃処理
+        _attackedFlg = false;
+        BasicAttack(false);
+        SpecialAttack(false);
+        UpdateAttackObject();
     }
 
     private void InitPlayer()
@@ -48,6 +89,7 @@ public class PlayerController : ShipController
                 _maxSpeed = 2.0f;
                 _acc = 0.1f;
                 _rotationSpeed = 1.5f;
+                _atkObjMaxPool = 5;
                 break;
             case 1:
                 // 戦艦の基本性能
@@ -55,6 +97,7 @@ public class PlayerController : ShipController
                 _maxSpeed = 1.7f;
                 _acc = 0.08f;
                 _rotationSpeed = 1.2f;
+                _atkObjMaxPool = 10;
                 break;
             case 2:
                 // 潜水艦の基本性能
@@ -62,6 +105,7 @@ public class PlayerController : ShipController
                 _maxSpeed = 1.6f;
                 _acc = 0.08f;
                 _rotationSpeed = 1.0f;
+                _atkObjMaxPool = 4;
                 break;
             case 3:
                 // 空母の基本性能
@@ -69,6 +113,8 @@ public class PlayerController : ShipController
                 _maxSpeed = 1.5f;
                 _acc = 0.06f;
                 _rotationSpeed = 0.7f;
+                _atkObjMaxPool = 5;
+                _timerForEnd = 1f;
                 break;
         }
 
@@ -161,16 +207,229 @@ public class PlayerController : ShipController
     }
 
     // 通常攻撃
-    public void BasicAtack()
+    public void BasicAttack(bool buttonCtr)
     {
-        Debug.Log("ba atack");
+        if (!_atkState) return;
+
+        if (buttonCtr || Input.GetKeyDown(KeyCode.K))
+        {
+            _atkObjSpeed = 0.5f;
+            StartCoroutine(FireCycleControl());
+
+            switch (_playerType)
+            {
+                case 0:
+                    for (int i = 0; i < _atkObjMaxPool; i++)
+                    {
+                        if (_atkObjArray[i] == null) //空配列の場合
+                        {
+                            _atkObjArray[i] = _mPool.NewItem();  //プールでミサイルを持ってくる
+                            _atkObjArray[i].transform.position = transform.position;    //それの発射位置を設定する
+                            _atkObjArray[i].transform.rotation = transform.rotation;  //それの発射方向を設定する
+                            break;
+                        }
+                    }
+                    break;
+                case 1:
+                case 2:
+                    _spAttack = false;
+                    for (int i = 0; i < _atkObjMaxPool; i++)
+                    {
+                        if (_atkObjArray[i] == null) //空配列の場合
+                        {
+                            _atkObjArray[i] = _mPool.NewItem();  //プールでミサイルを持ってくる
+                            _atkObjArray[i].transform.position = transform.position;    //それの発射位置を設定する
+                            _atkObjArray[i].transform.rotation = transform.rotation;  //それの発射方向を設定する
+                            break;
+                        }
+                    }
+                    break;
+                case 3:
+                    _spAttack = false;
+                    for (int i = 0; i < _atkObjMaxPool; i++)
+                    {
+                        if (_atkObjArray[i] == null) //空配列の場合
+                        {
+                            _atkObjArray[i] = _mPool.NewItem();  //プールでミサイルを持ってくる
+                            _atkObjArray[i].transform.position = transform.position;    //それの発射位置を設定する
+                            break;
+                        }
+                    }
+                    break;
+            }
+
+            _attackedFlg = true;
+        }
     }
 
     // 特殊攻撃
-    public void SpecialAtack()
+    public void SpecialAttack(bool buttonCtr)
     {
-        Debug.Log("sp atack");
+        if (Input.GetKeyDown(KeyCode.J)) Debug.Log("SP ");
+        if (!_atkState) return;
+
+        //TODO 下記処理とりあえず保留
+        //if (_attackedFlg) return; // 通常攻撃があったフレームでは特殊攻撃できない
+        if (buttonCtr || Input.GetKeyDown(KeyCode.J))
+        {
+            switch (_playerType)
+            {
+                case 0:
+                    break;
+                case 1:
+                case 2:
+                    _spAttack = true;
+                    _atkObjSpeed = 1.25f;
+                    break;
+                case 3:
+                    _spAttack = true;
+                    _atkObjSpeed = 0.15f;
+                    break;
+            }
+        }
+        if (_spAttack == true)
+        {
+            switch (_playerType)
+            {
+                case 0:
+                    break;
+                case 1:
+                    //必殺技の時間
+                    if (_timer <= _timerForEnd)
+                    {
+                        _timer += Time.deltaTime;
+                        StartCoroutine(CoolTime(4f));
+
+                        for (int i = 0; i < _atkObjMaxPool; i++)
+                        {
+                            if (_atkObjArray[i] == null) //空配列の場合
+                            {
+                                Quaternion angle = transform.rotation; //それの発射方向を設定する
+                                _atkObjArray[i] = _mPool.NewItem();  //プールでミサイルを持ってくる
+                                _atkObjArray[i].transform.position = transform.position;    //それの発射位置を設定する
+                                if (i % 5 == 1)
+                                {
+                                    _atkObjArray[i].transform.rotation = angle;     //球の方向がangleのまま
+                                }
+                                else if (i % 5 == 2)
+                                {
+                                    _atkObjArray[i].transform.rotation = angle * Quaternion.Euler(0, 0, 30);     //球の方向をangleより30度回転させる
+                                }
+                                else if (i % 5 == 3)
+                                {
+                                    _atkObjArray[i].transform.rotation = angle * Quaternion.Euler(0, 0, -30);     //球の方向をangleより-30度回転させる
+                                }
+                                else if (i % 5 == 4)
+                                {
+                                    _atkObjArray[i].transform.rotation = angle * Quaternion.Euler(0, 0, 60);     //球の方向をangleより30度回転させる
+                                }
+                                else if (i % 5 == 0)
+                                {
+                                    _atkObjArray[i].transform.rotation = angle * Quaternion.Euler(0, 0, -60);     //球の方向をangleより-30度回転させる
+                                }
+                            }
+                        }
+                    }
+                    //必殺技の時間が終わったら基本攻撃に戻す
+                    else
+                    {
+                        _spAttack = false;
+                        _atkObjSpeed = 1;
+                        _timer = 0;
+                    }
+                    break;
+                case 2:
+                    //必殺技の時間
+                    if (_timer <= _timerForEnd)
+                    {
+                        _timer += Time.deltaTime;
+                        StartCoroutine(CoolTime(4f));
+
+                        _divingFlg = true;
+                        transform.localScale = new Vector3(0.5f, 0.75f, 1f);
+                        _sr.color = new Color(1, 1, 1, 0.2f);
+                        _bsBtn.enabled = false;
+                    }
+                    //必殺技の時間が終わったら基本攻撃に戻す
+                    else
+                    {
+                        _spAttack = false;
+                        _atkObjSpeed = 1;
+                        _timer = 0;
+                    }
+                    break;
+                case 3:
+                    //必殺技の時間
+                    if (_timer <= _timerForEnd)
+                    {
+                        _timer += Time.deltaTime;
+                        StartCoroutine(CoolTime(6f));
+
+                        for (int i = 0; i < _atkObjMaxPool; i++)
+                        {
+                            if (_atkObjArray[i] == null) //空配列の場合
+                            {
+                                _atkObjArray[i] = _mPool.NewItem();  //プールでミサイルを持ってくる
+                                _atkObjArray[i].transform.position = transform.position;    //それの発射位置を設定する
+                                StartCoroutine(FireCycleControl());
+                                break;
+                            }
+                        }
+                    }
+                    //必殺技の時間が終わったら基本攻撃に戻す
+                    else
+                    {
+                        _spAttack = false;
+                        _atkObjSpeed = 0.5f;
+                        _timer = 0;
+                    }
+                    break;
+            }
+        }
     }
 
-    
+    // 攻撃オブジェクト更新処理
+    public void UpdateAttackObject()
+    {
+        for (int i = 0; i < _atkObjMaxPool; i++)
+        {
+            if (_atkObjArray[i])    // 配列がTRUEの場合
+            {
+                if (_atkObjArray[i].GetComponent<Collider2D>().enabled == false) // 配列の Collider2DがFALSEの場合
+                {
+                    _atkObjArray[i].GetComponent<Collider2D>().enabled = true;  // またTRUEに設定
+                    _mPool.RemoveItem(_atkObjArray[i]);  // ミサイルをメモリに返す
+                    _atkObjArray[i] = null; // 配列クリア
+                }
+            }
+        }
+    }
+
+    // 射撃間隔処理
+    IEnumerator FireCycleControl()
+    {
+        _atkState = false;
+        yield return new WaitForSeconds(_atkObjSpeed);
+        _atkState = true;
+    }
+
+    //クールタイム処理
+    IEnumerator CoolTime(float cool)
+    {
+        while (cool > 1.0f)
+        {
+            cool -= Time.deltaTime;
+            _spBtnImage.fillAmount = (1.0f / cool);   //buttonを埋める
+            _spBtn.enabled = false;                   //buttonを非活性
+            yield return new WaitForFixedUpdate();    //Update待ち
+            _spBtn.enabled = true;                    //buttonを活性
+            if (_playerType == 2)
+            {
+                //_divingFlg = false;
+                //transform.localScale = new Vector3(1f, 1.5f, 1f);
+                //_sr.color = new Color(1, 1, 1, 0.5f);
+                //_bsBtn.enabled = true;
+            }
+        }
+    }
 }
