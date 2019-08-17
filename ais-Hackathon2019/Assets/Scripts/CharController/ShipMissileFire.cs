@@ -19,6 +19,11 @@ public class ShipMissileFire : MonoBehaviour
     private MemoryPool MPool;           //メモリープール
     private GameObject[] MissileArray;  //ミサイルの配列
 
+    //攻撃SE
+    private AudioSource BasicAttackSE;
+    private AudioSource SpecialAttackSE;
+
+
     private void OnApplicationQuit()
     {
         //終了の時、メモリープールをクリアする
@@ -32,6 +37,11 @@ public class ShipMissileFire : MonoBehaviour
         MPool = new MemoryPool();
         MPool.Create(PlayerMissile, MissileMaxPool);  //オブジェクトをMAXプールの数分生成する
         MissileArray = new GameObject[MissileMaxPool];
+
+        //AudioSourceコンポーネントを取得し、変数に格納
+        AudioSource[] audioSources = GetComponents<AudioSource>();
+        BasicAttackSE = audioSources[0];
+        SpecialAttackSE = audioSources[1];
     }
 
     void Update()
@@ -48,6 +58,7 @@ public class ShipMissileFire : MonoBehaviour
             {
                 FireDelay = 0.5f;       //射撃のdelay設定
                 StartCoroutine(FireCycleControl());
+                BasicAttackSE.Play();
 
                 for (int i = 0; i < MissileMaxPool; i++)
                 {
@@ -64,6 +75,7 @@ public class ShipMissileFire : MonoBehaviour
             //必殺技ボタン
             if (Input.GetKey(KeyCode.S) || final_button == true)
             {
+                SpecialAttackSE.Play();
             }
         }
 
