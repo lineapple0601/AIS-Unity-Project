@@ -36,7 +36,7 @@ public class PlayerController : ShipController
     {
         // 初期設定 TODO _playerTypeはGameManagerから指定する
         // プレイヤーの船（0:駆逐艦、1:戦艦、2:潜水艦、3:空母）
-        _playerType = 2; // デバッグ用
+        //_playerType = 2; // デバッグ用
          
         _movStick = GameObject.Find("joystickBG").GetComponent<PlayerCtrl_joystick>();
         InitPlayer();
