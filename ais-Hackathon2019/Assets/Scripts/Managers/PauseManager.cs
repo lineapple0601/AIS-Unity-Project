@@ -37,6 +37,18 @@ public class PauseManager : MonoBehaviour
         Time.timeScale = 1.0f;
     }
 
+    public void ChangeSceneToTitle()
+    {
+        SceneManager.LoadScene("TitleScene");
+        Time.timeScale = 1.0f;
+    }
+
+    public void ChangeSceneToScore()
+    {
+        SceneManager.LoadScene("ScoreRegScene");
+        Time.timeScale = 1.0f;
+    }
+
     public void ActivePauseBt()
     {
 
