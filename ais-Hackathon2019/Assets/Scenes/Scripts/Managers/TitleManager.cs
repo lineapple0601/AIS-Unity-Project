@@ -17,7 +17,7 @@ public class TitleManager : MonoBehaviour
         
     }
 
-    public void ChangeScene()
+    public void ChangeSceneMain()
     {
         SceneManager.LoadScene("MainScene");
     }
