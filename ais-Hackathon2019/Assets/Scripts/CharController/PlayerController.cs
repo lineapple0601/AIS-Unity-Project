@@ -34,7 +34,7 @@ public class PlayerController : ShipController
     {
         // 初期設定 TODO _playerTypeはGameManagerから指定する
         // プレイヤーの船（0:駆逐艦、1:戦艦、2:潜水艦、3:空母）
-        _playerType = 2; // デバッグ用
+        //_playerType = 2; // デバッグ用
          
         _movStick = GameObject.Find("joystickBG").GetComponent<PlayerCtrl_joystick>();
         InitPlayer();
@@ -265,7 +265,6 @@ public class PlayerController : ShipController
     // 特殊攻撃
     public void SpecialAttack(bool buttonCtr)
     {
-        if (Input.GetKeyDown(KeyCode.J)) Debug.Log("SP ");
         if (!_atkState) return;
 
         //TODO 下記処理とりあえず保留
@@ -344,11 +343,6 @@ public class PlayerController : ShipController
                     {
                         _timer += Time.deltaTime;
                         StartCoroutine(CoolTime(4f));
-
-                        _divingFlg = true;
-                        transform.localScale = new Vector3(0.5f, 0.75f, 1f);
-                        _sr.color = new Color(1, 1, 1, 0.2f);
-                        _bsBtn.enabled = false;
                     }
                     //必殺技の時間が終わったら基本攻撃に戻す
                     else
@@ -421,14 +415,21 @@ public class PlayerController : ShipController
             cool -= Time.deltaTime;
             _spBtnImage.fillAmount = (1.0f / cool);   //buttonを埋める
             _spBtn.enabled = false;                   //buttonを非活性
+            if (_playerType == 2)
+            {
+                _divingFlg = true;
+                transform.localScale = new Vector3(0.5f, 0.75f, 1f);
+                _sr.color = new Color(1, 1, 1, 0.2f);
+                _bsBtn.enabled = false;
+            }
             yield return new WaitForFixedUpdate();    //Update待ち
             _spBtn.enabled = true;                    //buttonを活性
             if (_playerType == 2)
             {
-                //_divingFlg = false;
-                //transform.localScale = new Vector3(1f, 1.5f, 1f);
-                //_sr.color = new Color(1, 1, 1, 0.5f);
-                //_bsBtn.enabled = true;
+                _divingFlg = false;
+                transform.localScale = new Vector3(1f, 1.5f, 1f);
+                _sr.color = new Color(1, 1, 1, 0.5f);
+                _bsBtn.enabled = true;
             }
         }
     }
