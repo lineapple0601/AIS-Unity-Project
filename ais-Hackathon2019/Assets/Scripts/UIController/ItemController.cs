@@ -26,6 +26,10 @@ public class ItemController : MonoBehaviour
             Vector3 beforePosition;
             GetComponent<Collider2D>().enabled = false;
 
+            // アイテム取得音を鳴らす
+            GetComponent<AudioSource>().Play();
+
+
             if (destroyer.activeSelf == true)
             {
                 beforePosition = destroyer.transform.position;
