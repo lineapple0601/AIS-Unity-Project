@@ -22,7 +22,11 @@ public class PullDownShipFire : MonoBehaviour
     private MemoryPool MPool;           //メモリープール
     private GameObject[] MissileArray;  //ミサイルの配列
 
-      //joystickによる攻撃を選択
+    //攻撃SE
+    private AudioSource BasicAttackSE;
+    private AudioSource SpecialAttackSE;
+
+    //joystickによる攻撃を選択
     bool FinalAttack;
     public float timerForEnd;   // 攻撃time
     private float timer;        // timer
@@ -40,6 +44,11 @@ public class PullDownShipFire : MonoBehaviour
         MPool = new MemoryPool();
         MPool.Create(PlayerMissile, MissileMaxPool);  //オブジェクトをMAXプールの数分生成する
         MissileArray = new GameObject[MissileMaxPool];
+
+        //AudioSourceコンポーネントを取得し、変数に格納
+        AudioSource[] audioSources = GetComponents<AudioSource>();
+        BasicAttackSE = audioSources[0];
+        SpecialAttackSE = audioSources[1];
     }
 
     void Update()
@@ -57,6 +66,7 @@ public class PullDownShipFire : MonoBehaviour
                 FinalAttack = false;    //必殺技非活性
                 FireDelay = 0.5f;       //射撃のdelay設定
                 StartCoroutine(FireCycleControl());
+                BasicAttackSE.Play();
 
                 for (int i = 0; i < MissileMaxPool; i++)
                 {
@@ -65,7 +75,7 @@ public class PullDownShipFire : MonoBehaviour
                         MissileArray[i] = MPool.NewItem();  //プールでミサイルを持ってくる
                         MissileArray[i].transform.position = MissileLocation.transform.position;    //それの発射位置を設定する
                         MissileArray[i].transform.rotation =
-                            GameObject.Find("Player4").GetComponentInChildren<Transform>().GetChild(0).transform.rotation;  //それの発射方向を設定する
+                            GameObject.Find("PullDownShip").transform.rotation;  //それの発射方向を設定する
                         break;
                     }
                 }
@@ -75,6 +85,7 @@ public class PullDownShipFire : MonoBehaviour
             {
                 FinalAttack = true;     //必殺技活性
                 FireDelay = 1.25f;      //射撃のdelay設定
+                SpecialAttackSE.Play();
             }
             if (FinalAttack == true)
             {
@@ -84,10 +95,10 @@ public class PullDownShipFire : MonoBehaviour
                     timer += Time.deltaTime;
                     StartCoroutine(CoolTime(4f));
 
-                    Quaternion angle = GameObject.Find("Player4").GetComponentInChildren<Transform>().GetChild(0).transform.rotation; //それの発射方向を設定する
-                    Instantiate(PlayerGyourai, MissileLocation.transform.position, Quaternion.identity);
+                    Quaternion angle = GameObject.Find("PullDownShip").transform.rotation; //それの発射方向を設定する
+                    Instantiate(PlayerGyourai, MissileLocation.transform.position, angle);
                     //PlayerGyourai.transform.position = MissileLocation.transform.position;    //それの発射位置を設定する
-                    PlayerGyourai.transform.rotation = angle;     //魚雷の方向がangleのまま
+                    //PlayerGyourai.transform.rotation = angle;     //魚雷の方向がangleのまま
 
 
                 }

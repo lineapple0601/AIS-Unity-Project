@@ -7,6 +7,7 @@ public class ShipMissileFire : MonoBehaviour
 {
     /*作成者：MOON*/
     public bool basic_button = false;
+    public bool final_button = false;
     public GameObject player_Ro;
 
     public GameObject PlayerMissile;
@@ -17,6 +18,11 @@ public class ShipMissileFire : MonoBehaviour
     public int MissileMaxPool;          //メモリープールに設定するミサイルの数
     private MemoryPool MPool;           //メモリープール
     private GameObject[] MissileArray;  //ミサイルの配列
+
+    //攻撃SE
+    private AudioSource BasicAttackSE;
+    private AudioSource SpecialAttackSE;
+
 
     private void OnApplicationQuit()
     {
@@ -31,6 +37,11 @@ public class ShipMissileFire : MonoBehaviour
         MPool = new MemoryPool();
         MPool.Create(PlayerMissile, MissileMaxPool);  //オブジェクトをMAXプールの数分生成する
         MissileArray = new GameObject[MissileMaxPool];
+
+        //AudioSourceコンポーネントを取得し、変数に格納
+        AudioSource[] audioSources = GetComponents<AudioSource>();
+        BasicAttackSE = audioSources[0];
+        SpecialAttackSE = audioSources[1];
     }
 
     void Update()
@@ -47,6 +58,7 @@ public class ShipMissileFire : MonoBehaviour
             {
                 FireDelay = 0.5f;       //射撃のdelay設定
                 StartCoroutine(FireCycleControl());
+                BasicAttackSE.Play();
 
                 for (int i = 0; i < MissileMaxPool; i++)
                 {
@@ -55,10 +67,15 @@ public class ShipMissileFire : MonoBehaviour
                         MissileArray[i] = MPool.NewItem();  //プールでミサイルを持ってくる
                         MissileArray[i].transform.position = MissileLocation.transform.position;    //それの発射位置を設定する
                         MissileArray[i].transform.rotation =
-                            GameObject.Find("Player3").GetComponentInChildren<Transform>().GetChild(0).transform.rotation;  //それの発射方向を設定する
+                            GameObject.Find("Ship").transform.rotation;  //それの発射方向を設定する
                         break;
                     }
                 }
+            }
+            //必殺技ボタン
+            if (Input.GetKey(KeyCode.S) || final_button == true)
+            {
+                SpecialAttackSE.Play();
             }
         }
 

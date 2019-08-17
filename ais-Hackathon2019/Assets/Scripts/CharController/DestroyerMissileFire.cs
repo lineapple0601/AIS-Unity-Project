@@ -21,6 +21,10 @@ public class DestroyerMissileFire : MonoBehaviour
     private MemoryPool MPool;           //メモリープール
     private GameObject[] MissileArray;  //ミサイルの配列
 
+    //攻撃SE
+    private AudioSource BasicAttackSE;
+    private AudioSource SpecialAttackSE;
+
     //joystickによる攻撃を選択
     bool FinalAttack;
     public float timerForEnd;   // 攻撃time
@@ -39,6 +43,11 @@ public class DestroyerMissileFire : MonoBehaviour
         MPool = new MemoryPool();
         MPool.Create(PlayerMissile, MissileMaxPool);  //オブジェクトをMAXプールの数分生成する
         MissileArray = new GameObject[MissileMaxPool];
+
+        //AudioSourceコンポーネントを取得し、変数に格納
+        AudioSource[] audioSources = GetComponents<AudioSource>();
+        BasicAttackSE = audioSources[0];
+        SpecialAttackSE = audioSources[1];
     }
 
     void Update()
@@ -51,12 +60,12 @@ public class DestroyerMissileFire : MonoBehaviour
         if (FireState)
         {
             //基本攻撃ボタン
-            if (Input.GetKey(KeyCode.A) || basic_button == true)
+            if (Input.GetKey(KeyCode.J) || basic_button == true)
             {
                 FinalAttack = false;    //必殺技非活性
                 FireDelay = 0.5f;       //射撃のdelay設定
                 StartCoroutine(FireCycleControl());
-
+                BasicAttackSE.Play();
                 for (int i = 0; i < MissileMaxPool; i++)
                 {
                     if (MissileArray[i] == null) //空配列の場合
@@ -64,16 +73,17 @@ public class DestroyerMissileFire : MonoBehaviour
                         MissileArray[i] = MPool.NewItem();  //プールでミサイルを持ってくる
                         MissileArray[i].transform.position = MissileLocation.transform.position;    //それの発射位置を設定する
                         MissileArray[i].transform.rotation = 
-                            GameObject.Find("Player2").GetComponentInChildren<Transform>().GetChild(0).transform.rotation;  //それの発射方向を設定する
+                            GameObject.Find("Destroyer").transform.rotation;  //それの発射方向を設定する
                         break;
                     }
                 }
             }
             //必殺技ボタン
-            if (Input.GetKey(KeyCode.S) || final_button == true)
+            if (Input.GetKey(KeyCode.K) || final_button == true)
             {
                 FinalAttack = true;     //必殺技活性
                 FireDelay = 1.25f;      //射撃のdelay設定
+                SpecialAttackSE.Play();
             }
             if (FinalAttack == true)
             {
@@ -87,7 +97,7 @@ public class DestroyerMissileFire : MonoBehaviour
                     {
                         if (MissileArray[i] == null) //空配列の場合
                         {
-                            Quaternion angle = GameObject.Find("Player2").GetComponentInChildren<Transform>().GetChild(0).transform.rotation; //それの発射方向を設定する
+                            Quaternion angle = GameObject.Find("Destroyer").transform.rotation; //それの発射方向を設定する
                             MissileArray[i] = MPool.NewItem();  //プールでミサイルを持ってくる
                             MissileArray[i].transform.position = MissileLocation.transform.position;    //それの発射位置を設定する
                             if (i % 3 == 1)

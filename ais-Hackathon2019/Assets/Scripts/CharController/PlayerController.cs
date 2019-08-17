@@ -159,4 +159,18 @@ public class PlayerController : ShipController
             transform.position = newPos;
         }
     }
+
+    // 通常攻撃
+    public void BasicAtack()
+    {
+        Debug.Log("ba atack");
+    }
+
+    // 特殊攻撃
+    public void SpecialAtack()
+    {
+        Debug.Log("sp atack");
+    }
+
+    
 }

@@ -12,7 +12,9 @@ public class MainManager : MonoBehaviour
     {
         // プレイヤー初期化
         //playerObj = GameObject.FindWithTag("AirCraftCarrier");
-        GameObject createPlayerObj = (GameObject)Resources.Load("Prefabs/Aircraftcarrier");
+        //GameObject createPlayerObj = (GameObject)Resources.Load("Prefabs/PullDownShip");
+        //GameObject createPlayerObj = (GameObject)Resources.Load("Prefabs/PullDownShip");
+        GameObject createPlayerObj = (GameObject)Resources.Load("Prefabs/Destroyer");
         Instantiate(createPlayerObj, new Vector3(0f, 0f, 0f), Quaternion.identity);
         playerObj = GameObject.FindWithTag("Player");
     }
