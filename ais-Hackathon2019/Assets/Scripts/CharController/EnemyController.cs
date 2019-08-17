@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EnemyController : ShipController
 {
@@ -9,8 +10,12 @@ public class EnemyController : ShipController
 
     // 公開変数
     public int _enemyType;
+    public GameObject EnemyBomb;    //敵の球
 
     // 内部変数
+    private int AttackPattern = 0;      //敵の攻撃パータン
+    private bool FireState;             //ミサイル制御
+    private float timer;                // timer
 
     // Start is called before the first frame update
     void Start()
@@ -112,13 +117,85 @@ public class EnemyController : ShipController
     // 攻撃アルゴリズム（AI）
     public void AtackAI()
     {
-
+        //_enemyBombPos = new Vector3(Random.Range(-10f, 10f), Random.Range(-10f, 10f), 0);
+        _enemyBombPos = transform.position;
+        // 敵の種類によって異なるAIを実装
+        switch (_enemyType)
+        {
+            case 0:
+                // EnemyA_Bomb：初期敵（駆逐艦）
+                // 概要：Position = enemyの位置と同一、Angle = enemyの角度と同一、Speed = 3f
+                _EnemyBombAngle = transform.rotation;
+                break;
+            case 1:
+                break;
+            case 2:
+                break;
+        }
     }
 
     // 攻撃行動
     public void AtackAction()
     {
+        Vector3 pos = Camera.main.WorldToViewportPoint(this.transform.position);
+        FireState = true;
+        timer += Time.deltaTime;
 
+        // 敵の種類によって異なるAIを実装
+        switch (_enemyType)
+        {
+            case 0:
+                // EnemyA_Bomb：初期敵（駆逐艦）
+                // 概要：Position = enemyの位置と同一、Angle = enemyの角度と同一、Speed = 3f
+                if (timer < 0.03f)
+                {
+                    for (int i = 0; i < 20; i++)
+                    {
+                        //パターン1
+                        if (AttackPattern == 1)
+                        {
+                            if (FireState)
+                            {
+                                _EnemyBombAngle = _EnemyBombAngle * Quaternion.Euler(0, 0, 15f * i + 1);
+                                Instantiate(EnemyBomb, _enemyBombPos, _EnemyBombAngle); //生成
+                                FireCycleControl();
+                            }
+                        }
+                        //パターン2
+                        else if (AttackPattern == 0)
+                        {
+                            if (FireState)
+                            {
+                                float angle = Mathf.Atan2(GameObject.FindWithTag("Player").transform.position.y, GameObject.FindWithTag("Player").transform.position.x) * Mathf.Rad2Deg;
+                                _EnemyBombAngle = Quaternion.AngleAxis(angle, Vector3.forward);
+                                Instantiate(EnemyBomb, _enemyBombPos, _EnemyBombAngle); //生成
+                                FireCycleControl();
+                            }
+                        }
+                        //パターン3
+                        else if (AttackPattern == 2)
+                        {
+                            //Instantiate(EnemyBomb, _enemyBombPos, _EnemyBombAngle); //生成
+                        }
+
+
+                    }
+                }
+                else if (timer > 5f)
+                {
+                    if (AttackPattern == 1)
+                    {
+                        AttackPattern = 0;
+                    }
+                    //AttackPattern++;
+                    timer = 0f;
+                }
+                break;
+            case 1:
+                break;
+            case 2:
+                break;
+        }
     }
 
     // プレイヤーへ向くための角度を設定
@@ -149,5 +226,13 @@ public class EnemyController : ShipController
     {
         return (float)(Math.Pow((playerTF.position.x - transform.position.x), 2) +
             Math.Pow((playerTF.position.y - transform.position.y), 2));
+    }
+
+    //射撃間隔処理
+    IEnumerator FireCycleControl()
+    {
+        FireState = false;
+        yield return new WaitForSeconds(1f);
+        FireState = true;
     }
 }
