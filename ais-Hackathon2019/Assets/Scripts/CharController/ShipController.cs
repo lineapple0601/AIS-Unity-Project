@@ -18,6 +18,8 @@ public class ShipController : MonoBehaviour
     public float       _rotationSpeed; // 回転速度
     public float       _rotateAngle;   // 回転角(0.0f~359.0f)
     public Vector3     _movVector;     // 方向ベクトル
+    public Vector3     _enemyBombPos;  // 敵の位置
+    public Quaternion  _EnemyBombAngle;// 敵の球の角度
     // 内部変数
     public Rigidbody2D _rd;
 

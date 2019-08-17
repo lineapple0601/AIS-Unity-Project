@@ -22,13 +22,18 @@ public class EnemyHpBarController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float randomNum = Random.Range(0f, 100f);
         EnemyHPbar();
 
         if (enemyData.GetHP() <= 0)
         { //HPが0より少ない場合
             obj = Instantiate(ShipExplosion, transform.position, Quaternion.identity);   //爆発アニメーション生成
-            Instantiate(Item, transform.position, Quaternion.identity);   //アイテム生成
             Destroy(gameObject); //敵を削除
+            if (randomNum <= 10f)
+            {
+                Instantiate(Item, transform.position, Quaternion.identity);   //アイテム生成
+            }
+
             Destroy(obj,3.417f);    //爆発アニメーション削除
             ScoreController.addScore(50000); // TODO : TestCode
             HpBarController.UpdateHPBar(0.9f); // TODO : TestCode

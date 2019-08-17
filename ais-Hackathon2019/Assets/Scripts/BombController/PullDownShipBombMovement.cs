@@ -12,7 +12,7 @@ public class PullDownShipBombMovement : MonoBehaviour
     void Start()
     {
         Quaternion angle = GameObject.Find("PullDownShip").transform.rotation;
-        PlayerGyourai.transform.rotation = angle;
+        //PlayerGyourai.transform.rotation = angle;
     }
 
     // Update is called once per frame
@@ -24,13 +24,13 @@ public class PullDownShipBombMovement : MonoBehaviour
 
         if (pos.x > 1f || pos.y > 1f || pos.x < 0f || pos.y < 0f)
         {
-            if (PlayerMissile.activeSelf)
+            if (PlayerMissile != null && PlayerMissile.activeSelf == true)
             {
                 // missile非活性する。
                 gameObject.SetActive(false);
                 GetComponent<Collider2D>().enabled = false; // missile非活性する。
             }
-            if (PlayerGyourai.activeSelf)
+            if (PlayerGyourai != null && PlayerGyourai.activeSelf == true)
             {
                 Destroy(PlayerGyourai);
             }
@@ -43,12 +43,12 @@ public class PullDownShipBombMovement : MonoBehaviour
     {
         if (collision.CompareTag("Enemy")) //タグがEnemyの場合
         {
-            if (PlayerMissile.activeSelf == true)
+            if (PlayerMissile != null && PlayerMissile.activeSelf == true)
             {
                 Debug.Log(PlayerMissile.activeSelf);
                 GetComponent<Collider2D>().enabled = false; // missile非活性する。
             }
-            if (PlayerGyourai.activeSelf == true)
+            if (PlayerGyourai != null && PlayerGyourai.activeSelf == true)
             {
                 Debug.Log(PlayerGyourai.activeSelf);
                 Destroy(PlayerGyourai);
