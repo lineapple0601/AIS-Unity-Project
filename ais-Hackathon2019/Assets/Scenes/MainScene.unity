@@ -1251,7 +1251,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 4f33cb792690b604eb73a5a180788eb9, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0.6
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -2842,9 +2842,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 991135454105196335, guid: d375dc2b05d2146f49e447a0b3337691,
+      - m_Target: {fileID: 5271235916935712533, guid: d375dc2b05d2146f49e447a0b3337691,
           type: 3}
-        m_MethodName: 
+        m_MethodName: setBasicButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2853,7 +2853,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 2
+        m_CallState: 1
       - m_Target: {fileID: 1076659941}
         m_MethodName: PlaySE_touch
         m_Mode: 1
@@ -3301,7 +3301,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3731fe60863f13d47bd44d80af0aa193, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -3914,12 +3914,17 @@ PrefabInstance:
     - target: {fileID: 596313843942634201, guid: 5185844e743c947608e40e4f041d9288,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
+      value: setBasicButton
       objectReference: {fileID: 0}
     - target: {fileID: 596313843942634201, guid: 5185844e743c947608e40e4f041d9288,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: PlaySE_touch
+      objectReference: {fileID: 0}
+    - target: {fileID: 596313843942634201, guid: 5185844e743c947608e40e4f041d9288,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 596313844145991247, guid: 5185844e743c947608e40e4f041d9288,
         type: 3}
