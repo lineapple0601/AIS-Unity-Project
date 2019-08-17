@@ -1,14 +1,18 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
+using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
-public class RankController : MonoBehaviour
+
+public class TitleController : MonoBehaviour
 {
-    public GameObject Row;
+    
+
     // Start is called before the first frame update
     void Start()
     {
-        GameObject.Instantiate(Row);
+        // TODO : Update Score false;
     }
 
     // Update is called once per frame

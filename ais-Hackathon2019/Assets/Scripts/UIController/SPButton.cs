@@ -12,6 +12,6 @@ public class SPButton : MonoBehaviour
         GameObject playerObj = GameObject.Find("GameManager").GetComponent<MainManager>().playerObj;
         _playerCtr = playerObj.GetComponent<PlayerController>();
         // プレイヤーの特殊攻撃トリガー
-        _playerCtr.SpecialAtack();
+        _playerCtr.SpecialAttack(true);
     }
 }

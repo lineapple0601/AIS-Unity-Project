@@ -12,6 +12,6 @@ public class BAButton : MonoBehaviour
         GameObject playerObj = GameObject.Find("GameManager").GetComponent<MainManager>().playerObj;
         _playerCtr = playerObj.GetComponent<PlayerController>();
         // プレイヤーの通常攻撃トリガー
-        _playerCtr.BasicAtack();
+        _playerCtr.BasicAttack(true);
     }
 }

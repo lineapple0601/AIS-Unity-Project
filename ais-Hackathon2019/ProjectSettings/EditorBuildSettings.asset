@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PauseScene.unity
     guid: bfffe3c661a7749948eb5576620ab5c6
+  - enabled: 1
+    path: Assets/Scenes/ScoreRegScene.unity
+    guid: 79478300692a76a41abe1bfa8341dd1d
+  - enabled: 1
+    path: Assets/Scenes/ScoreScene.unity
+    guid: f6452b8df6e08c0479e6fe59b3bdeb2b
   m_configObjects: {}
