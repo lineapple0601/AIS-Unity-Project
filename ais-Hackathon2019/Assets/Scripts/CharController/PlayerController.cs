@@ -19,7 +19,7 @@ public class PlayerController : ShipController
         // 初期設定
         _playerType = 3; // プレイヤーの船（0:駆逐艦、1:戦艦、2:潜水艦、3:空母）
         _movStick = GameObject.Find("joystickBG").GetComponent<PlayerCtrl_joystick>();
-        InitPlayer(_playerType);
+        InitPlayer();
     }
 
     // Update is called once per frame
@@ -30,33 +30,55 @@ public class PlayerController : ShipController
     {
         // 移動情報更新
         MoveHandler();
+
+        // 速度更新
+        UpdateSpeed();
+
         // 移動
         MoveAction();
     }
 
-    private void InitPlayer(int playerType)
+    private void InitPlayer()
     {
+        switch (_playerType)
+        {
+            case 0:
+                // 駆逐艦の基本性能
+                _hp = 50;
+                _maxSpeed = 2.0f;
+                _acc = 0.1f;
+                _rotationSpeed = 1.5f;
+                break;
+            case 1:
+                // 戦艦の基本性能
+                _hp = 100;
+                _maxSpeed = 1.7f;
+                _acc = 0.08f;
+                _rotationSpeed = 1.2f;
+                break;
+            case 2:
+                // 潜水艦の基本性能
+                _hp = 50;
+                _maxSpeed = 1.6f;
+                _acc = 0.08f;
+                _rotationSpeed = 1.0f;
+                break;
+            case 3:
+                // 空母の基本性能
+                _hp = 80;
+                _maxSpeed = 1.5f;
+                _acc = 0.06f;
+                _rotationSpeed = 0.7f;
+                break;
+        }
+
         _moveFlg = false;
+        _speed = 0f;
+        _rotateAngle = -90f; // 初期向き補正：右
         _movVector = Vector3.zero;
         _rd = GetComponent<Rigidbody2D>();
         transform.position = Vector3.zero;
         transform.rotation = Quaternion.Euler(0.0f, 0.0f, _rotateAngle);
-
-        switch (playerType)
-        {
-            case 0:
-                break;
-            case 1:
-                break;
-            case 2:
-                break;
-            case 3:
-                _hp = 100;
-                _speed = 1.5f;
-                _rotationSpeed = 0.7f;
-                _rotateAngle = -90f; // 初期向き補正：右
-                break;
-        }
     }
 
     // 移動をコントロール
@@ -131,7 +153,7 @@ public class PlayerController : ShipController
         transform.rotation = Quaternion.Euler(0.0f, 0.0f, _rotateAngle);
         _movVector = GetDirectionVectorByAngle(_rotateAngle);
         // 前進
-        if (_moveFlg)
+        if (_speed > 0)
         {
             Vector3 newPos = transform.position + _movVector * _speed * Time.deltaTime;
             transform.position = newPos;

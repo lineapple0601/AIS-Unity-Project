@@ -7,30 +7,21 @@ public class CameraCtrl : MonoBehaviour
 {
     // TODO カメラ追従のプレイヤーは一機に絞る
     public GameObject playerObject;
-    public GameObject Player_1;
-    public GameObject Player_2;
-    public GameObject Player_3;
-    public GameObject Player_4;
-    //Transform AT;
-
-    public GameObject SeaBackGround;
 
     // Start is called before the first frame update
-    void Start()
-    {
-        playerObject = GameObject.FindGameObjectWithTag("AirCraftCarrier");
-    }
+    void Start() {}
 
     // Update is called once per frame
     void LateUpdate()
     {
+        playerObject = GameObject.FindGameObjectWithTag("Player");
+
         // カメラのプレイヤー追従処理
         transform.position = new Vector3(playerObject.transform.position.x,
                                          playerObject.transform.position.y,
                                          transform.position.z
         );
     }
-
 
     /*
     private void userCheck()
@@ -43,10 +34,10 @@ public class CameraCtrl : MonoBehaviour
         {
             AT = Player_2.transform;
         }
-         else if (Player_3.activeSelf == true)
-        {
-            AT = Player_3.transform;
-         }
+        // else if (Player_3.activeSelf == true)
+        //{
+        //    AT = Player_3.transform;
+        // }
         //else if (Player_4.activeSelf == true)
         // {
         //     AT = Player_4.transform;

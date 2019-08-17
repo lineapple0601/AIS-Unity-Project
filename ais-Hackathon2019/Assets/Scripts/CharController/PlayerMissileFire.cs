@@ -52,7 +52,7 @@ public class PlayerMissileFire : MonoBehaviour
         if (FireState)
         {
             //基本攻撃ボタン
-            if (Input.GetKey(KeyCode.A) || basic_button == true)
+            if (Input.GetKey(KeyCode.K) || basic_button == true)
             {
                 FinalAttack = false;
                 FireDelay = 0.5f;
@@ -69,7 +69,7 @@ public class PlayerMissileFire : MonoBehaviour
                 }
             }
             //必殺技ボタン
-            if (Input.GetKey(KeyCode.S) || final_button == true)
+            if (Input.GetKey(KeyCode.J) || final_button == true)
             {
                 FinalAttack = true;
                 FireDelay = 0.15f;
