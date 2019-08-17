@@ -16,6 +16,7 @@ public class EnemyController : ShipController
     private int AttackPattern = 0;      //敵の攻撃パータン
     private bool FireState;             //ミサイル制御
     private float timer;                // timer
+    private bool isUpAngle = true;
 
     // Start is called before the first frame update
     void Start()
@@ -59,7 +60,11 @@ public class EnemyController : ShipController
                 _rotationSpeed = 1.0f;
                 break;
             case 1:
-
+                // EnemyB：初期敵（駆逐艦）
+                _hp = 30;
+                _maxSpeed = 1.0f;
+                _acc = 0.07f;
+                _rotationSpeed = 1.0f;
                 break;
             case 2:
 
@@ -97,8 +102,11 @@ public class EnemyController : ShipController
                 if (dist > 30f) _moveFlg = true;
                 break;
             case 1:
+                // AI概要：プレイヤーの動きに関わらず、常に上下に移動する
+                SetAngleUpOrDown();
                 break;
             case 2:
+                // AI概要：プレイヤーに対して、時計回りに動く
                 break;
         }
 
@@ -223,6 +231,28 @@ public class EnemyController : ShipController
         // 回転角更新
         _rotateAngle = CalcRotationAngle(nowAngle, targetAngle);
     }
+
+    //向きを上下する
+    public void SetAngleUpOrDown()
+    {
+        float nowAngle = CorrectAngleValue(_rotateAngle);
+        float targetAngle = nowAngle;
+
+        if (isUpAngle)
+            targetAngle = 0f;
+        else
+            targetAngle = 180f;
+
+        var position = Camera.main.WorldToViewportPoint(transform.position);
+        if (position.y <= 0.1f)
+            isUpAngle = true;
+        else if (position.y >= 0.9f)
+            isUpAngle = false;
+
+        //回転角更新
+        _rotateAngle = CalcRotationAngle(nowAngle, targetAngle);
+    }
+
 
     // プレイヤーとの距離（二乗）を求める
     public float GetDistanceFromPlayer(Transform playerTF)
