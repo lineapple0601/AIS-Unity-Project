@@ -71,6 +71,8 @@ public class PlayerController : ShipController
     // 固定フレームレートによるUpdate
     public new void FixedUpdate()
     {
+        CheckAlive();
+
         // 移動情報更新
         MoveHandler();
 
@@ -444,5 +446,26 @@ public class PlayerController : ShipController
                 _bsBtn.enabled = true;
             }
         }
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.tag == "Enemy")
+        {
+            Destroy(gameObject);
+            _hp -= 80;
+        }
+        else if (col.tag == "Torpedo")
+        {
+            Destroy(col.gameObject);
+            _hp -= 40;
+        }
+        else if (col.tag == "Bomb")
+        {
+            Destroy(col.gameObject);
+            _hp -= 15;
+        }
+
+        if (_hp < 0) _hp = 0;
     }
 }

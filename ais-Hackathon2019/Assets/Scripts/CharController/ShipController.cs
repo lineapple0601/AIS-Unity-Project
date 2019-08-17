@@ -124,6 +124,19 @@ public class ShipController : MonoBehaviour
         }
     }
 
+    protected void CheckAlive()
+    {
+        if (_hp == 0)
+        {
+            _aliveFlg = false;
+        }
+
+        if ((float)_hp / (float)_maxHp < 0.5)
+        {
+            // 炎上のアニメーション（子オブジェクト）を追加したいTODO
+        }
+    }
+
     // DEBUG用関数（実行するとゲームがその時点で止まる
     protected void Quit()
     {

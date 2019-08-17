@@ -44,6 +44,8 @@ public class EnemyController : ShipController
     // 固定フレームレートによるUpdate
     public new void FixedUpdate()
     {
+        CheckAlive();
+
         // 移動AI
         MoveAI();
 
@@ -364,5 +366,26 @@ public class EnemyController : ShipController
         FireState = false;
         yield return new WaitForSeconds(0.3f);
         FireState = true;
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.tag == "Player")
+        {
+            Destroy(gameObject);
+            _hp -= 80;
+        }
+        else if (col.tag == "Torpedo")
+        {
+            Destroy(col.gameObject);
+            _hp -= 40;
+        }
+        else if (col.tag == "Bomb")
+        {
+            Destroy(col.gameObject);
+            _hp -= 15;
+        }
+
+        if (_hp < 0) _hp = 0;
     }
 }
