@@ -38,7 +38,7 @@ public class MainManager : MonoBehaviour
         GameObject createEnemyObj = (GameObject)Resources.Load("Prefabs/EnemyA");
         enemyObj = Instantiate(createEnemyObj, new Vector3(20f, 0f, 0f), Quaternion.identity);
         enemyObj.GetComponent<EnemyController>()._enemyType = 0;
-        enemyNum = 1;
+        enemyNum = 3;
     }
 
     // Update is called once per frame
