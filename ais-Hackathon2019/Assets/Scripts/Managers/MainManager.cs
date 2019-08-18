@@ -20,6 +20,7 @@ public class MainManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ScoreController.setScore(0);
         // ゲーム情報初期化
         timerObj = GameObject.Find("Timer");
         currentTime = gameTime;

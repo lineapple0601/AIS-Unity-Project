@@ -20,7 +20,6 @@ public class RankRegController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // TODO : Update Score
         score = ScoreController.getScore();
         ScoreText.text = score.ToString();
         RegButton.interactable = false;
@@ -54,6 +53,7 @@ public class RankRegController : MonoBehaviour
     public IEnumerator saveDataToServer()
     {
         Nickname = NicknameInput.text;
+        score = ScoreController.getScore();
         UnityWebRequest wwwObj = UnityWebRequest.Get(DOMAIN + "/rank/register?name=" + Nickname + "&score=" + score.ToString());
         yield return wwwObj.SendWebRequest();
         ScoreManager.Ranks = Convert.ToInt32(wwwObj.downloadHandler.text);
