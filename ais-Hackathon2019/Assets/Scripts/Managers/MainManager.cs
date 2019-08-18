@@ -169,7 +169,7 @@ public class MainManager : MonoBehaviour
         gameIsOver = true;
         while ((int)currentTime > 0)
         {
-            ScoreController.addScore(100);
+            ScoreController.addScore(2);
             currentTime -= 1f;
             yield return new WaitForSecondsRealtime(0.003f);
         }
@@ -214,7 +214,7 @@ public class MainManager : MonoBehaviour
         gameIsOver = true;
         while ((int)currentTime > 0)
         {
-            ScoreController.addScore(100);
+            ScoreController.addScore(2);
             currentTime -= 1f;
             yield return new WaitForSecondsRealtime(0.003f);
         }
