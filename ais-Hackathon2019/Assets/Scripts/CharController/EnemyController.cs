@@ -377,12 +377,12 @@ public class EnemyController : ShipController
         }
         else if (col.tag == "Torpedo")
         {
-            Destroy(col.gameObject);
+            col.gameObject.SetActive(false);
             _hp -= 40;
         }
         else if (col.tag == "P_Bomb")
         {
-            Destroy(col.gameObject);
+            col.gameObject.SetActive(false);
             _hp -= 15;
         }
 

@@ -109,6 +109,7 @@ public class MainManager : MonoBehaviour
     {
         if (!playerObj.GetComponent<PlayerController>()._aliveFlg)
         {
+            Destroy(playerObj);
             // ゲームオーバー(4秒後)
             if (gameIsOver == false)
             {

@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 6607766708557621380}
   - component: {fileID: 6607766708557621379}
   - component: {fileID: 6607766708557621378}
-  - component: {fileID: 6607766708557621377}
   - component: {fileID: 6607766708557621376}
+  - component: {fileID: 1166639606453233532}
   m_Layer: 0
   m_Name: P_Bomb
   m_TagString: P_Bomb
@@ -98,19 +98,6 @@ CircleCollider2D:
   m_Offset: {x: -0.0044246316, y: 0}
   serializedVersion: 2
   m_Radius: 0.09434372
---- !u!114 &6607766708557621377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6607766708557621391}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ded00bccea4e5145bfb2c5e1d107902, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MoveSpeed: 6
 --- !u!50 &6607766708557621376
 Rigidbody2D:
   serializedVersion: 4
@@ -132,3 +119,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1166639606453233532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6607766708557621391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e43252027ab644cf9134382348be815, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 0

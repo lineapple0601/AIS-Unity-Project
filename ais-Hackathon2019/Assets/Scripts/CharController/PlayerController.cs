@@ -30,6 +30,7 @@ public class PlayerController : ShipController
     private float        _timer;         // timer
     private AudioSource _basicAttackSE;
     private AudioSource _specialAttackSE;
+    private SEManager _seManager;
 
     // Start is called before the first frame update
     void Start()
@@ -57,6 +58,8 @@ public class PlayerController : ShipController
         AudioSource[] audioSources = GetComponents<AudioSource>();
         _basicAttackSE = audioSources[0];
         _specialAttackSE = audioSources[1];
+
+        _seManager = GameObject.Find("SoundManager").GetComponent<SEManager>();
     }
 
     private void OnApplicationQuit()
@@ -450,14 +453,15 @@ public class PlayerController : ShipController
 
     void OnTriggerEnter2D(Collider2D col)
     {
+        _seManager.Play_Damage(col.tag);
         if (col.tag == "Enemy")
         {
-            Destroy(gameObject);
             _hp -= 80;
         }
         else if (col.tag == "Bomb")
         {
-            Destroy(col.gameObject);
+            col.gameObject.SetActive(false);
+            //Destroy(col.gameObject);
             _hp -= 15;
         }
 
