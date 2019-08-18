@@ -458,12 +458,12 @@ public class PlayerController : ShipController
         _seManager.Play_Damage(col.tag);
         if (col.tag == "Enemy")
         {
-            Destroy(gameObject);
             _hp -= 80;
         }
         else if (col.tag == "Bomb")
         {
-            Destroy(col.gameObject);
+            col.gameObject.SetActive(false);
+            //Destroy(col.gameObject);
             _hp -= 15;
         }
 

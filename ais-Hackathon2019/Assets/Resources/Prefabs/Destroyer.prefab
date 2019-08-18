@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -24352066335946517}
   - component: {fileID: -1002233383533420861}
   - component: {fileID: 593860831116822753}
+  - component: {fileID: 929450531072482270}
   m_Layer: 0
   m_Name: Destroyer
   m_TagString: Player
@@ -349,3 +350,24 @@ PolygonCollider2D:
       - {x: 0.099419594, y: -0.50736624}
       - {x: 0.09089279, y: 0.12852675}
       - {x: 0.08368325, y: 0.4073662}
+--- !u!50 &929450531072482270
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680264884040995929}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

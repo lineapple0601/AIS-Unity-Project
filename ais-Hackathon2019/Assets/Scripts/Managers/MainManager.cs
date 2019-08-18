@@ -9,15 +9,18 @@ public class MainManager : MonoBehaviour
     public GameObject playerObj;
     public GameObject enemyObj;
     public GameObject timerObj;
+    public TextMeshProUGUI GameOverText;
+    public TextMeshProUGUI CongratuText;
     public int enemyNum;
     public float gameTime = 300f;
     public float currentTime;
+    private int tick = 0;
+    private bool gameIsOver = false;
 
     // Start is called before the first frame update
     void Start()
     {
         // ゲーム情報初期化
-        ScoreController.setScore(0);
         timerObj = GameObject.Find("Timer");
         currentTime = gameTime;
 
@@ -68,6 +71,11 @@ public class MainManager : MonoBehaviour
         SceneManager.LoadScene("ScoreScene");
     }
 
+    private void ChangeToScoreRegScene()
+    {
+        SceneManager.LoadScene("ScoreRegScene");
+    }
+
     private void ChangeToPauseScene()
     {
         SceneManager.LoadScene("PauseScene");
@@ -76,7 +84,10 @@ public class MainManager : MonoBehaviour
     private void CheckGame()
     {
         // ゲーム残存時間確認
-        currentTime -= Time.deltaTime;
+        if (gameIsOver == false)
+        {
+            currentTime -= Time.deltaTime;
+        }
         if (currentTime < 0f)
         {
             currentTime = 0f;
@@ -92,6 +103,16 @@ public class MainManager : MonoBehaviour
             GameObject item = (GameObject)Resources.Load("Prefabs/Item");
             Instantiate(item, itemPos, Quaternion.identity);
         }
+
+        tick++;
+        if (tick % 30 == 0)
+        {
+            if (gameIsOver == false)
+            {
+                ScoreController.addScore(1);
+            }
+
+        }
     }
 
     private void CheckPlayer()
@@ -99,8 +120,13 @@ public class MainManager : MonoBehaviour
         PlayerController player = playerObj.GetComponent<PlayerController>();
         if (!player._aliveFlg)
         {
+            Destroy(playerObj);
             // ゲームオーバー(4秒後)
-            Invoke("GameOver", 4.0f);
+            if (gameIsOver == false)
+            {
+                StartCoroutine(GameOver());
+                StartCoroutine(BlinkText("over"));
+            }
         }
 
         if (player._changeType)
@@ -148,49 +174,96 @@ public class MainManager : MonoBehaviour
             switch (enemyNum)
             {
                 case 1:
-                    ScoreController.addScore(10000);
+                    ScoreController.addScore(1000);
                     createEnemyObj = (GameObject)Resources.Load("Prefabs/EnemyB");
                     enemyObj = Instantiate(createEnemyObj, new Vector3(ranX, ranY, 0f), Quaternion.identity);
                     enemyObj.GetComponent<EnemyController>()._enemyType = 1;
                     enemyNum = 2;
                     break;
                 case 2:
-                    ScoreController.addScore(30000);
+                    ScoreController.addScore(3000);
                     createEnemyObj = (GameObject)Resources.Load("Prefabs/EnemyC");
                     enemyObj = Instantiate(createEnemyObj, new Vector3(ranX, ranY, 0f), Quaternion.identity);
                     enemyObj.GetComponent<EnemyController>()._enemyType = 2;
                     enemyNum = 3;
                     break;
                 case 3:
-                    ScoreController.addScore(50000);
+                    ScoreController.addScore(5000);
                     createEnemyObj = (GameObject)Resources.Load("Prefabs/PowerfulBoss");
                     enemyObj = Instantiate(createEnemyObj, new Vector3(-20f, 0f, 0f), Quaternion.identity);
                     enemyObj.GetComponent<EnemyController>()._enemyType = 3;
                     enemyNum = 4;
                     break;
                 case 4:
-                    ScoreController.addScore(100000);
+                    ScoreController.addScore(10000);
                     // ゲームクリア(4秒後)
-                    Invoke("GameClear", 4.0f);
+                    if (gameIsOver == false)
+                    {
+                        StartCoroutine(GameClear());
+                        StartCoroutine(BlinkText("end"));
+                    }
                     break;
             }
         }
     }
 
-    private void GameClear()
+    private IEnumerator GameClear()
     {
-        // 残り時間によるスコア加算を行う
-        ScoreController.addScore(100 * (int)currentTime);
-
+        gameIsOver = true;
+        while ((int)currentTime > 0)
+        {
+            ScoreController.addScore(2);
+            currentTime -= 1f;
+            yield return new WaitForSecondsRealtime(0.003f);
+        }
+        yield return new WaitForSecondsRealtime(5f);
         // スコア画面移行
-        ChangeToScoreScene();
+        ChangeToScoreRegScene();
     }
 
-    private void GameOver()
+    private IEnumerator BlinkText(string type)
+    {
+        while(true)
+        {
+            if (type == "over")
+            {
+                if (GameOverText.text == "")
+                {
+                    GameOverText.text = "GAME OVER";
+                }
+                else
+                {
+                    GameOverText.text = "";
+                }
+               
+            } else
+            {
+                if (CongratuText.text == "")
+                {
+                    CongratuText.text = "CONGRATULATIONS";
+                }
+                else
+                {
+                    CongratuText.text = "";
+                }
+            }
+            yield return new WaitForSecondsRealtime(1f);
+        }
+    }
+
+    private IEnumerator GameOver()
     {
         Destroy(playerObj);
+        gameIsOver = true;
+        while ((int)currentTime > 0)
+        {
+            ScoreController.addScore(2);
+            currentTime -= 1f;
+            yield return new WaitForSecondsRealtime(0.003f);
+        }
+        yield return new WaitForSecondsRealtime(3f);
         // スコア画面移行
-        ChangeToScoreScene();
+        ChangeToScoreRegScene();
     }
 
     private void Test()

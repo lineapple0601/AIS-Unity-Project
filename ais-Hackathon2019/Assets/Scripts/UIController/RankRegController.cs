@@ -10,7 +10,7 @@ public class RankRegController : MonoBehaviour
 {
     public InputField NicknameInput;
     private string Nickname;
-    private int score = 99999;
+    private int score = 0;
     public TextMeshProUGUI ScoreText;
     public Button RegButton;
 
@@ -21,6 +21,7 @@ public class RankRegController : MonoBehaviour
     void Start()
     {
         // TODO : Update Score
+        score = ScoreController.getScore();
         ScoreText.text = score.ToString();
         RegButton.interactable = false;
     }
