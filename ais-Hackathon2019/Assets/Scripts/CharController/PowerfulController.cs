@@ -98,13 +98,14 @@ public class PowerfulController : ShipController
         switch (_enemyType)
         {
             case 0:
+
+                break;
+            case 1:
                 // EnemyA：初期敵（駆逐艦）
                 // AI概要：プレイヤーへ接近し、一定距離に到達後待機、
                 //        また一定距離離れると再度移動開始
                 SetAngleToPlayer(playerTF);
                 if (dist > 60f) _moveFlg = true;
-                break;
-            case 1:
                 break;
             case 2:
                 break;
@@ -115,13 +116,24 @@ public class PowerfulController : ShipController
     // 移動
     public override void MoveAction()
     {
-        transform.rotation = Quaternion.Euler(0.0f, 0.0f, _rotateAngle);
-        _movVector = GetDirectionVectorByAngle(_rotateAngle);
-        // 前進
-        if (_speed > 0)
-        {
-            Vector3 newPos = transform.position + _movVector * _speed * Time.deltaTime;
-            transform.position = newPos;
+
+        switch (_enemyType) {
+
+            case 0:
+
+                break;
+            case 1:
+                transform.rotation = Quaternion.Euler(0.0f, 0.0f, _rotateAngle);
+                _movVector = GetDirectionVectorByAngle(_rotateAngle);
+                // 前進
+                if (_speed > 0)
+                {
+                    Vector3 newPos = transform.position + _movVector * _speed * Time.deltaTime;
+                    transform.position = newPos;
+                }
+                break;
+            case 2:
+                break;
         }
     }
 
@@ -172,9 +184,9 @@ public class PowerfulController : ShipController
                         // 敵の種類によって異なるAIを実装
                 // EnemyA_Bomb：初期敵（駆逐艦）
                 // 概要：Position = enemyの位置と同一、Angle = enemyの角度と同一、Speed = 3f
-                if (timer < 1f)
+                if (timer < 0.2f)
                 {
-                   for (int i = 0; i < 3; i++)
+                   for (int i = 0; i < 2; i++)
                     {
                         if (FireState)
                         {
@@ -231,7 +243,7 @@ public class PowerfulController : ShipController
     IEnumerator FireCycleControl()
     {
         FireState = false;
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.1f);
         FireState = true;
     }
 
