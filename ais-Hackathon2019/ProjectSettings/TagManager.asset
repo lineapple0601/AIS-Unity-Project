@@ -7,6 +7,8 @@ TagManager:
   - Enemy
   - Bomb
   - AirCraftCarrier
+  - Effect
+  - Torpedo
   layers:
   - Default
   - TransparentFX

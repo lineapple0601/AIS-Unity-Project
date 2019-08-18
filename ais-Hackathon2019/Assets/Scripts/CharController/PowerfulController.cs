@@ -33,6 +33,7 @@ public class PowerfulController : ShipController
     // Start is called before the first frame update
     void Start()
     {
+        _aliveFlg = true;
         missile_pos = new Vector3[8];
         missile_ro = new Quaternion[8];
 
@@ -68,20 +69,11 @@ public class PowerfulController : ShipController
         switch (_enemyType)
         {
             case 0:
-                // EnemyA：初期敵（駆逐艦）
-                _hp = 30;
+                // Boss
+                _hp = 200;
                 _maxSpeed = 1.0f;
                 _acc = 0.07f;
                 _rotationSpeed = 1.0f;
-                break;
-            case 1:
-
-                break;
-            case 2:
-
-                break;
-            case 3:
-
                 break;
         }
 
@@ -198,7 +190,6 @@ public class PowerfulController : ShipController
                     {
                         if (FireState)
                         {
-                            //_EnemyBombAngle = _EnemyBombAngle * Quaternion.Euler(0, 0, 0);      
                             Instantiate(EnemyBomb, missile_pos[0], missile_ro[0] * Quaternion.Euler(0, 0, 0)); //生成
                             Instantiate(EnemyBomb, missile_pos[1], missile_ro[1] * Quaternion.Euler(0, 0, 90f)); //生成
                             Instantiate(EnemyBomb, missile_pos[2], missile_ro[2] * Quaternion.Euler(0, 0, 0)); //生成

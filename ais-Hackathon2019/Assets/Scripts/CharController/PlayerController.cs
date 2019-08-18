@@ -9,7 +9,7 @@ public class PlayerController : ShipController
     // 定数
 
     // 公開変数
-    public int _playerType;
+    public int           _playerType;
     public PlayerCtrl_joystick _movStick; // Joystickコントローラ
 
     public Button        _bsBtn;
@@ -28,14 +28,17 @@ public class PlayerController : ShipController
     private MemoryPool   _mPool;         // メモリープール
     private bool         _spAttack;
     private float        _timer;         // timer
+    private AudioSource _basicAttackSE;
+    private AudioSource _specialAttackSE;
 
     // Start is called before the first frame update
     void Start()
     {
-        // 初期設定 TODO _playerTypeはGameManagerから指定する
+        // 初期設定
         // プレイヤーの船（0:駆逐艦、1:戦艦、2:潜水艦、3:空母）
         //_playerType = 2; // デバッグ用
-         
+
+        _aliveFlg = true;
         _movStick = GameObject.Find("joystickBG").GetComponent<PlayerCtrl_joystick>();
         InitPlayer();
 
@@ -49,6 +52,11 @@ public class PlayerController : ShipController
         _atkObjArray = new GameObject[_atkObjMaxPool];
         _mPool = new MemoryPool();
         _mPool.Create(_atkObj, _atkObjMaxPool);  //オブジェクトをMAXプールの数分生成する
+
+        //攻撃SEの取得
+        AudioSource[] audioSources = GetComponents<AudioSource>();
+        _basicAttackSE = audioSources[0];
+        _specialAttackSE = audioSources[1];
     }
 
     private void OnApplicationQuit()
@@ -63,6 +71,8 @@ public class PlayerController : ShipController
     // 固定フレームレートによるUpdate
     public new void FixedUpdate()
     {
+        CheckAlive();
+
         // 移動情報更新
         MoveHandler();
 
@@ -85,7 +95,7 @@ public class PlayerController : ShipController
         {
             case 0:
                 // 駆逐艦の基本性能
-                _hp = 50;
+                _maxHp = 50;
                 _maxSpeed = 2.0f;
                 _acc = 0.1f;
                 _rotationSpeed = 1.5f;
@@ -93,7 +103,7 @@ public class PlayerController : ShipController
                 break;
             case 1:
                 // 戦艦の基本性能
-                _hp = 100;
+                _maxHp = 100;
                 _maxSpeed = 1.7f;
                 _acc = 0.08f;
                 _rotationSpeed = 1.2f;
@@ -101,7 +111,7 @@ public class PlayerController : ShipController
                 break;
             case 2:
                 // 潜水艦の基本性能
-                _hp = 50;
+                _maxHp = 50;
                 _maxSpeed = 1.6f;
                 _acc = 0.08f;
                 _rotationSpeed = 1.0f;
@@ -109,7 +119,7 @@ public class PlayerController : ShipController
                 break;
             case 3:
                 // 空母の基本性能
-                _hp = 80;
+                _maxHp = 80;
                 _maxSpeed = 1.5f;
                 _acc = 0.06f;
                 _rotationSpeed = 0.7f;
@@ -118,6 +128,7 @@ public class PlayerController : ShipController
                 break;
         }
 
+        _hp = _maxHp;
         _moveFlg = false;
         _speed = 0f;
         _rotateAngle = -90f; // 初期向き補正：右
@@ -215,6 +226,7 @@ public class PlayerController : ShipController
         {
             _atkObjSpeed = 0.5f;
             StartCoroutine(FireCycleControl());
+            _basicAttackSE.Play();
 
             switch (_playerType)
             {
@@ -277,10 +289,12 @@ public class PlayerController : ShipController
                     break;
                 case 1:
                 case 2:
+                    _specialAttackSE.Play();
                     _spAttack = true;
                     _atkObjSpeed = 1.25f;
                     break;
                 case 3:
+                    _specialAttackSE.Play();
                     _spAttack = true;
                     _atkObjSpeed = 0.15f;
                     break;
@@ -432,5 +446,26 @@ public class PlayerController : ShipController
                 _bsBtn.enabled = true;
             }
         }
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.tag == "Enemy")
+        {
+            Destroy(gameObject);
+            _hp -= 80;
+        }
+        else if (col.tag == "Torpedo")
+        {
+            Destroy(col.gameObject);
+            _hp -= 40;
+        }
+        else if (col.tag == "Bomb")
+        {
+            Destroy(col.gameObject);
+            _hp -= 15;
+        }
+
+        if (_hp < 0) _hp = 0;
     }
 }
