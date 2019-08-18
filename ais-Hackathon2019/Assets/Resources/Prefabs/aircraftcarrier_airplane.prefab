@@ -91,7 +91,6 @@ GameObject:
   - component: {fileID: 1595286442731468215}
   - component: {fileID: 6032902417962510221}
   - component: {fileID: 3572519016977444742}
-  - component: {fileID: 160127761860995852}
   m_Layer: 0
   m_Name: aircraftcarrier_airplane
   m_TagString: Untagged
@@ -192,19 +191,3 @@ MonoBehaviour:
   BombLocation: {fileID: 5764644725938959426}
   FireDelay: 1
   BombMaxPool: 3
---- !u!58 &160127761860995852
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7912178290319872937}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.011317432}
-  serializedVersion: 2
-  m_Radius: 1.0812491

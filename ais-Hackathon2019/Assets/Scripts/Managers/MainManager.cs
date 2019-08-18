@@ -169,8 +169,8 @@ public class MainManager : MonoBehaviour
         if (!enemyObj.GetComponent<EnemyController>()._aliveFlg)
         {
             GameObject createEnemyObj;
-            float ranX = Random.Range(12.0f, 18.0f);
-            float ranY = Random.Range(8.0f, -8.0f);
+            float ranX = playerObj.transform.position.x + Random.Range(12.0f, 15.0f);
+            float ranY = playerObj.transform.position.y + Random.Range(8.0f, -8.0f);
 
             Destroy(enemyObj);
 
@@ -193,7 +193,7 @@ public class MainManager : MonoBehaviour
                 case 3:
                     ScoreController.addScore(5000);
                     createEnemyObj = (GameObject)Resources.Load("Prefabs/PowerfulBoss");
-                    enemyObj = Instantiate(createEnemyObj, new Vector3(-20f, 0f, 0f), Quaternion.identity);
+                    enemyObj = Instantiate(createEnemyObj, new Vector3(ranX, ranY, 0f), Quaternion.identity);
                     enemyObj.GetComponent<EnemyController>()._enemyType = 3;
                     enemyNum = 4;
                     break;
