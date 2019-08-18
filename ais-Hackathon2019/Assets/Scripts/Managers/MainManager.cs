@@ -21,7 +21,6 @@ public class MainManager : MonoBehaviour
     void Start()
     {
         // ゲーム情報初期化
-        ScoreController.setScore(0);
         timerObj = GameObject.Find("Timer");
         currentTime = gameTime;
 

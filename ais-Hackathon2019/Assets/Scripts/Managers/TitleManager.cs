@@ -12,6 +12,7 @@ public class TitleManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ScoreController.setScore(0);
         Time.timeScale = 1.0f;
     }
 

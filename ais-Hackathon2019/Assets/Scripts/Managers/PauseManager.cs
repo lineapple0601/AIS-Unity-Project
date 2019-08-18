@@ -32,6 +32,7 @@ public class PauseManager : MonoBehaviour
 
     public void ChangeScene()
     {
+        ScoreController.setScore(0);
         SceneManager.LoadScene("MainScene");
         Time.timeScale = 1.0f;
     }
