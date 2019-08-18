@@ -5,7 +5,6 @@ using UnityEngine;
 /*作成者：MOON*/
 public class CameraCtrl : MonoBehaviour
 {
-    // TODO カメラ追従のプレイヤーは一機に絞る
     public GameObject playerObject;
 
     // Start is called before the first frame update

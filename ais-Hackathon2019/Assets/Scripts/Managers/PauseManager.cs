@@ -26,9 +26,8 @@ public class PauseManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            ChangeScene();
+            ActivePauseBt();
         }
-
     }
 
     public void ChangeScene()

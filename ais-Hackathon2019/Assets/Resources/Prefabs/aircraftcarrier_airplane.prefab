@@ -188,7 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4846d7b4f996f9499512df9b0d37063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bomb: {fileID: 1134229231592755151, guid: 1be11c83f402eab42b24bd86083129f9, type: 3}
+  Bomb: {fileID: 6607766708557621391, guid: bd54c62ef201e4e37bcf061185a7b651, type: 3}
   BombLocation: {fileID: 5764644725938959426}
   FireDelay: 1
   BombMaxPool: 3

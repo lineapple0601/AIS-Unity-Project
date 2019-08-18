@@ -643,10 +643,10 @@ GameObject:
   - component: {fileID: 2004837712763213820}
   - component: {fileID: 3926682243395106112}
   - component: {fileID: 2208926117658255977}
-  - component: {fileID: 2208926117658255976}
+  - component: {fileID: 2124033787}
   m_Layer: 0
   m_Name: PowerfulBoss
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -731,7 +731,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -874,7 +874,7 @@ PolygonCollider2D:
       - {x: 1.4649999, y: 0.39}
       - {x: 1.495, y: 0.35999998}
       - {x: 1.505, y: 0.35999998}
---- !u!114 &2208926117658255976
+--- !u!114 &2124033787
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -883,11 +883,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 2208926117658255975}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66ac442b733740f438f12f2ffb5b3a46, type: 3}
+  m_Script: {fileID: 11500000, guid: 2fb826a4acb1f42d9a65c60497924cc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _aliveFlg: 0
   _moveFlg: 0
+  _attackedFlg: 0
   _hp: 0
+  _maxHp: 0
   _acc: 0
   _speed: 0
   _maxSpeed: 0
@@ -897,6 +900,11 @@ MonoBehaviour:
   _enemyBombPos: {x: 0, y: 0, z: 0}
   _EnemyBombAngle: {x: 0, y: 0, z: 0, w: 0}
   _rd: {fileID: 0}
+  _enemyType: 3
+  EnemyBomb: {fileID: 6480252542597738723, guid: b77e37142fd924b67836197555a88f8f,
+    type: 3}
+  missile_pos: []
+  missile_ro: []
   missile_1: {fileID: 1900518895}
   missile_2: {fileID: 1209629076}
   missile_3: {fileID: 1976321864}
@@ -905,6 +913,3 @@ MonoBehaviour:
   missile_6: {fileID: 230477754}
   missile_7: {fileID: 2141672953}
   missile_8: {fileID: 1239007743}
-  _enemyType: 0
-  EnemyBomb: {fileID: 5473274913249432292, guid: 4a7c4963739d12740a12eb61ada7e02b,
-    type: 3}

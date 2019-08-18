@@ -25,6 +25,12 @@ public class ScoreController : MonoBehaviour
         ScoreText.text = "Score : " + Score;
     }
 
+    // ScoreのSetter
+    public static void setScore(int newScore)
+    {
+        Score = newScore;
+    }
+
     // ScoreのGetter
     public static int getScore()
     {
