@@ -90,6 +90,7 @@ public class MainManager : MonoBehaviour
     {
         if (!playerObj.GetComponent<PlayerController>()._aliveFlg)
         {
+            Destroy(playerObj);
             // ゲームオーバー(4秒後)
             Invoke("GameOver", 4.0f);
         }
@@ -148,7 +149,6 @@ public class MainManager : MonoBehaviour
 
     private void GameOver()
     {
-        Destroy(playerObj);
         // スコア画面移行
         ChangeToScoreScene();
     }
