@@ -114,7 +114,7 @@ MonoBehaviour:
   _bsBtn: {fileID: 0}
   _spBtn: {fileID: 0}
   _spBtnImage: {fileID: 0}
-  _atkObj: {fileID: 6480252542597738723, guid: b77e37142fd924b67836197555a88f8f, type: 3}
+  _atkObj: {fileID: 6607766708557621391, guid: bd54c62ef201e4e37bcf061185a7b651, type: 3}
   _atkObjMaxPool: 0
   _timerForEnd: 0
   _divingFlg: 0

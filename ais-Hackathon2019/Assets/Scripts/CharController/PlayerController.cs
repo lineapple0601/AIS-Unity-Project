@@ -455,11 +455,6 @@ public class PlayerController : ShipController
             Destroy(gameObject);
             _hp -= 80;
         }
-        else if (col.tag == "Torpedo")
-        {
-            Destroy(col.gameObject);
-            _hp -= 40;
-        }
         else if (col.tag == "Bomb")
         {
             Destroy(col.gameObject);

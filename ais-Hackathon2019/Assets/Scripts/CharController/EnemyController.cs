@@ -380,7 +380,7 @@ public class EnemyController : ShipController
             Destroy(col.gameObject);
             _hp -= 40;
         }
-        else if (col.tag == "Bomb")
+        else if (col.tag == "P_Bomb")
         {
             Destroy(col.gameObject);
             _hp -= 15;
