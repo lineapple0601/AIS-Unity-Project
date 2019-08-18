@@ -24,6 +24,8 @@ public class ShipController : MonoBehaviour
     public Quaternion _EnemyBombAngle;// 敵の球の角度
     // 内部変数
     public Rigidbody2D _rd;
+    public GameObject  _effectObj;
+    public bool _destroyFlg = false;
 
     // Start is called before the first frame update
     void Start() {}
@@ -128,7 +130,19 @@ public class ShipController : MonoBehaviour
     {
         if (_hp == 0)
         {
-            _aliveFlg = false;
+            if (_effectObj == null)
+            {
+                if (_destroyFlg)
+                {
+                    _aliveFlg = false;
+                }
+                else
+                {
+                    _effectObj = Instantiate((GameObject)Resources.Load("Prefabs/ShipExplosion"), transform.position, Quaternion.identity);
+                    Destroy(_effectObj, 3.427f);
+                    _destroyFlg = true;
+                }
+            }
         }
 
         if ((float)_hp / (float)_maxHp < 0.5)

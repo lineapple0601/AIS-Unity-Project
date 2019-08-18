@@ -98,9 +98,11 @@ public class MainManager : MonoBehaviour
         // 時間経過でスコア上昇
         ScoreController.addScore(1);
 
-        if(GameObject.Find("Item") == null && ScoreController.getScore() % 100 == 0)
+        if(GameObject.FindWithTag("Item") == null && ScoreController.getScore() % 100 == 0)
         {
-            Vector3 itemPos = new Vector3(playerObj.transform.position.x - 5f, playerObj.transform.position.y);
+
+            Vector3 itemPos = new Vector3(playerObj.transform.position.x + Random.Range(-5f, 5f),
+                                        playerObj.transform.position.y + Random.Range(-5f, 5f), 0);
             GameObject item = (GameObject)Resources.Load("Prefabs/Item");
             Instantiate(item, itemPos, Quaternion.identity);
         }

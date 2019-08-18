@@ -99,7 +99,7 @@ public class PlayerController : ShipController
         {
             case 0:
                 // 駆逐艦の基本性能
-                _maxHp = 50;
+                _maxHp = 500;
                 _maxSpeed = 2.0f;
                 _acc = 0.1f;
                 _rotationSpeed = 1.5f;
@@ -107,7 +107,7 @@ public class PlayerController : ShipController
                 break;
             case 1:
                 // 戦艦の基本性能
-                _maxHp = 100;
+                _maxHp = 1000;
                 _maxSpeed = 1.7f;
                 _acc = 0.08f;
                 _rotationSpeed = 1.2f;
@@ -115,7 +115,7 @@ public class PlayerController : ShipController
                 break;
             case 2:
                 // 潜水艦の基本性能
-                _maxHp = 50;
+                _maxHp = 500;
                 _maxSpeed = 1.6f;
                 _acc = 0.08f;
                 _rotationSpeed = 1.0f;
@@ -123,7 +123,7 @@ public class PlayerController : ShipController
                 break;
             case 3:
                 // 空母の基本性能
-                _maxHp = 80;
+                _maxHp = 800;
                 _maxSpeed = 1.5f;
                 _acc = 0.06f;
                 _rotationSpeed = 0.7f;

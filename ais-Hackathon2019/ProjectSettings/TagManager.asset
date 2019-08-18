@@ -10,6 +10,7 @@ TagManager:
   - Effect
   - Torpedo
   - P_Bomb
+  - Item
   layers:
   - Default
   - TransparentFX
