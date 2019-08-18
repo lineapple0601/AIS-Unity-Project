@@ -19,6 +19,7 @@ public class PlayerController : ShipController
     public int           _atkObjMaxPool; // メモリープールに設定するミサイルの数
     public float         _timerForEnd;   // 攻撃time
     public bool          _divingFlg;     // 潜水艦の潜行フラグ
+    public bool          _changeType;    // プレイヤー種類の変更
 
     // 内部変数
     private SpriteRenderer _sr;          // スプライド情報
@@ -134,11 +135,12 @@ public class PlayerController : ShipController
         _hp = _maxHp;
         _moveFlg = false;
         _speed = 0f;
-        _rotateAngle = -90f; // 初期向き補正：右
+        //_rotateAngle = -90f; // 初期向き補正：右
         _movVector = Vector3.zero;
         _rd = GetComponent<Rigidbody2D>();
-        transform.position = Vector3.zero;
+        //transform.position = Vector3.zero;
         transform.rotation = Quaternion.Euler(0.0f, 0.0f, _rotateAngle);
+        _changeType = false;
     }
 
     // 移動をコントロール

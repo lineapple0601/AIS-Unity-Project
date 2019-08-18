@@ -28,6 +28,7 @@ public class MainManager : MonoBehaviour
         //GameObject createPlayerObj = (GameObject)Resources.Load("Prefabs/AirCraftCarrier");
         playerObj = Instantiate(createPlayerObj, new Vector3(0f, 0f, 0f), Quaternion.identity);
         playerObj.GetComponent<PlayerController>()._playerType = 0;
+        playerObj.GetComponent<PlayerController>()._rotateAngle = -90f;
 
         // 敵初期化
         GameObject createEnemyObj = (GameObject)Resources.Load("Prefabs/EnemyA");
@@ -84,14 +85,53 @@ public class MainManager : MonoBehaviour
 
         // 時間経過でスコア上昇
         ScoreController.addScore(1);
+
+        if(GameObject.Find("Item") == null && ScoreController.getScore() % 100 == 0)
+        {
+            Vector3 itemPos = new Vector3(playerObj.transform.position.x - 5f, playerObj.transform.position.y);
+            GameObject item = (GameObject)Resources.Load("Prefabs/Item");
+            Instantiate(item, itemPos, Quaternion.identity);
+        }
     }
 
     private void CheckPlayer()
     {
-        if (!playerObj.GetComponent<PlayerController>()._aliveFlg)
+        PlayerController player = playerObj.GetComponent<PlayerController>();
+        if (!player._aliveFlg)
         {
             // ゲームオーバー(4秒後)
             Invoke("GameOver", 4.0f);
+        }
+
+        if (player._changeType)
+        {
+            int type = UnityEngine.Random.Range(0, 4);
+            GameObject createPlayerObj = new GameObject();
+
+            switch (type)
+            {
+                case 0:
+                    createPlayerObj = (GameObject)Resources.Load("Prefabs/Destroyer");
+                    break;
+                case 1:
+                    createPlayerObj = (GameObject)Resources.Load("Prefabs/BattleShip");
+                    break;
+                case 2:
+                    createPlayerObj = (GameObject)Resources.Load("Prefabs/Submarine");
+                    break;
+                case 3:
+                    createPlayerObj = (GameObject)Resources.Load("Prefabs/AirCraftCarrier");
+                    break;
+                default:
+                    break;
+            }
+            Vector3 beforePos = new Vector3(playerObj.transform.position.x, playerObj.transform.position.y, 0);
+            float beforeAng = playerObj.GetComponent<PlayerController>()._rotateAngle;
+            Destroy(playerObj);
+            playerObj = Instantiate(createPlayerObj, beforePos, Quaternion.identity);
+            playerObj.GetComponent<PlayerController>()._rotateAngle = beforeAng;
+            playerObj.GetComponent<PlayerController>()._playerType = type;
+
         }
     }
 
