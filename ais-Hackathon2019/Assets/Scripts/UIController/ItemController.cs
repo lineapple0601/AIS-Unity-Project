@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class ItemController : MonoBehaviour
 {
-    public GameObject aircraft;
-    public GameObject destroyer;
+
+    private SEManager _seManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        _seManager = GameObject.Find("SoundManager").GetComponent<SEManager>();
     }
 
     // Update is called once per frame
@@ -21,29 +21,13 @@ public class ItemController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))  //ぶつかるタグが"Player"`の場合
+        if (collision.tag == "Player")  //ぶつかるタグが"Player"`の場合
         {
-            Vector3 beforePosition;
-            GetComponent<Collider2D>().enabled = false;
+            _seManager.Play_Item();
+            collision.gameObject.GetComponent<PlayerController>()._changeType = true;   //プレイヤーの変更フラグ
+            //GetComponent<Collider2D>().enabled = false;
+            Destroy(gameObject);
 
-            // アイテム取得音を鳴らす
-            GetComponent<AudioSource>().Play();
-
-
-            if (destroyer.activeSelf == true)
-            {
-                beforePosition = destroyer.transform.position;
-                destroyer.SetActive(false);
-                aircraft.SetActive(true);
-                aircraft.transform.position = beforePosition;
-            }
-            if (aircraft.activeSelf == true)
-            {
-                beforePosition = aircraft.transform.position;
-                aircraft.SetActive(false);
-                destroyer.SetActive(true);
-                destroyer.transform.position = beforePosition;
-            }
         }
     }
 }

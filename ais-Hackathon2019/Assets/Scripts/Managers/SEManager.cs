@@ -5,11 +5,11 @@ public class SEManager : MonoBehaviour
 {
 
     public AudioSource DamageSE;
+    public AudioSource ItemSE;
 
 
     public void Start()
     {
-        DamageSE = gameObject.GetComponent<AudioSource>();
     }
 
     public void Play_Damage(string tag)
@@ -18,5 +18,10 @@ public class SEManager : MonoBehaviour
             DamageSE.Play();
         else if (tag == "Bomb")
             DamageSE.Play();
+    }
+
+    public void Play_Item()
+    {
+        ItemSE.Play();
     }
 }
